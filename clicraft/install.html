@@ -760,21 +760,21 @@ asciidoc.install(2);
 <div class="paragraph"><p>There are several things you need to build and run clicraft.
 These dependencies are described below.</p></div>
 <div class="paragraph"><p>The versions and implementations of tools described in this section are known
-to work with clicraft. If you successfully build and run clicraft with a
-different set of tools, we&#8217;d love to hear about it so we can update this
-document.</p></div>
+to work with clicraft. If you have these requirements and are unable to build
+build and run clicraft with a different or older set of tools, I&#8217;d love to
+hear about it so I can update this document.</p></div>
 <div class="sect2">
 <h3 id="_build_dependencies">Build Dependencies</h3>
 <div class="paragraph"><p>To build clicraft from source, you need the following:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://www.gnu.org/software/autoconf/">GNU autoconf</a> version 2.59 or greater
+<a href="http://www.gnu.org/software/autoconf/">autoconf</a> version 2.59 or greater
 </p>
 </li>
 <li>
 <p>
-<a href="http://www.gnu.org/software/make/">GNU make</a>
+<a href="http://www.gnu.org/software/make/">GNU make</a> version 3.81 or greater
 </p>
 </li>
 <li>
@@ -783,9 +783,9 @@ A reasonably compliant shell
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>In order to build documentation for clicraft using <tt>make doc</tt> or <tt>make html</tt>,
-you will also need the <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a>
-toolchain.</p></div>
+<div class="paragraph"><p>In order to build the documentation, you will also need this optional
+dependency:
+* <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> version 8.8.6 or greater</p></div>
 </div>
 <div class="sect2">
 <h3 id="_runtime_dependencies">Runtime Dependencies</h3>
@@ -793,12 +793,12 @@ toolchain.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://www.gnu.org/software/bash/">bash</a>
+<a href="http://www.gnu.org/software/bash/">bash</a> 3.2.25 or greater
 </p>
 </li>
 <li>
 <p>
-<a href="http://tmux.sourceforge.net/">tmux</a>
+<a href="http://tmux.sourceforge.net/">tmux</a> version 1.4 or greater
 </p>
 </li>
 <li>
@@ -986,7 +986,7 @@ information on these actions, refer to the <a href="clicraft.1.html">clicraft(1)
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/caution.png" alt="Caution" />
+<img src="./images/icons/warning.png" alt="Warning" />
 </td>
 <td class="content">Installing clicraft using this method is not recommended. In most
 circumstances, installing <a href="#user">as a user</a> or <a href="#package">with your package manager</a> is the preferred procedure.</td>
@@ -1048,7 +1048,7 @@ and configuration, refer to the <a href="clicraft.1.html">clicraft(1)</a> and
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-05-07 17:15:55 CDT
+Last updated 2012-05-08 15:01:46 CDT
 </div>
 </div>
 </body>
