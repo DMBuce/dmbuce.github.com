@@ -1,0 +1,8 @@
+404 Not Found
+=============
+
+Sorry, but this page doesn't exist.
+
+Perhaps you'd like to return to link:/index.htm[DMBuce's Home Page]
+or link:https://github.com[GitHub's Main Page].
+
