@@ -3,6 +3,6 @@
 
 Sorry, but this page doesn't exist.
 
-Perhaps you'd like to return to link:/index.html[DMBuce's Home Page]
+Perhaps you'd like to return to link:/[DMBuce's Home Page]
 or link:https://github.com[GitHub's Main Page].
 
