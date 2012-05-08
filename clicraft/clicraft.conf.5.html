@@ -753,20 +753,20 @@ clicraft.conf(5) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>/home/woody/src/clicraft/tmp/etc/clicraft.conf</p></div>
+<div class="paragraph"><p>/usr/local/etc/clicraft/clicraft.conf</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Configuration options for clicraft are stored in /home/woody/src/clicraft/tmp/etc/clicraft.conf. The
+<div class="paragraph"><p>Configuration options for clicraft are stored in /usr/local/etc/clicraft/clicraft.conf. The
 format is bash, so configuration options take the form <tt>OPTION="value"</tt> (with
 no whitespace between the equals sign (<tt>=</tt>) ). This file is sourced from
 within clicraft, so you can include any extra variables you wish to use in
 custom action scripts.</p></div>
-<div class="paragraph"><p>An example default file is located at /home/woody/src/clicraft/tmp/etc/clicraft-defaults.conf. It
+<div class="paragraph"><p>An example default file is located at /usr/local/etc/clicraft/clicraft-defaults.conf. It
 is fairly well-commented, so it may be easiest to simply copy it to
-/home/woody/src/clicraft/tmp/etc/clicraft.conf and follow the directions inside for customization.</p></div>
+/usr/local/etc/clicraft/clicraft.conf and follow the directions inside for customization.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -784,7 +784,7 @@ is fairly well-commented, so it may be easiest to simply copy it to
         server.log (among other things) resides in. Most relative paths are taken
         ith respect to this directory.
 </p>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"/home/woody/src/clicraft/tmp/srv"</tt></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <tt>"/usr/local/var/lib/clicraft"</tt></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_NAME=</strong>"name"
