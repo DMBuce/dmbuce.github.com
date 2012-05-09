@@ -9,5 +9,8 @@
 
 .PHONY: all
 all: index.html 404.html
+
+clean:
+	rm -f index.html 404.html
 	
 # vim: set ft=make:
