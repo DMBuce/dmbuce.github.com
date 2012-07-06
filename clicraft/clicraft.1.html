@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.6" />
+<meta name="generator" content="AsciiDoc 8.6.7" />
 <title>clicraft(1)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -349,7 +349,7 @@ div.colist td img {
   margin-bottom: 0.1em;
 }
 
-div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -407,6 +407,8 @@ span.underline { text-decoration: underline; }
 span.overline { text-decoration: overline; }
 span.line-through { text-decoration: line-through; }
 
+div.unbreakable { page-break-inside: avoid; }
+
 
 /*
  * xhtml11 specific
@@ -414,7 +416,7 @@ span.line-through { text-decoration: line-through; }
  * */
 
 tt {
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: inherit;
   color: navy;
 }
@@ -453,7 +455,7 @@ div.tableblock > table[frame="vsides"] {
  * */
 
 .monospaced {
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: inherit;
   color: navy;
 }
@@ -581,7 +583,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -610,7 +612,7 @@ toc: function (toclevels) {
   var i;
   for (i = 0; i < toc.childNodes.length; i++) {
     var entry = toc.childNodes[i];
-    if (entry.nodeName == 'div'
+    if (entry.nodeName.toLowerCase() == 'div'
      && entry.getAttribute("class")
      && entry.getAttribute("class").match(/^toclevel/))
       tocEntriesToRemove.push(entry);
@@ -656,7 +658,7 @@ footnotes: function () {
   var entriesToRemove = [];
   for (i = 0; i < noteholder.childNodes.length; i++) {
     var entry = noteholder.childNodes[i];
-    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
       entriesToRemove.push(entry);
   }
   for (i = 0; i < entriesToRemove.length; i++) {
@@ -761,7 +763,8 @@ clicraft(1) Manual Page
 <div class="sectionbody">
 <div class="paragraph"><p>Clicraft is a command-line wrapper for operation and administration of a
 minecraft-compatible server. It is written in <a href="bash.1.html">bash(1)</a> and uses
-<a href="tmux.1.html">tmux(1)</a> to daemonize and communicate with the server process.</p></div>
+<a href="tmux.1.html">tmux(1)</a> or <a href="screen.1.html">screen(1)</a> to daemonize and communicate with the
+server process.</p></div>
 <div class="paragraph"><p>The <em>action</em> is an action to perform on the server, such as starting it,
 stopping it, or sending a command to the server console. Actions are
 implemented with action scripts, which can be provided by the clicraft package
@@ -779,10 +782,10 @@ install are described below.</p></div>
 </dt>
 <dd>
 <p>
-        Sends <em>command</em>
-        to the server console. The command should not be preceded by a slash (<tt>/</tt>).
-        For instance, to broadcast a message to logged-in users, you would use
-        <tt>clicraft cmd say Hello world</tt>, not <tt>clicraft cmd /say Hello world</tt>
+        Sends <em>command</em> to the server console. If <em>command</em> starts with a leading
+        slash (<tt>/</tt>), it will be stripped before being sent to the server console.
+        Thus, to broadcast a message to logged-in users, you could use
+        <tt>clicraft cmd say Hello world</tt> or <tt>clicraft cmd /say Hello world</tt>
 </p>
 </dd>
 <dt class="hdlist1">
@@ -790,9 +793,9 @@ install are described below.</p></div>
 </dt>
 <dd>
 <p>
-        Attach to the server console. This places you in the <a href="tmux.1.html">tmux(1)</a>
-        session that the server is running in. All normal tmux keybindings (like
-        <tt>Ctrl-b d</tt> to detach) should work.
+        Attach to the server console. This places you in the multiplexer shell
+        session that the server is running in. All normal multiplexer key-bindings
+        (like <tt>Ctrl-b d</tt> or <tt>Ctrl-a d</tt> to detach) should work.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -994,7 +997,7 @@ clicraft map -R 250 -r 270
 <h2 id="_see_also">See Also</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><a href="clicraft.conf.5.html">clicraft.conf(5)</a>, <a href="clicraft-actions.5.html">clicraft-actions(5)</a>, <a href="tmux.1.html">tmux(1)</a>,
-<a href="mcexplore.1.html">mcexplore(1)</a>, <a href="c10t.1.html">c10t(1)</a></p></div>
+<a href="screen.1.html">screen(1)</a>, <a href="mcexplore.1.html">mcexplore(1)</a>, <a href="c10t.1.html">c10t(1)</a></p></div>
 <div class="paragraph"><p>The clicraft project page is located at <a href="http://dmbuce.github.com/clicraft/">http://dmbuce.github.com/clicraft/</a>.</p></div>
 </div>
 </div>
@@ -1024,7 +1027,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-05-07 17:23:24 CDT
+Last updated 2012-07-06 14:52:31 CDT
 </div>
 </div>
 </body>
