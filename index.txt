@@ -4,6 +4,7 @@ DMBuce's Home Page
 This is my home page. Here's some links:
 
 * link:clicraft[Clicraft Home Page]
+* link:norbert[Norbert Home Page]
 * link:https://github.com/DMBuce[My GitHub Page]
 
 /////

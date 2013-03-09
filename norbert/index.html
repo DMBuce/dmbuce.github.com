@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.8" />
-<title>norbert(1)</title>
+<title>Norbert Home Page</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -729,317 +729,112 @@ asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
-<body class="manpage" style="max-width:960px">
+<body class="article" style="max-width:960px">
 <div id="header">
-<h1>
-norbert(1) Manual Page
-</h1>
+<h1>Norbert Home Page</h1>
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
 </div>
-<h2>NAME</h2>
-<div class="sectionbody">
-<p>norbert -
-   command-line NBT editor
-</p>
-</div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_synopsis">Synopsis</h2>
+<div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p><em>norbert</em> [options] [tag[=value]] [tag2[=value2]] &#8230;</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_description">Description</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>Norbert edits or displays an NBT file. With no arguments, it opens <em>level.dat</em>
-in the working directory and prints its contents to stdout in a human-readable
-format.</p></div>
-<div class="paragraph"><p><em>tag</em> is the name of a tag. Its format is described in the <strong>Names</strong>
-section of <a href="norbert.5.html">norbert(5)</a>. If <em>value</em> is given, it is used to set the
-payload of <em>tag</em>. Valid <em>values</em> are described in the <strong>Values</strong> section of
-<a href="norbert.5.html">norbert(5)</a>.</p></div>
-<div class="paragraph"><p>Norbert is written in Python using Thomas Woolford&#8217;s
-<a href="https://github.com/twoolie/NBT">NBT library</a>.</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_options">Options</h2>
-<div class="sectionbody">
-<div class="dlist"><dl>
-<dt class="hdlist1">
-<strong>--version</strong>
-</dt>
-<dd>
-<p>
-        Display version number and exit.
-</p>
-</dd>
-<dt class="hdlist1">
-<strong>-h, --help</strong>
-</dt>
-<dd>
-<p>
-        Display syntax and exit.
-</p>
-</dd>
-<dt class="hdlist1">
-<strong>-f, --input-file</strong> &lt;file&gt;
-</dt>
-<dd>
-<p>
-        The file to read. Default is <code>level.dat</code>.
-</p>
-<div class="paragraph"><p>Reading from stdin is currently not supported.</p></div>
-</dd>
-<dt class="hdlist1">
-<strong>-o, --output-file</strong> &lt;file&gt;
-</dt>
-<dd>
-<p>
-        The file to write to. If not provided, any changes made with <code><em>tag</em>=<em>value</em></code>
-        arguments won&#8217;t be written to disk.
-</p>
+<div class="paragraph"><p>A command-line NBT editor.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
 <img src="./images/icons/warning.png" alt="Warning" />
 </td>
-<td class="content">This option will overwrite the data in <em>file</em>. If <em>file</em> is being
-used by minecraft, or if norbert encounters an error, <em>file</em> can become
-corrupt. Use this option with caution and make backups if necessary.</td>
+<td class="content">This is experimental software. Expect breakages until this notice is
+removed.</td>
 </tr></table>
 </div>
-</dd>
-<dt class="hdlist1">
-<strong>-p, --print-format</strong> &lt;format&gt;
-</dt>
-<dd>
-<p>
-        Format to print output in. Valid values are <code>human</code>, <code>nbt-txt</code> and
-        <code>norbert</code>, and are described below.
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-<strong>human</strong>: An indented, human-readable format. This is the default.
-</p>
-</li>
-<li>
-<p>
-<strong>nbt-txt</strong>: A text format similar to the one used in the original NBT spec.
-</p>
-</li>
-<li>
-<p>
-<strong>norbert</strong>: A text format designed to be easily parsed by command-line tools.
-See <a href="norbert.5.html">norbert(5)</a> for details.
-</p>
-</li>
-</ul></div>
-</dd>
-<dt class="hdlist1">
-<strong>-i, --input-format</strong> &lt;format&gt;
-</dt>
-<dd>
-<p>
-        Format of the input file. Valid values are <code>nbt</code> and <code>norbert</code>, and are
-        described below.
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-<strong>nbt</strong>: The NBT format. This is the default.
-</p>
-</li>
-<li>
-<p>
-<strong>norbert</strong>: A text format designed to be easily parsed by command-line tools.
-See <a href="norbert.5.html">norbert(5)</a> for details.
-</p>
-</li>
-</ul></div>
-</dd>
-<dt class="hdlist1">
-<strong>-d, --depth</strong> &lt;depth&gt;
-</dt>
-<dd>
-<p>
-        Set the maximum recursion depth when printing. Use 0 for no
-        limit. Default is 8.
-</p>
-</dd>
-<dt class="hdlist1">
-<strong>-s, --separator</strong> &lt;separator&gt;
-</dt>
-<dd>
-<p>
-        Set the tag separators for norbert-formatted input, and output, and
-        <code><em>tag</em>=<em>value</em></code> arguments.
-        The argument to this option must be a string of one or two characters. The
-        first character is used to delimit tag names, and the second character is
-        used to delimit list indices. Default is <code>,#</code>.
-</p>
-</dd>
-</dl></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples">Examples</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
-<div class="dlist"><dl>
-<dt class="hdlist1">
-norbert --help
-</dt>
-<dd>
-<p>
-        Get usage info.
-</p>
-</dd>
-<dt class="hdlist1">
-norbert
-</dt>
-<dd>
-<p>
-        View <code>level.dat</code>.
-</p>
-</dd>
-<dt class="hdlist1">
-norbert -f /path/to/level.dat
-</dt>
-<dd>
-<p>
-        Same, but use <code>level.dat</code> from another directory.
-</p>
-</dd>
-<dt class="hdlist1">
-norbert -f player.dat
-</dt>
-<dd>
-<p>
-        View <code>player.dat</code>.
-</p>
-</dd>
-<dt class="hdlist1">
-norbert Data,GameType
-</dt>
-<dd>
-<p>
-        View <code>GameType</code> tag in <code>level.dat</code>.
-</p>
-</dd>
-<dt class="hdlist1">
-norbert -o level.dat Data,GameType=1
-</dt>
-<dd>
-<p>
-        Set game mode to Creative. Warning: Back up <code>level.dat</code> first!
-</p>
-</dd>
-<dt class="hdlist1">
-norbert -d 0 -f player.dat -p norbert &gt;player.dat.norbert
-</dt>
-<dd>
-<p>
-        Save <code>player.dat</code> in <a href="norbert.5.html">norbert(5)</a> format.
-</p>
-</dd>
-<dt class="hdlist1">
-norbert -d 0 -f player.dat.norbert -i norbert -o player.dat
-</dt>
-<dd>
-<p>
-        Convert <code>player.dat.norbert</code> from norbert to NBT and save it as
-        <code>player.dat</code>.
-</p>
-</dd>
-</dl></div>
+<div class="paragraph"><p><strong>N</strong>or<strong>B</strong>er<strong>T</strong> is a command-line utility for editing and displaying
+<a href="http://web.archive.org/web/20110723210920/http://www.minecraft.net/docs/NBT.txt">NBT</a>
+files. It can be used to read or modify files such as <code>level.dat</code>,
+<code>player.dat</code>, <code>map_N.dat</code>, and so on.</p></div>
+<div class="paragraph"><p>Norbert is also the name of a file format used to represent NBT data. The goal
+of the format is to be easily parsed by text-based command line tools.</p></div>
+<div class="paragraph"><p>vinbt is a script that can be used to edit an NBT file using a text
+editor such as vi.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_limitations">Limitations</h2>
+<h2 id="_install">Install</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>When parsing a norbert-formatted file, tags have the following limitations.</p></div>
+<div class="paragraph"><p>Before you attempt to install norbert, make sure you have its dependencies:
+* Python 2 or 3
+* Thomas Woolford&#8217;s <a href="https://github.com/twoolie/NBT">NBT library</a></p></div>
+<div class="paragraph"><p>To install, simply rename norbert.py to norbert, place it in your path,
+and make sure it&#8217;s executable</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code># install -m755 norbert.py /usr/local/bin/norbert</code></pre>
+</div></div>
+<div class="paragraph"><p>Use the same procedure to install vinbt</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code># install -m755 vinbt /usr/local/bin/vinbt</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_documentation">Documentation</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The full documentation for norbert is kept in
+<a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> format under the <code>doc/</code>
+directory in the source distribution.</p></div>
+<div class="sect2">
+<h3 id="_man_pages">Man Pages</h3>
+<div class="paragraph"><p>There are several man pages available for norbert and its custom file format.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-Tags can not have an equals sign (<code>=</code>) in their <em>name</em>
+<a href="norbert.1.html">norbert(1)</a>
 </p>
 </li>
 <li>
 <p>
-Tags can not have either of the separators (<code>,</code> and <code>#</code> by default) in their <em>name</em>
+<a href="norbert.5.html">norbert(5)</a>
 </p>
 </li>
 <li>
 <p>
-The <em>name</em> of the root tag can not start with whitespace
-</p>
-</li>
-<li>
-<p>
-The <em>name</em> of the leaf tag can not end with whitespace
-</p>
-</li>
-<li>
-<p>
-The <em>value</em> of TAG_Strings can not start or end with whitespace
+<a href="vinbt.1.html">vinbt(1)</a>
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>Any attempt to parse tags in norbert files with these properties will yield
-unexpected results. For more info on the norbert file format, see
-<a href="norbert.5.html">norbert(5)</a>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_development">Development</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_changelog">Changelog</h3>
+<div class="paragraph"><p>To view the full changelog for all releases, use <code>git tag -l -n100</code> in the
+<a href="https://github.com/DMBuce/norbert">GitHub repository</a>.</p></div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_bugs">Bugs</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Known bugs. Fixes coming Soon&#8482;:</p></div>
-<div class="ulist"><ul>
-<li>
-<p>
-Doesn&#8217;t support non-gzipped NBT files
-</p>
-</li>
-<li>
-<p>
-Doesn&#8217;t support Region files
-</p>
-</li>
-<li>
-<p>
-Doesn&#8217;t always play nice with stdin/stdout
-</p>
-</li>
-</ul></div>
-<div class="paragraph"><p>Report any and all bugs to the norbert
-<a href="https://github.com/DMBuce/norbert/issues">issue tracker</a> with as much detail as
-possible.</p></div>
+<div class="paragraph"><p>If you find a bug, you can submit it to the
+<a href="https://github.com/DMBuce/norbert/issues">issues tracker</a>.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_see_also">See Also</h2>
+<h2 id="_copyright">Copyright</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><a href="norbert.5.html">norbert(5)</a>, <a href="vinbt.1.html">vinbt(1)</a></p></div>
-<div class="paragraph"><p>The norbert project page is located at <a href="http://dmbuce.github.com/norbert/">http://dmbuce.github.com/norbert/</a>.</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_authors">Authors</h2>
-<div class="sectionbody">
-<div class="ulist"><ul>
-<li>
-<p>
-DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
-</p>
-</li>
-</ul></div>
-<div class="paragraph"><p>To see a full list of contributors, use <code>git shortlog -s</code> in the norbert
-<a href="https://github.com/DMBuce/norbert">git repository</a>.</p></div>
+<div class="paragraph"><p>Norbert is Copyright &#169; 2012-2013 DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
+and is licensed through the GNU General Public License, version 2 or later.</p></div>
 </div>
 </div>
 </div>
