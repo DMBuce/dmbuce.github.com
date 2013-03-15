@@ -12,5 +12,10 @@ all: index.html 404.html
 
 clean:
 	rm -f index.html 404.html
+
+.PHONY: norbert
+norbert:
+	cd ../$@/doc && make clean && make html
+	cp ../$@/doc/*.html $@/
 	
 # vim: set ft=make:
