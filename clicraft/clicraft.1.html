@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>clicraft(1)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -87,10 +87,14 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
+
 
 #author {
   color: #527bbd;
@@ -415,12 +419,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -453,12 +451,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -539,6 +531,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -778,15 +772,22 @@ install are described below.</p></div>
 <div class="sectionbody">
 <div class="dlist"><dl>
 <dt class="hdlist1">
-<strong>cmd</strong> &lt;command&gt;
+<strong>cmd</strong> [-v|--verbose] [-q|--quiet] &lt;command&gt;
 </dt>
 <dd>
 <p>
-        Sends <em>command</em> to the server console. If <em>command</em> starts with a leading
-        slash (<tt>/</tt>), it will be stripped before being sent to the server console.
-        Thus, to broadcast a message to logged-in users, you could use
-        <tt>clicraft cmd say Hello world</tt> or <tt>clicraft cmd /say Hello world</tt>
+        Sends <em>command</em> to the server console. If clicraft recognizes <em>command</em>,
+        it will wait until the command finishes or <code>TIMEOUT</code> seconds, whichever
+        comes first, before returning. If <em>command</em> starts with a leading slash
+        (<code>/</code>), it will be stripped before being sent to the server console. Thus,
+        to broadcast a message to logged-in users, you could use <code>clicraft cmd say
+        Hello world</code> or <code>clicraft cmd /say Hello world</code>.
 </p>
+<div class="paragraph"><p>With <code>-v</code> or <code>--verbose</code>, print server.log to stdout. If clicraft recognizes
+the command, it will attempt to print until the command finishes. Otherwise,
+it will print for 2 seconds.</p></div>
+<div class="paragraph"><p>With <code>-q</code> or <code>--quiet</code>, suppress <code>-v</code> output.</p></div>
+<div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>TIMEOUT</code> option.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>console</strong>
@@ -795,7 +796,7 @@ install are described below.</p></div>
 <p>
         Attach to the server console. This places you in the multiplexer shell
         session that the server is running in. All normal multiplexer key-bindings
-        (like <tt>Ctrl-b d</tt> or <tt>Ctrl-a d</tt> to detach) should work.
+        (like <code>Ctrl-b d</code> or <code>Ctrl-a d</code> to detach) should work.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -804,10 +805,10 @@ install are described below.</p></div>
 <dd>
 <p>
         Downloads the server jar file. The jar file is downloaded from
-        <tt>SERVER_URL</tt> and saved to location <tt>SERVER_JAR</tt>. If <tt>SERVER_JAR</tt> already
-        exists, it is backed up to <tt>SERVER_JAR.ccback</tt> before being overwritten.
+        <code>SERVER_URL</code> and saved to location <code>SERVER_JAR</code>. If <code>SERVER_JAR</code> already
+        exists, it is backed up to <code>SERVER_JAR.ccback</code> before being overwritten.
 </p>
-<div class="paragraph"><p>For information regarding <tt>SERVER_URL</tt> and <tt>SERVER_JAR</tt>, see
+<div class="paragraph"><p>For information regarding <code>SERVER_URL</code> and <code>SERVER_JAR</code>, see
 <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </dd>
 <dt class="hdlist1">
@@ -834,8 +835,8 @@ of these templates:</p></div>
 </li>
 </ul></div>
 <div class="paragraph"><p>When no <em>file</em> or <em>action</em> is present, edit <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
-<div class="paragraph"><p>This usage of clicraft launches <tt>EDITOR</tt> to edit files, or <a href="vi.1.html">vi(1)</a> if
-the <tt>EDITOR</tt> variable is not defined in your environment.</p></div>
+<div class="paragraph"><p>This usage of clicraft launches <code>EDITOR</code> to edit files, or <a href="vi.1.html">vi(1)</a> if
+the <code>EDITOR</code> variable is not defined in your environment.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>explore</strong> &lt;size&gt; [args]
@@ -844,12 +845,12 @@ the <tt>EDITOR</tt> variable is not defined in your environment.</p></div>
 <p>
         Generates a rectangle of land of a given <em>size</em> using
         <a href="mcexplore.1.html">mcexplore(1)</a>. By default, <em>size</em> is measured in chunks. Any
-        additional <em>args</em> get passed to <tt>mcexplore</tt> or <tt>mcexplore.py</tt>, which must
-        be in your <tt>PATH</tt>. For valid <em>args</em>, see <tt>mcexplore --help</tt>.
+        additional <em>args</em> get passed to <code>mcexplore</code> or <code>mcexplore.py</code>, which must
+        be in your <code>PATH</code>. For valid <em>args</em>, see <code>mcexplore --help</code>.
 </p>
 <div class="paragraph"><p>Using this action is equivalent to running
-<tt>mcexplore -p SERVER_DIR -c START_COMMAND <em>size</em> [<em>args</em>]</tt>.
-For information regarding <tt>SERVER_DIR</tt> and <tt>START_COMMAND</tt>, see
+<code>mcexplore -p SERVER_DIR -c START_COMMAND <em>size</em> [<em>args</em>]</code>.
+For information regarding <code>SERVER_DIR</code> and <code>START_COMMAND</code>, see
 <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 <div class="admonitionblock">
 <table><tr>
@@ -857,7 +858,7 @@ For information regarding <tt>SERVER_DIR</tt> and <tt>START_COMMAND</tt>, see
 <img src="./images/icons/note.png" alt="Note" />
 </td>
 <td class="content">This action is only available if clicraft was built using
-<tt>--with-mcexplore</tt>.</td>
+<code>--with-mcexplore</code>.</td>
 </tr></table>
 </div>
 </dd>
@@ -876,23 +877,70 @@ For information regarding <tt>SERVER_DIR</tt> and <tt>START_COMMAND</tt>, see
 <dd>
 <p>
         Maps the world using <a href="c10t.1.html">c10t(1)</a>. Any additional <em>args</em> get passed to
-        <tt>c10t</tt>, which must be in your <tt>PATH</tt>. For valid <em>args</em>, see <tt>c10t --help</tt>.
+        <code>c10t</code>, which must be in your <code>PATH</code>. For valid <em>args</em>, see <code>c10t --help</code>.
 </p>
 <div class="paragraph"><p>With a default install of minecraft, using this action is equivalent to
-running <tt>c10t -w SERVER_DIR/<em>world</em> -o $HOME/maps/<em>world</em>-<em>date</em>.png [<em>args</em>]</tt>,
-where <tt><em>date</em></tt> is today&#8217;s
-date in YYYY-MM-DD format and <tt><em>world</em></tt> is the value of <tt>level-name</tt> in
-<tt>server.properties</tt>. For information regarding <tt>SERVER_DIR</tt>, see
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a>. If the <tt>$HOME/maps</tt> directory does not exist, it is
+running <code>c10t -w SERVER_DIR/<em>world</em> -o $HOME/maps/<em>world</em>-<em>date</em>.png [<em>args</em>]</code>,
+where <code><em>date</em></code> is today&#8217;s
+date in YYYY-MM-DD format and <code><em>world</em></code> is the value of <code>level-name</code> in
+<code>server.properties</code>. For information regarding <code>SERVER_DIR</code>, see
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>. If the <code>$HOME/maps</code> directory does not exist, it is
 created.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
 <img src="./images/icons/note.png" alt="Note" />
 </td>
-<td class="content">This action is only available if clicraft was built using <tt>--with-c10t</tt>.</td>
+<td class="content">This action is only available if clicraft was built using <code>--with-c10t</code>.</td>
 </tr></table>
 </div>
+</dd>
+<dt class="hdlist1">
+<strong>redb</strong> [operation] [args]
+</dt>
+<dd>
+<p>
+        Manipulate the regex database. Exact usage depends on <em>operation</em>:
+</p>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>redb</strong> lookup &lt;key&gt;
+</dt>
+<dd>
+<p>
+        Prints the regex for <em>key</em> from the regex database. If a regex for <em>key</em>
+        does not exist, returns a nonzero exit status.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>redb</strong> insert &lt;key&gt; &lt;value&gt;
+</dt>
+<dd>
+<p>
+        Inserts a new <em>key</em> and <em>value</em> into the regex database. If a regex for
+        <em>key</em> already exists, returns a nonzero exit status.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>redb</strong> update &lt;key&gt; &lt;value&gt;
+</dt>
+<dd>
+<p>
+        Changes the regex for <em>key</em> to <em>value</em> in the regex database. If a regex
+        for <em>key</em> does not exist, returns a nonzero exit status.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>redb</strong> delete &lt;key&gt;
+</dt>
+<dd>
+<p>
+        Deletes the regex for <em>key</em> from the regex database. If a regex for <em>key</em>
+        does not exist, returns a nonzero exit status.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>If no <em>operation</em> or <em>args</em> are supplied, they are read from stdin.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>restart</strong>
@@ -1019,7 +1067,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>To see a full list of contributors, use <tt>git shortlog -s</tt> in the clicraft
+<div class="paragraph"><p>To see a full list of contributors, use <code>git shortlog -s</code> in the clicraft
 <a href="https://github.com/DMBuce/clicraft">git repository</a>.</p></div>
 </div>
 </div>
@@ -1027,7 +1075,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-07-06 14:52:31 CDT
+Last updated 2013-08-31 12:29:44 CDT
 </div>
 </div>
 </body>

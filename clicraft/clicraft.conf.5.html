@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>clicraft.conf(5)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -87,10 +87,14 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
+
 
 #author {
   color: #527bbd;
@@ -415,12 +419,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -453,12 +451,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -539,6 +531,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -761,23 +755,23 @@ clicraft.conf(5) Manual Page
 <div class="sect1">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Configuration options for clicraft are stored in <tt>/usr/local/etc/clicraft/clicraft.conf</tt>.
-The format is bash, so configuration options take the form <tt>OPTION="value"</tt>
-(with no whitespace between the equals sign (<tt>=</tt>) ).</p></div>
+<div class="paragraph"><p>Configuration options for clicraft are stored in <code>/usr/local/etc/clicraft/clicraft.conf</code>.
+The format is bash, so configuration options take the form <code>OPTION="value"</code>
+(with no whitespace between the equals sign (<code>=</code>) ).</p></div>
 <div class="paragraph"><p>This file is sourced from within clicraft before the default values are set,
 so you must take care to initialize any options that another option depends
-on. For example, if you set <tt>SERVER_JAR=$SERVER_DIR/custom_server.jar</tt> without
-setting <tt>SERVER_DIR</tt> first, clicraft will look for <tt>/custom_server.jar</tt>, which
+on. For example, if you set <code>SERVER_JAR=$SERVER_DIR/custom_server.jar</code> without
+setting <code>SERVER_DIR</code> first, clicraft will look for <code>/custom_server.jar</code>, which
 is probably not what you want.</p></div>
-<div class="paragraph"><p>An example default file is located at <tt>/usr/local/etc/clicraft/clicraft-defaults.conf</tt>. It
+<div class="paragraph"><p>An example default file is located at <code>/usr/local/etc/clicraft/clicraft-defaults.conf</code>. It
 is fairly well-commented, so it may be easiest to simply copy it to
-<tt>/usr/local/etc/clicraft/clicraft.conf</tt> and follow the directions inside for customization.</p></div>
+<code>/usr/local/etc/clicraft/clicraft.conf</code> and follow the directions inside for customization.</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_options">Options</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>In addition to the options listed below, <tt>clicraft.conf</tt> can include any extra
+<div class="paragraph"><p>In addition to the options listed below, <code>clicraft.conf</code> can include any extra
 variables you wish to use in custom action scripts.</p></div>
 <div class="dlist"><dl>
 <dt class="hdlist1">
@@ -787,7 +781,7 @@ variables you wish to use in custom action scripts.</p></div>
 <p>
         The terminal multiplexer to use. Valid values are "tmux" and "screen".
 </p>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"tmux"</tt></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"tmux"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_DIR=</strong>"/path/to/server/directory"
@@ -800,7 +794,7 @@ variables you wish to use in custom action scripts.</p></div>
         server.log (among other things) resides in. Most relative paths are taken
         with respect to this directory.
 </p>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"/usr/local/var/lib/clicraft"</tt></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"/usr/local/var/lib/clicraft"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_NAME=</strong>"name"
@@ -811,7 +805,7 @@ variables you wish to use in custom action scripts.</p></div>
         window and session names when starting the server. It is also used in some
         informational messages.
 </p>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"minecraft"</tt></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"minecraft"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_JAR=</strong>"/path/to/server/jar"
@@ -820,34 +814,37 @@ variables you wish to use in custom action scripts.</p></div>
 <p>
         The location of the server jar on disk.
 </p>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"$SERVER_DIR/minecraft_server.jar"</tt> (but see <tt>SERVER_TYPE</tt>, below)</p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"$SERVER_DIR/minecraft_server.jar"</code> (but see <code>SERVER_TYPE</code>, below)</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_URL=</strong>"url"
 </dt>
 <dd>
 <p>
-        The url to download <tt>SERVER_JAR</tt> from.
+        The url to download <code>SERVER_JAR</code> from.
 </p>
 <div class="paragraph"><p><strong>Default</strong>:
-<tt>"https://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar"</tt>
-(but see <tt>SERVER_TYPE</tt>, below)</p></div>
+<code>"https://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar"</code>
+(but see <code>SERVER_TYPE</code>, below)</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_TYPE=</strong>"type"
 </dt>
 <dd>
 <p>
-        If this option is set to "bukkit", <tt>SERVER_JAR</tt> and <tt>SERVER_URL</tt> will take on
-        default values such that the server uses Bukkit Recommended Builds, instead
-        of the vanilla minecraft jar. That is, they will have these default values:
+        The minecraft implementation this server uses. Valid values are
+        "minecraft" and "bukkit".
 </p>
+<div class="paragraph"><p>For convenience, if this option is set to "bukkit", <code>SERVER_JAR</code> and
+<code>SERVER_URL</code> will take on default values such that the server uses Bukkit
+Recommended Builds, instead of the vanilla minecraft jar. That is, they will
+have these default values:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>SERVER_JAR="$SERVER_DIR/craftbukkit.jar"
-SERVER_URL="http://cbukk.it/craftbukkit.jar"</tt></pre>
+<pre><code>SERVER_JAR="$SERVER_DIR/craftbukkit.jar"
+SERVER_URL="http://cbukk.it/craftbukkit.jar"</code></pre>
 </div></div>
-<div class="paragraph"><p><strong>Default</strong>: &lt;empty&gt;</p></div>
+<div class="paragraph"><p><strong>Default</strong>: "minecraft"</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>START_COMMAND=</strong>"/path/to/command [options]"
@@ -858,7 +855,7 @@ SERVER_URL="http://cbukk.it/craftbukkit.jar"</tt></pre>
 </p>
 <div class="paragraph"><p>The shell expands this option twice, so care must be taken to protect
 whitespace and special characters.</p></div>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"java -jar $SERVER_JAR nogui"</tt></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"java -jar $SERVER_JAR nogui"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>DOWNLOAD_COMMAND=</strong>"/path/to/command [options]"
@@ -866,12 +863,22 @@ whitespace and special characters.</p></div>
 <dd>
 <p>
         The command used to download or update the server jar. Running this
-        command should result in <tt>SERVER_URL</tt> being downloaded and saved to
-        <tt>SERVER_JAR</tt>.
+        command should result in <code>SERVER_URL</code> being downloaded and saved to
+        <code>SERVER_JAR</code>.
 </p>
 <div class="paragraph"><p>The shell expands this option twice, so care must be taken to protect
 whitespace and special characters.</p></div>
-<div class="paragraph"><p><strong>Default</strong>: <tt>"curl -#L -o $SERVER_JAR $SERVER_URL"</tt></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"curl -#L -o $SERVER_JAR $SERVER_URL"</code></p></div>
+</dd>
+<dt class="hdlist1">
+<strong>TIMEOUT=</strong>"seconds"
+</dt>
+<dd>
+<p>
+        The amount of time, in seconds, that clicraft will wait for critical
+        operations to finish.
+</p>
+<div class="paragraph"><p><strong>Default</strong>: <code>"20"</code></p></div>
 </dd>
 </dl></div>
 </div>
@@ -901,7 +908,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>To see a full list of contributors, use <tt>git shortlog -s</tt> in the clicraft
+<div class="paragraph"><p>To see a full list of contributors, use <code>git shortlog -s</code> in the clicraft
 <a href="https://github.com/DMBuce/clicraft">git repository</a>.</p></div>
 </div>
 </div>
@@ -909,7 +916,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-07-06 14:52:31 CDT
+Last updated 2013-08-31 12:29:44 CDT
 </div>
 </div>
 </body>

@@ -17,5 +17,10 @@ clean:
 norbert:
 	cd ../$@/doc && make clean && make html
 	cp ../$@/doc/*.html $@/
+
+.PHONY: clicraft
+clicraft:
+	cd ../$@ && autoconf && ./configure && make clean && make html
+	cp ../$@/doc/*.html $@/
 	
 # vim: set ft=make:

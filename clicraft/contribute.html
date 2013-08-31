@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>Clicraft Contributor&#8217;s Guide</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -87,10 +87,14 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
+
 
 #author {
   color: #527bbd;
@@ -415,12 +419,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -453,12 +451,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -539,6 +531,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -825,43 +819,43 @@ Use tabs for indentation and spaces for formatting.
 </li>
 <li>
 <p>
-Use posix-style test commands (<tt>[ ... ]</tt>), not extended test commands
-(<tt>[[ ... ]]</tt>).
+Use extended bash conditionals (<code>[[ ... ]]</code>), not posix-style test commands
+(<code>[ ... ]</code>).
 </p>
 </li>
 <li>
 <p>
-Don&#8217;t use the <tt>[ ... ] &amp;&amp; command</tt> or <tt>[ ... ] || command</tt> constructs.
-Expand them to full <tt>if</tt> statements.
+Don&#8217;t use the <code>[[ ... ]] &amp;&amp; command</code> or <code>[[ ... ]] || command</code> constructs.
+Expand them to full <code>if</code> statements.
 </p>
 </li>
 <li>
 <p>
-When opening new code blocks for <tt>while</tt>, <tt>if</tt>, or <tt>for</tt> loops, place the
-subsequent <tt>do</tt> or <tt>then</tt> on the same line.
+When opening new code blocks for <code>while</code>, <code>if</code>, or <code>for</code> loops, place the
+subsequent <code>do</code> or <code>then</code> on the same line.
 </p>
 <div class="listingblock">
 <div class="content">
-<pre><tt>for i in {1..5}; do
+<pre><code>for i in {1..5}; do
         echo "$i"
 done
 
-if [ -f "$file" ]; then
+if [[ -f "$file" ]]; then
         cat "$file"
-fi</tt></pre>
+fi</code></pre>
 </div></div>
 </li>
 <li>
 <p>
-When declaring functions, use parenthesis instead of the <tt>function</tt> keyword and put the
+When declaring functions, use parenthesis instead of the <code>function</code> keyword and put the
 opening brace on the same line as the function declaration.
 </p>
 <div class="listingblock">
 <div class="content">
-<pre><tt>msg() {
+<pre><code>msg() {
         local mesg=$1; shift
         printf "${mesg}\n" "$@"
-}</tt></pre>
+}</code></pre>
 </div></div>
 </li>
 </ol></div>
@@ -872,7 +866,7 @@ opening brace on the same line as the function declaration.
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-07-06 14:52:31 CDT
+Last updated 2013-08-31 12:55:15 CDT
 </div>
 </div>
 </body>

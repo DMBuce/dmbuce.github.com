@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>clicraft-actions(5)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -87,10 +87,14 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
+
 
 #author {
   color: #527bbd;
@@ -415,12 +419,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -453,12 +451,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -539,6 +531,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -763,23 +757,23 @@ clicraft-actions(5) Manual Page
 <div class="sectionbody">
 <div class="paragraph"><p><a href="Clicraft.1.html">Clicraft(1)</a> provides a way to extend functionality through <em>action scripts</em>,
 which are bash scripts that get called by clicraft in a modified environment.
-To create an action script, simply set your <tt>EDITOR</tt> variable and use
+To create an action script, simply set your <code>EDITOR</code> variable and use
 clicraft&#8217;s edit action. For instance:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>EDITOR=nano clicraft edit foo</tt></pre>
+<pre><code>EDITOR=nano clicraft edit foo</code></pre>
 </div></div>
 <div class="paragraph"><p>An action script created in this way will get executed when running
-<tt>clicraft foo [<em>args</em>]</tt>.</p></div>
+<code>clicraft foo [<em>args</em>]</code>.</p></div>
 <div class="paragraph"><p>Alternately, you can accomplish the same thing by writing a script with
-filename <tt>foo.sh</tt> and placing it in <tt>$CONFDIR/action.d</tt>. See the
-<a href="#vars">Variables</a> section for the value of <tt>$CONFDIR</tt>.</p></div>
+filename <code>foo.sh</code> and placing it in <code>$CONFDIR/action.d</code>. See the
+<a href="#vars">Variables</a> section for the value of <code>$CONFDIR</code>.</p></div>
 <div class="paragraph"><p>There are also action
-scripts in <tt>$EXECDIR/action.d</tt>, but these are system action scripts and may be
+scripts in <code>$EXECDIR/action.d</code>, but these are system action scripts and may be
 overwritten when updating clicraft. They can be overridden by creating new
 action files in the manner described above.</p></div>
 <div class="paragraph"><p>Action scripts get sourced from within clicraft using something similar to
-<tt>. <em>action</em>.sh</tt>. They therefore have access to all of clicraft&#8217;s internal
+<code>. <em>action</em>.sh</code>. They therefore have access to all of clicraft&#8217;s internal
 <a href="#vars">variables</a> and <a href="#funcs">functions</a>, described below.</p></div>
 </div>
 </div>
@@ -793,8 +787,8 @@ action files in the manner described above.</p></div>
 <dd>
 <p>
         Clicraft&#8217;s positional parameters are available, but are shifted once to
-        the left. Thus, when an action script <tt>foo.sh</tt> is invoked with
-        <tt>clicraft foo bar baz</tt>, <tt>$1</tt> is <tt>"bar"</tt> and <tt>$2</tt> is <tt>"baz"</tt>.
+        the left. Thus, when an action script <code>foo.sh</code> is invoked with
+        <code>clicraft foo bar baz</code>, <code>$1</code> is <code>"bar"</code> and <code>$2</code> is <code>"baz"</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -802,15 +796,15 @@ action files in the manner described above.</p></div>
 </dt>
 <dd>
 <p>
-        The name of this action. For an action script <tt>foo.sh</tt> invoked with
-        <tt>clicraft foo bar baz</tt>, <tt>$ACTION</tt> is <tt>"foo"</tt>.
+        The name of this action. For an action script <code>foo.sh</code> invoked with
+        <code>clicraft foo bar baz</code>, <code>$ACTION</code> is <code>"foo"</code>.
 </p>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_DIR, SERVER_NAME, SERVER_JAR, SERVER_URL</strong>
 </dt>
 <dt class="hdlist1">
-<strong>SERVER_TYPE, START_COMMAND, DOWNLOAD_COMMAND</strong>
+<strong>SERVER_TYPE, START_COMMAND, DOWNLOAD_COMMAND, TIMEOUT</strong>
 </dt>
 <dd>
 <p>
@@ -831,7 +825,7 @@ occurs if they are not set in clicraft.conf.</p></div>
 <p>
         The directory where clicraft stores its configuration files. This is where
         <a href="clicraft.conf.5.html">clicraft.conf(5)</a> is located. User action scripts are located in
-        this directory under <tt>$CONFDIR/action.d</tt>.
+        this directory under <code>$CONFDIR/action.d</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -840,7 +834,7 @@ occurs if they are not set in clicraft.conf.</p></div>
 <dd>
 <p>
         The directory for scripts used internally by clicraft. System action
-        scripts are located in this directory under <tt>$EXECDIR/action.d</tt>.
+        scripts are located in this directory under <code>$EXECDIR/action.d</code>.
 </p>
 <div class="admonitionblock">
 <table><tr>
@@ -858,6 +852,15 @@ or modified, and no new files should be created.</td>
 <dd>
 <p>
         Clicraft&#8217;s version number.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>TRAPSTACK</strong>
+</dt>
+<dd>
+<p>
+        An array of commands to be run if clicraft exits abnormally. This variable
+        should not be directly manipulated.
 </p>
 </dd>
 </dl></div>
@@ -905,9 +908,9 @@ or modified, and no new files should be created.</td>
         error to stderr and return nonzero.
 </p>
 <div class="paragraph"><p>Use this to find action scripts in a system-agnostic way. The full path to an
-action script depends on the settings of <tt>--prefix</tt>, <tt>--sysconfdir</tt>, and/or
-<tt>--libexecdir</tt> at install time, and so varies from system to system. Because
-of this, it is preferred to use this function (or its <tt>local_</tt> or <tt>system_</tt>
+action script depends on the settings of <code>--prefix</code>, <code>--sysconfdir</code>, and/or
+<code>--libexecdir</code> at install time, and so varies from system to system. Because
+of this, it is preferred to use this function (or its <code>local_</code> or <code>system_</code>
 variants) in action scripts you plan to publish.</p></div>
 </dd>
 <dt class="hdlist1">
@@ -915,7 +918,7 @@ variants) in action scripts you plan to publish.</p></div>
 </dt>
 <dd>
 <p>
-        Like <tt>action</tt>, but will only print the location of a user action.
+        Like <code>action</code>, but will only print the location of a user action.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -923,7 +926,7 @@ variants) in action scripts you plan to publish.</p></div>
 </dt>
 <dd>
 <p>
-        Like <tt>action</tt>, but will only print the location of a system action.
+        Like <code>action</code>, but will only print the location of a system action.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -936,14 +939,14 @@ variants) in action scripts you plan to publish.</p></div>
         script. If an action script cannot be found for <em>action</em>, print an error
         to stderr and return nonzero.
 </p>
-<div class="paragraph"><p>Using this function is similar to running <tt>. <em>action</em>.sh [<em>args</em>]</tt>.</p></div>
+<div class="paragraph"><p>Using this function is similar to running <code>. <em>action</em>.sh [<em>args</em>]</code>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>local_action</strong> &lt;action&gt; [args]
 </dt>
 <dd>
 <p>
-        Like <tt>action</tt>, but will only execute a user action.
+        Like <code>action</code>, but will only execute a user action.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -951,7 +954,7 @@ variants) in action scripts you plan to publish.</p></div>
 </dt>
 <dd>
 <p>
-        Like <tt>action</tt>, but will only execute a system action.
+        Like <code>action</code>, but will only execute a system action.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -971,11 +974,132 @@ variants) in action scripts you plan to publish.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>usage</strong> &lt;file&gt;
+<strong>cmd</strong> &lt;command&gt;
 </dt>
 <dd>
 <p>
-        Print the usage message in <em>file</em> to stdout.
+        Sends <em>command</em> to the server.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>usage</strong> &lt;action&gt;
+</dt>
+<dd>
+<p>
+        Print the usage message for <em>action</em> to stdout.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>redb_lookup</strong> &lt;key&gt; [prefix]
+</dt>
+<dd>
+<p>
+        Look up <em>key</em> in the regex database and print the corresponding value
+        to stdout. If the value of <em>key</em> has a leading start-of-line character
+        (<code>^</code>) and <em>prefix</em> is given, insert <em>prefix</em> after <code>^</code> before printing.
+        If a regex for <em>key</em> does not exist, print an error message to stderr and
+        return nonzero.
+</p>
+<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
+the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>redb_insert</strong> &lt;key&gt; &lt;value&gt;
+</dt>
+<dd>
+<p>
+        Insert a new <em>key</em> and <em>value</em> into the regex database. If a regex for
+        <em>key</em> already exists, print an error message to stderr and return nonzero.
+</p>
+<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
+the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>redb_update</strong> &lt;key&gt; &lt;value&gt;
+</dt>
+<dd>
+<p>
+        Change the value for <em>key</em> to <em>value</em> in the regex database. If a regex
+        for <em>key</em> does not exist, print an error message to stderr and return
+        nonzero.
+</p>
+<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
+the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>redb_delete</strong> &lt;key&gt;
+</dt>
+<dd>
+<p>
+        Delete the regex for <em>key</em> from the regex database. If a regex for <em>key</em>
+        does not exist, print an error message to stderr and return nonzero.
+</p>
+<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
+the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>save-off</strong>
+</dt>
+<dd>
+<p>
+        If another process holds a "save" lock, do nothing and return nonzero.
+        Otherwise, run <code>/save-off</code> on the server and wait for it to finish.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>save-on</strong>
+</dt>
+<dd>
+<p>
+        If another process holds a "save" lock, do nothing and return nonzero.
+        Otherwise, run <code>/save-on</code> on the server and wait for it to finish.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>save-all</strong>
+</dt>
+<dd>
+<p>
+        If another process holds a "save" lock, do nothing and return nonzero.
+        Otherwise, run <code>/save-all</code> on the server and wait for it to finish.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>list</strong>
+</dt>
+<dd>
+<p>
+        Print a space-delimited list of logged in players to stdout.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>kick</strong> &lt;player&gt;
+</dt>
+<dd>
+<p>
+        Kick <em>player</em> from the server. Returns nonzero if the kick was
+        unsuccessful.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>ban</strong> &lt;target&gt;
+</dt>
+<dd>
+<p>
+        Ban <em>target</em> from the server. <em>target</em> can be a player or ip address.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>pardon</strong> &lt;target&gt;
+</dt>
+<dd>
+<p>
+        Pardon banned <em>target</em> on the server. <em>target</em> can be a player or ip
+        address. Returns nonzero if the pardon was unsuccessful.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -983,10 +1107,78 @@ variants) in action scripts you plan to publish.</p></div>
 </dt>
 <dd>
 <p>
-        Print the value of <em>property</em> in <tt>server.properties</tt> to stdout. If the
+        Print the value of <em>property</em> in <code>server.properties</code> to stdout. If the
         property cannot be found, print an error message to stderr and return
         nonzero.
 </p>
+</dd>
+<dt class="hdlist1">
+<strong>exithandler</strong>
+</dt>
+<dd>
+<p>
+        Run the commands in <code>TRAPSTACK</code>.
+</p>
+<div class="paragraph"><p>This function is used by clicraft internally, and should not be called by
+action scripts.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>pushtrap</strong> &lt;command&gt;
+</dt>
+<dd>
+<p>
+        Add a command to <code>TRAPSTACK</code> for clicraft to run if it exits abnormally.
+</p>
+<div class="paragraph"><p>Every <code>pushtrap</code> call should have a matching <code>poptrap</code> call to keep subsequent
+<code>poptrap</code> calls from failing.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>poptrap</strong> &lt;command&gt;
+</dt>
+<dd>
+<p>
+        Try to remove the last command added to <code>TRAPSTACK</code>. If it doesn&#8217;t match
+        <em>command</em>, <code>poptrap</code> will fail.
+</p>
+<div class="paragraph"><p>Every <code>pushtrap</code> call should have a matching <code>poptrap</code> call to keep subsequent
+<code>poptrap</code> calls from failing.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>mklock</strong> &lt;lockname&gt;
+</dt>
+<dd>
+<p>
+        Try to create a lock identified by <em>lockname</em>. Returns nonzero if the lock
+        is already held.
+</p>
+<div class="paragraph"><p><code>mklock</code> and <code>rmlock</code> call <code>pushtrap</code> and <code>poptrap</code> internally, so every
+<code>mklock</code> call should have a matching <code>rmlock</code> call.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>rmlock</strong> &lt;lockname&gt;
+</dt>
+<dd>
+<p>
+        Try to remove the lock identified by <em>lockname</em>. Returns nonzero if the
+        lock isn&#8217;t held by this clicraft process.
+</p>
+<div class="paragraph"><p><code>mklock</code> and <code>rmlock</code> call <code>pushtrap</code> and <code>poptrap</code> internally, so every
+<code>mklock</code> call should have a matching <code>rmlock</code> call.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>serverlog</strong> &lt;condition&gt; &lt;command&gt;
+</dt>
+<dd>
+<p>
+        Start printing <code>server.log</code> to stdout, run <em>command</em>, and wait until
+        <em>condition</em> is reached or <code>TIMEOUT</code> seconds have passed before stopping
+        output and returning. If <code>TIMEOUT</code> is reached, return nonzero. See
+        <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>TIMEOUT</code> option.
+</p>
+<div class="paragraph"><p>If <em>condition</em> is an integer, it is interpreted as the maximum number of lines
+to print. Otherwise, <em>condition</em> will be used as an extended regular
+expression, and this function will return as soon as it prints a matching
+line.</p></div>
 </dd>
 </dl></div>
 </div>
@@ -994,7 +1186,7 @@ variants) in action scripts you plan to publish.</p></div>
 <div class="sect1">
 <h2 id="_examples">Examples</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>These example action scripts can be found in <tt>$CONFDIR/action.d/</tt>:</p></div>
+<div class="paragraph"><p>These example action scripts can be found in <code>$CONFDIR/action.d/</code>:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -1015,7 +1207,7 @@ action-override.sh.example
 <div class="paragraph"><p>The first example is a simple script for backing up the world directory.
 The last two example scripts are used internally by the edit action to create
 new action scripts. You can use them as templates by invoking
-<tt>clicraft edit <em>action</em></tt>.</p></div>
+<code>clicraft edit <em>action</em></code>.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -1043,7 +1235,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>To see a full list of contributors, use <tt>git shortlog -s</tt> in the clicraft
+<div class="paragraph"><p>To see a full list of contributors, use <code>git shortlog -s</code> in the clicraft
 <a href="https://github.com/DMBuce/clicraft">git repository</a>.</p></div>
 </div>
 </div>
@@ -1051,7 +1243,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-07-06 14:52:31 CDT
+Last updated 2013-08-31 12:55:15 CDT
 </div>
 </div>
 </body>

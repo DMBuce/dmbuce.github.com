@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>Clicraft Install Guide</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -87,10 +87,14 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
+
 
 #author {
   color: #527bbd;
@@ -415,12 +419,6 @@ div.unbreakable { page-break-inside: avoid; }
  *
  * */
 
-tt {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
-
 div.tableblock {
   margin-top: 1.0em;
   margin-bottom: 1.5em;
@@ -453,12 +451,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: "Courier New", Courier, monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -539,6 +531,8 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -786,8 +780,14 @@ A reasonably compliant shell
 </li>
 </ul></div>
 <div class="paragraph"><p>In order to build the documentation, you will also need this optional
-dependency:
-* <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> version 8.8.6 or greater</p></div>
+dependency:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> version 8.8.6 or greater
+</p>
+</li>
+</ul></div>
 </div>
 <div class="sect2">
 <h3 id="_runtime_dependencies">Runtime Dependencies</h3>
@@ -818,12 +818,12 @@ A working java implementation
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="https://gist.github.com/854679">mcexplore</a> if installed using <tt>--with-mcexplore</tt>
+<a href="https://gist.github.com/854679">mcexplore</a> if installed using <code>--with-mcexplore</code>
 </p>
 </li>
 <li>
 <p>
-<a href="http://toolchain.eu/project/c10t">c10t</a> if installed using <tt>--with-c10t</tt>
+<a href="http://toolchain.eu/project/c10t">c10t</a> if installed using <code>--with-c10t</code>
 </p>
 </li>
 </ul></div>
@@ -836,7 +836,7 @@ A working java implementation
 <div class="paragraph"><p>The procedure for installing from source, briefly, is</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>./configure &amp;&amp; make &amp;&amp; make install</tt></pre>
+<pre><code>./configure &amp;&amp; make &amp;&amp; make install</code></pre>
 </div></div>
 <div class="paragraph"><p>If a <a href="#package">package for your distribution</a> is available, you should
 probably use that instead. If no package is available for your system and you
@@ -858,10 +858,10 @@ distributions that packages are available for.</p></div>
 </dt>
 <dd>
 <p>
-        Several <tt>PKGBUILD</tt> scripts are available in the
+        Several <code>PKGBUILD</code> scripts are available in the
         <a href="http://aur.archlinux.org/packages.php?O=0&amp;K=clicraft&amp;do_Search=Go">AUR</a>.
-        Instructions for creating pacman packages from a <tt>PKGBUILD</tt> using
-        <tt>makepkg</tt> can be found on
+        Instructions for creating pacman packages from a <code>PKGBUILD</code> using
+        <code>makepkg</code> can be found on
         <a href="https://wiki.archlinux.org/index.php/AUR">this ArchWiki page</a>.
 </p>
 </dd>
@@ -872,7 +872,7 @@ distributions that packages are available for.</p></div>
 <p>
         A .deb package of the latest version should be available on the GitHub
         <a href="https://github.com/DMBuce/clicraft/downloads">downloads page</a>.
-        You can install it with <tt>dpkg -i clicraft_*_all.deb</tt>.
+        You can install it with <code>dpkg -i clicraft_*_all.deb</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -907,80 +907,80 @@ distributions that packages are available for.</p></div>
 <td class="icon">
 <img src="./images/icons/note.png" alt="Note" />
 </td>
-<td class="content">Commands in this section are preceded with a <tt>$</tt> if they should be run
-as a regular unprivileged user, or <tt>#</tt> if they should be run as root</td>
+<td class="content">Commands in this section are preceded with a <code>$</code> if they should be run
+as a regular unprivileged user, or <code>#</code> if they should be run as root</td>
 </tr></table>
 </div>
 <div class="paragraph"><p>The current clicraft codebase can be fetched with</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ git clone git://github.com/DMBuce/clicraft.git</tt></pre>
+<pre><code>$ git clone git://github.com/DMBuce/clicraft.git</code></pre>
 </div></div>
 <div class="paragraph"><p>In order to build from a specific branch, you can use</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ git checkout branch</tt></pre>
+<pre><code>$ git checkout branch</code></pre>
 </div></div>
 <div class="paragraph"><p>To build a specific version, you can use</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ git checkout version</tt></pre>
+<pre><code>$ git checkout version</code></pre>
 </div></div>
 <div class="paragraph"><p>or <a href="https://github.com/DMBuce/clicraft/tags">download</a>
 the zip or tarball from GitHub and extract it into a directory named
-<tt>clicraft</tt>. If you don&#8217;t know what branch or version to use, you can safely
+<code>clicraft</code>. If you don&#8217;t know what branch or version to use, you can safely
 ignore the previous two commands.</p></div>
 <div class="paragraph"><p>For the rest of these instructions, you&#8217;ll need to switch directories into the
 source distribution.</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ cd clicraft</tt></pre>
+<pre><code>$ cd clicraft</code></pre>
 </div></div>
-<div class="paragraph"><p>Next, you&#8217;ll need to generate a <tt>configure</tt> script. This is easily
+<div class="paragraph"><p>Next, you&#8217;ll need to generate a <code>configure</code> script. This is easily
 accomplished with</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ autoconf</tt></pre>
+<pre><code>$ autoconf</code></pre>
 </div></div>
 <div class="paragraph"><p>At this point, you could install clicraft with these three commands</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ ./configure
+<pre><code>$ ./configure
 $ make
-# make install</tt></pre>
+# make install</code></pre>
 </div></div>
-<div class="paragraph"><p>You may, however, want to read the output of <tt>./configure --help</tt> in order to
+<div class="paragraph"><p>You may, however, want to read the output of <code>./configure --help</code> in order to
 set appropriate paths and options for your system. You may also want to make
-use of the <tt>DESTDIR</tt> make variable in order to perform a staged install. The
+use of the <code>DESTDIR</code> make variable in order to perform a staged install. The
 procedure for using these features is described for several common scenarios
 below.</p></div>
 <div class="sect3">
 <h4 id="user">User installation under $HOME</h4>
 <div class="paragraph"><p>To install clicraft as a regular user, you should choose an empty directory
-under <tt>$HOME</tt> that you have write access to.</p></div>
-<div class="paragraph"><p>In this example, I have chosen to install clicraft to the <tt>$HOME/clicraft</tt>
+under <code>$HOME</code> that you have write access to.</p></div>
+<div class="paragraph"><p>In this example, I have chosen to install clicraft to the <code>$HOME/clicraft</code>
 directory. If that directory does not exist, you can create it using</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ mkdir $HOME/clicraft</tt></pre>
+<pre><code>$ mkdir $HOME/clicraft</code></pre>
 </div></div>
 <div class="paragraph"><p>Then, you can configure clicraft to be installed to that directory using</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ ./configure --prefix=$HOME/clicraft \
+<pre><code>$ ./configure --prefix=$HOME/clicraft \
         --sysconfdir=$HOME/clicraft/etc \
         --libexecdir=$HOME/clicraft/lib \
         --localstatedir=$HOME/clicraft/srv \
         --enable-shortdirs \
-        --with-c10t --with-mcexplore</tt></pre>
+        --with-c10t --with-mcexplore</code></pre>
 </div></div>
-<div class="paragraph"><p>You can leave out the <tt>--with-c10t</tt> and/or <tt>--with-mcexplore</tt> options if you
-don&#8217;t intend to use the <tt>map</tt> and/or <tt>explore</tt> actions, respectively. For more
+<div class="paragraph"><p>You can leave out the <code>--with-c10t</code> and/or <code>--with-mcexplore</code> options if you
+don&#8217;t intend to use the <code>map</code> and/or <code>explore</code> actions, respectively. For more
 information on these actions, refer to the <a href="clicraft.1.html">clicraft(1)</a> man page.</p></div>
 <div class="paragraph"><p>Finally, you can install clicraft with</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ make &amp;&amp; make install</tt></pre>
+<pre><code>$ make &amp;&amp; make install</code></pre>
 </div></div>
 </div>
 <div class="sect3">
@@ -995,43 +995,43 @@ circumstances, installing <a href="#user">as a user</a> or <a href="#package">wi
 </tr></table>
 </div>
 <div class="paragraph"><p>If you are an administrator with root privileges, you can choose to install
-clicraft to the system. In most linux distributions, <tt>/usr/local</tt> is reserved
+clicraft to the system. In most linux distributions, <code>/usr/local</code> is reserved
 for software installed by the administrator, so it is recommended you install
 clicraft to this directory. The rest of this section assumes that this is the
 directory where you are installing to.</p></div>
 <div class="paragraph"><p>As a regular, unprivileged user (NOT root), run</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ ./configure --prefix=/usr/local \
+<pre><code>$ ./configure --prefix=/usr/local \
         --sysconfdir=/usr/local/etc \
         --libexecdir=/usr/local/lib \
         --localstatedir=/var/local \
-        --with-c10t --with-mcexplore</tt></pre>
+        --with-c10t --with-mcexplore</code></pre>
 </div></div>
-<div class="paragraph"><p>You can leave out the <tt>--with-c10t</tt> and/or <tt>--with-mcexplore</tt> options if you
-don&#8217;t intend to use the <tt>map</tt> and/or <tt>explore</tt> actions, respectively. For more
+<div class="paragraph"><p>You can leave out the <code>--with-c10t</code> and/or <code>--with-mcexplore</code> options if you
+don&#8217;t intend to use the <code>map</code> and/or <code>explore</code> actions, respectively. For more
 information on these actions, refer to the <a href="clicraft.1.html">clicraft(1)</a> man page.</p></div>
-<div class="paragraph"><p>Clicraft&#8217;s Makefile supports the <tt>DESTDIR</tt> make variable, so you can stage the
+<div class="paragraph"><p>Clicraft&#8217;s Makefile supports the <code>DESTDIR</code> make variable, so you can stage the
 installation. To do this, choose a staging directory that you have write
-access to. In this example, I have chosen <tt>/tmp/staging</tt>. If that directory
+access to. In this example, I have chosen <code>/tmp/staging</code>. If that directory
 does not exist, you can create it using</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ mkdir /tmp/staging</tt></pre>
+<pre><code>$ mkdir /tmp/staging</code></pre>
 </div></div>
 <div class="paragraph"><p>Then, you can stage clicraft for installation. As a regular, unprivileged user
 (NOT root), run</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt>$ make &amp;&amp; make DESTDIR=/tmp/staging install</tt></pre>
+<pre><code>$ make &amp;&amp; make DESTDIR=/tmp/staging install</code></pre>
 </div></div>
-<div class="paragraph"><p>Now, you can inspect the contents of <tt>/tmp/staging</tt> for sanity. Note that at
+<div class="paragraph"><p>Now, you can inspect the contents of <code>/tmp/staging</code> for sanity. Note that at
 this time, the clicraft executable won&#8217;t actually work. Once you are
 satisfied, you can copy the contents of this directory to your system in order
 to complete the installation. As root, run something like the following</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><tt># cp -R /tmp/staging/* /usr/local</tt></pre>
+<pre><code># cp -R /tmp/staging/* /usr/local</code></pre>
 </div></div>
 </div>
 </div>
@@ -1041,7 +1041,7 @@ to complete the installation. As root, run something like the following</p></div
 <h2 id="_configuration">Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>At this point, clicraft should be installed and working. If it is, you can get
-basic usage info by running <tt>clicraft help</tt>. For information on clicraft usage
+basic usage info by running <code>clicraft help</code>. For information on clicraft usage
 and configuration, refer to the <a href="clicraft.1.html">clicraft(1)</a> and
 <a href="clicraft.conf.5.html">clicraft.conf(5)</a> man pages.</p></div>
 </div>
@@ -1050,7 +1050,7 @@ and configuration, refer to the <a href="clicraft.1.html">clicraft(1)</a> and
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-07-06 14:52:31 CDT
+Last updated 2013-08-31 12:29:44 CDT
 </div>
 </div>
 </body>
