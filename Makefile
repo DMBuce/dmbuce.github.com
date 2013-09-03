@@ -1,3 +1,5 @@
+builddir = /tmp/build
+
 %.1.html: %.1.txt
 	asciidoc -a toc -a icons -a max-width=960px -d manpage $<
                                                                             
@@ -16,14 +18,19 @@ everything: all norbert clicraft
 clean:
 	rm -f index.html 404.html
 
+$(builddir):
+	mkdir -p $@
+	chown `id -u` $@
+	chmod 755 $@
+
 .PHONY: norbert
-norbert:
-	cd ../$@/doc && make clean && make html
-	cp ../$@/doc/*.html $@/
+norbert: $(builddir)
+	./update-norbert.sh $(builddir)
+	cp $(builddir)/$@/doc/*.html $@/
 
 .PHONY: clicraft
-clicraft:
-	cd ../$@ && autoconf && ./configure && make clean && make html
-	cp ../$@/doc/*.html $@/
+clicraft: $(builddir)
+	./update-clicraft.sh $(builddir)
+	cp $(builddir)/$@/doc/*.html $@/
 	
 # vim: set ft=make:
