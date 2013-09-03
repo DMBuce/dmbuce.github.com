@@ -10,6 +10,9 @@
 .PHONY: all
 all: index.html 404.html
 
+.PHONY: everything
+everything: all norbert clicraft
+
 clean:
 	rm -f index.html 404.html
 
