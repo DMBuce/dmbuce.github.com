@@ -824,8 +824,19 @@ variables you wish to use in custom action scripts.</p></div>
         The url to download <code>SERVER_JAR</code> from.
 </p>
 <div class="paragraph"><p><strong>Default</strong>:
-<code>"https://s3.amazonaws.com/MinecraftDownload/launcher/minecraft_server.jar"</code>
+<code>"https://s3.amazonaws.com/Minecraft.Download/versions/%v/minecraft_server.%v.jar"</code>
 (but see <code>SERVER_TYPE</code>, below)</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>SERVER_VERSION=</strong>"version"
+</dt>
+<dd>
+<p>
+        The server version. This will replace any instances of <code>%v</code> in
+        <code>DOWNLOAD_COMMAND</code>. If set to "release" or "snapshot", the latest release
+        or snapshot version will be substituted instead.
+</p>
+<div class="paragraph"><p><strong>Default</strong>: <code>SERVER_VERSION="release"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_TYPE=</strong>"type"
@@ -916,7 +927,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-03 16:00:56 CDT
+Last updated 2013-09-20 03:03:22 CDT
 </div>
 </div>
 </body>
