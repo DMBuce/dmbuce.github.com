@@ -779,11 +779,12 @@ install are described below.</p></div>
         Sends <em>command</em> to the server console. If clicraft recognizes <em>command</em>,
         it will wait until the command finishes or <code>TIMEOUT</code> seconds, whichever
         comes first, before returning. If <em>command</em> starts with a leading slash
-        (<code>/</code>), it will be stripped before being sent to the server console. Thus,
+        (<code>/</code>) and <code>CMD_STRIP_SLASH</code> is set to <code>"true"</code>, it will be stripped before
+        being sent to the server console. Thus,
         to broadcast a message to logged-in users, you could use <code>clicraft cmd say
         Hello world</code> or <code>clicraft cmd /say Hello world</code>.
 </p>
-<div class="paragraph"><p>With <code>-v</code> or <code>--verbose</code>, print server.log to stdout. If clicraft recognizes
+<div class="paragraph"><p>With <code>-v</code> or <code>--verbose</code>, print <code>SERVER_LOG</code> to stdout. If clicraft recognizes
 the command, it will attempt to print until the command finishes. Otherwise,
 it will print for 2 seconds.</p></div>
 <div class="paragraph"><p>With <code>-q</code> or <code>--quiet</code>, suppress <code>-v</code> output.</p></div>
@@ -1075,7 +1076,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-03 16:00:56 CDT
+Last updated 2013-09-25 03:03:57 CDT
 </div>
 </div>
 </body>

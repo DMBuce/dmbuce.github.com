@@ -791,7 +791,7 @@ variables you wish to use in custom action scripts.</p></div>
         The directory that the server is launched from.
         Clicraft switches to this directory before performing any action, so
         this is the directory that your world data, server.properties, and
-        server.log (among other things) resides in. Most relative paths are taken
+        server log (among other things) resides in. Most relative paths are taken
         with respect to this directory.
 </p>
 <div class="paragraph"><p><strong>Default</strong>: <code>"/usr/local/var/lib/clicraft"</code></p></div>
@@ -826,6 +826,15 @@ variables you wish to use in custom action scripts.</p></div>
 <div class="paragraph"><p><strong>Default</strong>:
 <code>"https://s3.amazonaws.com/Minecraft.Download/versions/%v/minecraft_server.%v.jar"</code>
 (but see <code>SERVER_TYPE</code>, below)</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>SERVER_LOG=</strong>"/path/to/server.log"
+</dt>
+<dd>
+<p>
+        The location of the server log file
+</p>
+<div class="paragraph"><p><strong>Default</strong>: <code>"$SERVER_DIR/server.log"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_VERSION=</strong>"version"
@@ -869,6 +878,15 @@ whitespace and special characters.</p></div>
 <div class="paragraph"><p><strong>Default</strong>: <code>"java -jar $SERVER_JAR nogui"</code></p></div>
 </dd>
 <dt class="hdlist1">
+<strong>STOP_CMD=</strong>"cmd"
+</dt>
+<dd>
+<p>
+        The command to send to the server console to shut the server down.
+</p>
+<div class="paragraph"><p><strong>Default</strong>: <code>"stop"</code></p></div>
+</dd>
+<dt class="hdlist1">
 <strong>DOWNLOAD_COMMAND=</strong>"/path/to/command [options]"
 </dt>
 <dd>
@@ -890,6 +908,15 @@ whitespace and special characters.</p></div>
         operations to finish.
 </p>
 <div class="paragraph"><p><strong>Default</strong>: <code>"20"</code></p></div>
+</dd>
+<dt class="hdlist1">
+<strong>CMD_STRIP_SLASH=</strong>"true|false"
+</dt>
+<dd>
+<p>
+        Whether or not to strip the leading slash for commands passed to <code>clicraft cmd</code>.
+</p>
+<div class="paragraph"><p><strong>Default</strong>: <code>"true"</code></p></div>
 </dd>
 </dl></div>
 </div>
@@ -927,7 +954,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-20 03:03:22 CDT
+Last updated 2013-09-25 03:03:57 CDT
 </div>
 </div>
 </body>
