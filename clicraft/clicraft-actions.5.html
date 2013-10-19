@@ -1103,6 +1103,45 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
 </p>
 </dd>
 <dt class="hdlist1">
+<strong>dimdir</strong> &lt;dimension&gt;
+</dt>
+<dd>
+<p>
+        Print the directory for <em>dimension</em> to stdout.
+</p>
+<div class="paragraph"><p>If <code>level-name=world</code> in <code>server.properties</code>, <code>`dimdir overworld`</code> will
+output <code>SERVER_DIR/world</code>. If <code>SERVER_TYPE</code> is set to "minecraft",
+<code>`dimdir nether`</code> and <code>`dimdir end`</code> will output
+<code>SERVER_DIR/world/DIM-1</code> and <code>SERVER_DIR/world/DIM1</code>, respectively, or
+<code>SERVER_DIR/world_nether</code> and <code>SERVER_DIR/world_the_end</code> for other values of
+<code>SERVER_TYPE</code>. For other values of <em>dimension</em>, <code>`dimdir foo`</code> will
+output <code>SERVER_DIR/world_foo</code>.</p></div>
+<div class="paragraph"><p>Returns nonzero if <code>level-name</code> can&#8217;t be found in <code>server.properties</code>.</p></div>
+<div class="paragraph"><p>This function might be better understood by examining example output from an
+installation where <code>level-name=world</code> in <code>server.properties</code> and <code>SERVER_DIR</code>
+is set to <code>/srv</code> in <a href="clicraft.conf.5.html">clicraft.conf(5)</a>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ dimdir overworld
+/srv/world
+
+$ SERVER_TYPE=minecraft dimdir nether
+/srv/world/DIM-1
+
+$ SERVER_TYPE=minecraft dimdir end
+/srv/world/DIM1
+
+$ SERVER_TYPE=bukkit dimdir nether
+/srv/world_nether
+
+$ SERVER_TYPE=bukkit dimdir end
+/srv/world_the_end
+
+$ dimdir foo
+/srv/world_foo</code></pre>
+</div></div>
+</dd>
+<dt class="hdlist1">
 <strong>serverprop</strong> &lt;property&gt;
 </dt>
 <dd>
@@ -1110,6 +1149,16 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
         Print the value of <em>property</em> in <code>server.properties</code> to stdout. If the
         property cannot be found, print an error message to stderr and return
         nonzero.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>wickedwhich</strong> &lt;prog&gt; [progs &#8230;]
+</dt>
+<dd>
+<p>
+        Search for executable <em>prog</em> in <code>PATH</code>, <code>HOME/bin</code>, and <code>SERVER_DIR</code>. If
+        <em>prog</em> can&#8217;t be found, search for any additional <em>progs</em> in the same way.
+        If none can be found, return nonzero.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1243,7 +1292,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-25 03:03:57 CDT
+Last updated 2013-10-19 00:15:42 CDT
 </div>
 </div>
 </body>

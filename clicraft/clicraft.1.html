@@ -819,7 +819,10 @@ it will print for 2 seconds.</p></div>
 <p>
         Edit <em>file</em> in the server directory.
 </p>
-<div class="paragraph"><p>If <em>file</em> does not exist,
+<div class="paragraph"><p>If &lt;file&gt; does not exist and has a .dat extension, and if vinbt is installed,
+edit the first file of that name found anywhere within the world directory
+using vinbt.</p></div>
+<div class="paragraph"><p>Otherwise,
 edit the action script for <em>action</em> instead. When editing a new action or
 overriding a system action, clicraft will create a new user action using one
 of these templates:</p></div>
@@ -952,6 +955,16 @@ created.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
+<strong>sh</strong> [command]
+</dt>
+<dd>
+<p>
+        Evaluate <em>command</em> within clicraft&#8217;s environment.
+</p>
+<div class="paragraph"><p>If no <em>command</em> is given, open an interactive bash session with an environment
+that mimics clicraft&#8217;s.</p></div>
+</dd>
+<dt class="hdlist1">
 <strong>start</strong>
 </dt>
 <dd>
@@ -1076,7 +1089,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-25 03:03:57 CDT
+Last updated 2013-10-19 00:15:42 CDT
 </div>
 </div>
 </body>
