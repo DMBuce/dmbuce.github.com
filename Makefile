@@ -13,7 +13,7 @@ builddir = /tmp/build
 all: index.html 404.html
 
 .PHONY: everything
-everything: all norbert clicraft
+everything: all norbert clicraft mcexplore
 
 clean:
 	rm -f index.html 404.html
@@ -32,5 +32,10 @@ norbert: $(builddir)
 clicraft: $(builddir)
 	./update-clicraft.sh $(builddir)
 	cp $(builddir)/$@/doc/*.html $@/
+
+.PHONY: mcexplore
+mcexplore: $(builddir)
+	./update-mcexplore.sh $(builddir)
+	cp $(builddir)/$@/*.html $@/
 	
 # vim: set ft=make:
