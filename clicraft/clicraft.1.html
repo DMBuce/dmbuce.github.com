@@ -778,17 +778,16 @@ install are described below.</p></div>
 <p>
         Sends <em>command</em> to the server console. If clicraft recognizes <em>command</em>,
         it will wait until the command finishes or <code>TIMEOUT</code> seconds, whichever
-        comes first, before returning. If <em>command</em> starts with a leading slash
-        (<code>/</code>) and <code>CMD_STRIP_SLASH</code> is set to <code>"true"</code>, it will be stripped before
-        being sent to the server console. Thus,
-        to broadcast a message to logged-in users, you could use <code>clicraft cmd say
-        Hello world</code> or <code>clicraft cmd /say Hello world</code>.
+        comes first, before returning. Any leading occurences of <code>CMD_LSTRIP</code> are
+        removed from the beginning of <em>command</em> before being sent to the server
+        console.
 </p>
 <div class="paragraph"><p>With <code>-v</code> or <code>--verbose</code>, print <code>SERVER_LOG</code> to stdout. If clicraft recognizes
 the command, it will attempt to print until the command finishes. Otherwise,
 it will print for 2 seconds.</p></div>
 <div class="paragraph"><p>With <code>-q</code> or <code>--quiet</code>, suppress <code>-v</code> output.</p></div>
-<div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>TIMEOUT</code> option.</p></div>
+<div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>TIMEOUT</code> or
+<code>CMD_LSTRIP</code> options.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>console</strong>
@@ -1089,7 +1088,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-19 00:15:42 CDT
+Last updated 2013-10-20 03:03:36 CDT
 </div>
 </div>
 </body>
