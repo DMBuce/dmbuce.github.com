@@ -800,16 +800,23 @@ it will print for 2 seconds.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>dl</strong>
+<strong>dl</strong> [version]
 </dt>
 <dd>
 <p>
-        Downloads the server jar file. The jar file is downloaded from
-        <code>SERVER_URL</code> and saved to location <code>SERVER_JAR</code>. If <code>SERVER_JAR</code> already
-        exists, it is backed up to <code>SERVER_JAR.ccback</code> before being overwritten.
+        Downloads version <em>version</em> of the server jar file. If <em>version</em> is
+        <code>release</code> or <code>snapshot</code>, the latest release or snapshot version is used.
+        If no <em>version</em> is supplied on the command line, use <code>SERVER_VERSION</code>
+        instead.
 </p>
-<div class="paragraph"><p>For information regarding <code>SERVER_URL</code> and <code>SERVER_JAR</code>, see
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
+<div class="paragraph"><p>The jar file is downloaded from <code>SERVER_URL</code> and saved to location
+<code>SERVER_JAR</code> using <code>DOWNLOAD_COMMAND</code>. Any instances of the string <code>%v</code> in
+<code>DOWNLOAD_COMMAND</code> are substituted with <em>version</em>.</p></div>
+<div class="paragraph"><p>If <code>SERVER_JAR</code> already
+exists, it is backed up to <code>SERVER_JAR.ccback</code> before being overwritten, and
+restored from <code>SERVER_JAR.ccback</code> if the download fails.</p></div>
+<div class="paragraph"><p>For information regarding <code>SERVER_VERSION</code>, <code>SERVER_URL</code>, <code>SERVER_JAR</code>, and
+<code>DOWNLOAD_COMMAND</code>. see <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>edit</strong> [file|action]
@@ -842,30 +849,6 @@ of these templates:</p></div>
 the <code>EDITOR</code> variable is not defined in your environment.</p></div>
 </dd>
 <dt class="hdlist1">
-<strong>explore</strong> &lt;size&gt; [args]
-</dt>
-<dd>
-<p>
-        Generates a rectangle of land of a given <em>size</em> using
-        <a href="mcexplore.1.html">mcexplore(1)</a>. By default, <em>size</em> is measured in chunks. Any
-        additional <em>args</em> get passed to <code>mcexplore</code> or <code>mcexplore.py</code>, which must
-        be in your <code>PATH</code>. For valid <em>args</em>, see <code>mcexplore --help</code>.
-</p>
-<div class="paragraph"><p>Using this action is equivalent to running
-<code>mcexplore -p SERVER_DIR -c START_COMMAND <em>size</em> [<em>args</em>]</code>.
-For information regarding <code>SERVER_DIR</code> and <code>START_COMMAND</code>, see
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
-</td>
-<td class="content">This action is only available if clicraft was built using
-<code>--with-mcexplore</code>.</td>
-</tr></table>
-</div>
-</dd>
-<dt class="hdlist1">
 <strong>help</strong> [action]
 </dt>
 <dd>
@@ -873,30 +856,6 @@ For information regarding <code>SERVER_DIR</code> and <code>START_COMMAND</code>
         Displays usage information for <em>action</em>. If no <em>action</em> is given, clicraft
         usage is displayed instead.
 </p>
-</dd>
-<dt class="hdlist1">
-<strong>map</strong> [args]
-</dt>
-<dd>
-<p>
-        Maps the world using <a href="c10t.1.html">c10t(1)</a>. Any additional <em>args</em> get passed to
-        <code>c10t</code>, which must be in your <code>PATH</code>. For valid <em>args</em>, see <code>c10t --help</code>.
-</p>
-<div class="paragraph"><p>With a default install of minecraft, using this action is equivalent to
-running <code>c10t -w SERVER_DIR/<em>world</em> -o $HOME/maps/<em>world</em>-<em>date</em>.png [<em>args</em>]</code>,
-where <code><em>date</em></code> is today&#8217;s
-date in YYYY-MM-DD format and <code><em>world</em></code> is the value of <code>level-name</code> in
-<code>server.properties</code>. For information regarding <code>SERVER_DIR</code>, see
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a>. If the <code>$HOME/maps</code> directory does not exist, it is
-created.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
-</td>
-<td class="content">This action is only available if clicraft was built using <code>--with-c10t</code>.</td>
-</tr></table>
-</div>
 </dd>
 <dt class="hdlist1">
 <strong>redb</strong> [operation] [args]
@@ -1028,20 +987,11 @@ clicraft edit server.properties
 </p>
 </dd>
 <dt class="hdlist1">
-clicraft explore 10 20 -x 500 -z 500
+clicraft edit level.dat
 </dt>
 <dd>
 <p>
-        Generate a 160x320 region (10 by 20 chunks) centered on (x=500, z=500).
-</p>
-</dd>
-<dt class="hdlist1">
-clicraft map -R 250 -r 270
-</dt>
-<dd>
-<p>
-        Generate a map centered on spawn out to a radius of 250 chunks, and rotate
-        it 270 degrees.
+        Edit the server&#8217;s level.dat file.
 </p>
 </dd>
 </dl></div>
@@ -1057,8 +1007,8 @@ clicraft map -R 250 -r 270
 <div class="sect1">
 <h2 id="_see_also">See Also</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><a href="clicraft.conf.5.html">clicraft.conf(5)</a>, <a href="clicraft-actions.5.html">clicraft-actions(5)</a>, <a href="tmux.1.html">tmux(1)</a>,
-<a href="screen.1.html">screen(1)</a>, <a href="mcexplore.1.html">mcexplore(1)</a>, <a href="c10t.1.html">c10t(1)</a></p></div>
+<div class="paragraph"><p><a href="clicraft.conf.5.html">clicraft.conf(5)</a>, <a href="clicraft-actions.5.html">clicraft-actions(5)</a>,
+<a href="clicraft-examples.1.html">clicraft-examples(1)</a>, <a href="tmux.1.html">tmux(1)</a>, <a href="screen.1.html">screen(1)</a></p></div>
 <div class="paragraph"><p>The clicraft project page is located at <a href="http://dmbuce.github.com/clicraft/">http://dmbuce.github.com/clicraft/</a>.</p></div>
 </div>
 </div>
@@ -1088,7 +1038,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-20 03:03:36 CDT
+Last updated 2013-10-21 03:03:28 CDT
 </div>
 </div>
 </body>
