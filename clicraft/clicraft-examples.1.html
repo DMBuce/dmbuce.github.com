@@ -1,0 +1,1052 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>clicraft-examples(1)</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="manpage" style="max-width:960px">
+<div id="header">
+<h1>
+clicraft-examples(1) Manual Page
+</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+<h2>NAME</h2>
+<div class="sectionbody">
+<p>clicraft-examples -
+   example clicraft action scripts
+</p>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_synopsis">Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>/usr/local/etc/clicraft/action.d/<em>action</em>.sh.example, <em>clicraft</em> &lt;action&gt; [args]</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">Description</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><a href="Clicraft.1.html">Clicraft(1)</a> provides example action scripts that can be used and
+modified to extend clicraft&#8217;s functionality. To install or edit one of these
+scripts, simply set your <code>EDITOR</code> variable and use clicraft&#8217;s edit action. For
+instance:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>EDITOR=nano clicraft edit backup</code></pre>
+</div></div>
+<div class="paragraph"><p>Alternately, you can install these scripts manually by copying the
+relevant .sh.example script in <code>$CONFDIR/action.d</code> to a file with a .sh
+extension. For example:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>cd $CONFDIR/action.d
+cp backup.sh.example backup.sh</code></pre>
+</div></div>
+<div class="paragraph"><p>An action script created using either of the two methods above will get
+executed when running <code>clicraft backup</code>.</p></div>
+<div class="paragraph"><p>For more info on action scripts or for the value of <code>$CONFDIR</code>, see
+<a href="clicraft-actions.5.html">clicraft-actions(5)</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_actions">Actions</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>backup</strong>
+</dt>
+<dd>
+<p>
+        Backs up world data.
+</p>
+<div class="paragraph"><p>This action has these <a href="clicraft.conf.5.html">clicraft.conf(5)</a> options:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>BACKUP_DIR</strong>="/path/to/directory"
+</dt>
+<dd>
+<p>
+        The directory to place the backup in. Defaults to <code>"$SERVER_DIR/backups"</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>BACKUP_FILE</strong>="/path/to/file"
+</dt>
+<dd>
+<p>
+        The file to back up to. Defaults to <code>"$BACKUP_DIR/<em>world</em>-<em>timestamp</em>.zip"</code>
+        where <em>world</em> is the value of <code>level-name</code> in <code>server.properties</code> and
+        <em>timestamp</em> is the current date and time in YYYYMMDD-HHMMSS format.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>BACKUP_TARGETS</strong>="file [file2 &#8230;]"
+</dt>
+<dd>
+<p>
+        A space-delimited list of the files and directories to include in the
+        backup. Defaults to <code>"<em>world</em> <em>world</em>_*"</code>, where <em>world</em> is the value of
+        <code>level-name</code> in <code>server.properties</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>BACKUP_COMMAND</strong>="command [args]"
+</dt>
+<dd>
+<p>
+        The command to run to make the backup. Defaults to <code>"zip -r $BACKUP_FILE
+        $BACKUP_TARGETS"</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>BACKUP_LIMIT</strong>="number"
+</dt>
+<dd>
+<p>
+        The number of backups to keep before removing old backups. Set to <code>0</code> to
+        keep backups indefinitely. Defaults to <code>7</code>.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>When removing old backups past the <code>BACKUP_LIMIT</code>, this action sorts all files
+in <code>BACKUP_DIR</code> by filename and removes them until <code>BACKUP_LIMIT</code> is
+satisfied. You must therefore take care to set <code>BACKUP_FILE</code> so that old files
+are sorted before new ones.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>blocks</strong>
+</dt>
+<dd>
+<p>
+        Scrape the Minecraft Wiki for valid block ids and print them in a
+        human-readable format usable as a whitelist for <code>clicraft prune</code>.
+</p>
+<div class="paragraph"><p>This action displays block data in three or more space-delimited fields. The
+first is the decimal block id. The second is the hexadecimal block id. The
+remaining fields represet the block&#8217;s name.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>explore</strong> &lt;size&gt; [x z]
+</dt>
+<dd>
+<p>
+        Generates a world roughly <em>size</em> by <em>size</em> centered on coordinates
+        <em>x</em> and <em>z</em> (spawn by default) using <a href="mcexplore.1.html">mcexplore(1)</a>.
+</p>
+<div class="paragraph"><p>Using this action is equivalent to running
+<code>mcexplore -p SERVER_DIR -c START_COMMAND -x <em>x</em> -z <em>z</em> <em>size</em></code>.
+For information regarding <code>SERVER_DIR</code> and <code>START_COMMAND</code>, see
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>map</strong> [args]
+</dt>
+<dd>
+<p>
+        Maps the world using <a href="c10t.1.html">c10t(1)</a>. Any additional <em>args</em> get passed to
+        <code>c10t</code>, which must be in your <code>PATH</code>, <code>HOME/bin</code>, or <code>SERVER_DIR</code>. For
+        valid <em>args</em>, see <code>c10t --help</code>.
+</p>
+<div class="paragraph"><p>With a default install of minecraft, using this action is equivalent to
+running <code>c10t -w SERVER_DIR/<em>world</em> -o $HOME/maps/<em>world</em>-<em>date</em>.png [<em>args</em>]</code>,
+where <code><em>date</em></code> is today&#8217;s
+date in YYYY-MM-DD format and <code><em>world</em></code> is the value of <code>level-name</code> in
+<code>server.properties</code>. For information regarding <code>SERVER_DIR</code>, see
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>. If the <code>$HOME/maps</code> directory does not exist, it is
+created.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>pregen</strong> &lt;player&gt; &lt;size&gt; [x z]
+</dt>
+<dd>
+<p>
+        Generates a world roughly <em>size</em> by <em>size</em> centered on coordinates
+        <em>x</em> and <em>z</em> (spawn by default) by teleporting <em>player</em> around.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>prune</strong> [dim]
+</dt>
+<dd>
+<p>
+        Prunes the map using mmat. Valid values for <em>dim</em> are overworld,
+        nether, or end. If no <em>dim</em> is provided, the overworld is pruned.
+</p>
+<div class="paragraph"><p>This action has these <a href="clicraft.conf.5.html">clicraft.conf(5)</a> options:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>MMAT_JAR</strong>="/path/to/mmat.jar"
+</dt>
+<dd>
+<p>
+        The mmat.jar file. Defaults to <code>"$SERVER_DIR/mmat.jar"</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>PRUNE_RADIUS</strong>="chunks"
+</dt>
+<dd>
+<p>
+        The radius, in chunks, of data to preserver surrounding whitelisted
+        blocks. Defaults to <code>15</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>OVERWORLD_WHITELIST</strong>="/path/to/file"
+</dt>
+<dd>
+<p>
+        The file that defines what blocks to preserve when pruning the overworld.
+        Each line in the file should start with a block id followed by a
+        whitespace character. Lines not following this format are ignored.
+        Defaults to <code>"$CONFDIR/overworld-blocks.conf"</code>
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>NETHER_WHITELIST</strong>="/path/to/file"
+</dt>
+<dd>
+<p>
+        The file that defines what blocks to preserve when pruning the nether.
+        Each line in the file should start with a block id followed by a
+        whitespace character. Lines not following this format are ignored.
+        Defaults to <code>"$CONFDIR/nether-blocks.conf"</code>
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>END_WHITELIST</strong>="/path/to/file"
+</dt>
+<dd>
+<p>
+        The file that defines what blocks to preserve when pruning the end.
+        Each line in the file should start with a block id followed by a
+        whitespace character. Lines not following this format are ignored.
+        Defaults to <code>"$CONFDIR/end-blocks.conf"</code>
+</p>
+</dd>
+</dl></div>
+</dd>
+<dt class="hdlist1">
+<strong>restore</strong> [file.zip] [files]
+</dt>
+<dd>
+<p>
+        Restores world data by extracting <em>files</em> from <em>file.zip</em>. If <em>files</em> is
+        not provided, all files are extracted from <em>file.zip</em>. With no
+        arguments, print a list of files that can be restored from.
+</p>
+<div class="paragraph"><p>This action is implemented in <code>$CONFDIR/action.d/backup.sh.example</code>, and must
+be installed manually. See <a href="clicraft-actions.5.html">clicraft-actions(5)</a> for the value of
+<code>CONFDIR</code>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>sh</strong> [command]
+</dt>
+<dd>
+<p>
+        Evaluate <em>command</em> within clicraft&#8217;s environment. If no <em>command</em> is given,
+        open an interactive bash session with an environment that mimics clicraft&#8217;s.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples">Examples</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+clicraft explore 320 500 500
+</dt>
+<dd>
+<p>
+        Generate a 320x320 region (20 by 20 chunks) centered on (x=500, z=500).
+</p>
+</dd>
+<dt class="hdlist1">
+clicraft map -R 250 -r 270
+</dt>
+<dd>
+<p>
+        Generate a map centered on spawn out to a radius of 250 chunks, and rotate
+        it 270 degrees.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration">Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for details on configuring clicraft and
+<a href="clicraft-actions.5.html">clicraft-actions(5)</a> for writing custom action scripts.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also">See Also</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><a href="clicraft.1.html">clicraft(1)</a>, <a href="clicraft.conf.5.html">clicraft.conf(5)</a>, <a href="clicraft-actions.5.html">clicraft-actions(5)</a>,
+<a href="mcexplore.1.html">mcexplore(1)</a>, <a href="c10t.1.html">c10t(1)</a></p></div>
+<div class="paragraph"><p>The clicraft project page is located at <a href="http://dmbuce.github.com/clicraft/">http://dmbuce.github.com/clicraft/</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">Bugs</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Report any and all bugs to the clicraft
+<a href="https://github.com/DMBuce/clicraft/issues">issue tracker</a> with
+as much detail as possible.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">Authors</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>To see a full list of contributors, use <code>git shortlog -s</code> in the clicraft
+<a href="https://github.com/DMBuce/clicraft">git repository</a>.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-10-22 03:03:33 CDT
+</div>
+</div>
+</body>
+</html>
