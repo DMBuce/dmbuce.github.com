@@ -29,9 +29,11 @@ norbert: $(builddir)
 	cp $(builddir)/$@/doc/*.html $@/
 
 .PHONY: clicraft
-clicraft: $(builddir)
+clicraft: $(builddir) norbert mcexplore
 	./update-clicraft.sh $(builddir)
 	cp $(builddir)/$@/doc/*.html $@/
+	cp mcexplore/mcexplore.1.html clicraft
+	cp norbert/vinbt.1.html clicraft
 
 .PHONY: mcexplore
 mcexplore: $(builddir)
