@@ -5,7 +5,7 @@ This is my home page. Here's some links:
 
 * link:clicraft[Clicraft Home Page]
 * link:norbert[Norbert Home Page]
-* link:mcexplore/mcexplore.1.txt[mcexplore Man Page]
+* link:mcexplore/mcexplore.1.html[mcexplore Man Page]
 * link:https://github.com/DMBuce[My GitHub Page]
 
 /////
