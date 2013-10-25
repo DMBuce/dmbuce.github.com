@@ -818,12 +818,22 @@ A working java implementation
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="https://gist.github.com/854679">mcexplore</a> if installed using <code>--with-mcexplore</code>
+<a href="https://https://github.com/DMBuce/mcexplore">mcexplore</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://toolchain.eu/project/c10t">c10t</a> if installed using <code>--with-c10t</code>
+<a href="http://toolchain.eu/project/c10t">c10t</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://github.com/hwei/Minecraft-Map-Auto-Trim">mmat</a>
+</p>
+</li>
+<li>
+<p>
+<a href="http://dmbuce.github.io/norbert/">norbert</a>
 </p>
 </li>
 </ul></div>
@@ -971,12 +981,8 @@ directory. If that directory does not exist, you can create it using</p></div>
         --sysconfdir=$HOME/clicraft/etc \
         --libexecdir=$HOME/clicraft/lib \
         --localstatedir=$HOME/clicraft/srv \
-        --enable-shortdirs \
-        --with-c10t --with-mcexplore</code></pre>
+        --enable-shortdirs</code></pre>
 </div></div>
-<div class="paragraph"><p>You can leave out the <code>--with-c10t</code> and/or <code>--with-mcexplore</code> options if you
-don&#8217;t intend to use the <code>map</code> and/or <code>explore</code> actions, respectively. For more
-information on these actions, refer to the <a href="clicraft.1.html">clicraft(1)</a> man page.</p></div>
 <div class="paragraph"><p>Finally, you can install clicraft with</p></div>
 <div class="literalblock">
 <div class="content">
@@ -1005,12 +1011,8 @@ directory where you are installing to.</p></div>
 <pre><code>$ ./configure --prefix=/usr/local \
         --sysconfdir=/usr/local/etc \
         --libexecdir=/usr/local/lib \
-        --localstatedir=/var/local \
-        --with-c10t --with-mcexplore</code></pre>
+        --localstatedir=/var/local</code></pre>
 </div></div>
-<div class="paragraph"><p>You can leave out the <code>--with-c10t</code> and/or <code>--with-mcexplore</code> options if you
-don&#8217;t intend to use the <code>map</code> and/or <code>explore</code> actions, respectively. For more
-information on these actions, refer to the <a href="clicraft.1.html">clicraft(1)</a> man page.</p></div>
 <div class="paragraph"><p>Clicraft&#8217;s Makefile supports the <code>DESTDIR</code> make variable, so you can stage the
 installation. To do this, choose a staging directory that you have write
 access to. In this example, I have chosen <code>/tmp/staging</code>. If that directory
@@ -1050,7 +1052,7 @@ and configuration, refer to the <a href="clicraft.1.html">clicraft(1)</a> and
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-03 16:00:56 CDT
+Last updated 2013-10-25 03:03:32 CDT
 </div>
 </div>
 </body>
