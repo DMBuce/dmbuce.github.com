@@ -807,7 +807,7 @@ action files in the manner described above.</p></div>
 <strong>SERVER_VERSION, SERVER_TYPE, START_COMMAND, STOP_CMD, DOWNLOAD_COMMAND</strong>
 </dt>
 <dt class="hdlist1">
-<strong>TIMEOUT, CMD_LSTRIP</strong>
+<strong>TIMEOUT, START_TIMEOUT, STOP_TIMEOUT, CMD_TIMEOUT, CMD_LSTRIP, REDB</strong>
 </dt>
 <dd>
 <p>
@@ -998,8 +998,9 @@ variants) in action scripts you plan to publish.</p></div>
 <dd>
 <p>
         Look up <em>key</em> in the regex database and print the corresponding value
-        to stdout. If the value of <em>key</em> has a leading start-of-line character
-        (<code>^</code>) and <em>prefix</em> is given, insert <em>prefix</em> after <code>^</code> before printing.
+        to stdout. If the value of <em>key</em> has two leading start-of-line characters
+        (<code>^^</code>) and <em>prefix</em> is given, insert <em>prefix</em> in place of the second <code>^</code>
+        before printing.
         If a regex for <em>key</em> does not exist, print an error message to stderr and
         return nonzero.
 </p>
@@ -1103,6 +1104,26 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
 <p>
         Pardon banned <em>target</em> on the server. <em>target</em> can be a player or ip
         address. Returns nonzero if the pardon was unsuccessful.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>str2var</strong> &lt;string&gt; [case]
+</dt>
+<dd>
+<p>
+        Prints a variable name corresponding to <em>string</em> to stdout. Special
+        characters in <em>string</em> not suitable for variable names are changed to
+        underscores (<code>_</code>). If <em>case</em> is "upper" or "lower", alphabetical
+        characters are changed to the respective case.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>str2val</strong> &lt;string&gt; [case]
+</dt>
+<dd>
+<p>
+        Prints the value of the variable corresponding to <em>string</em> to stdout. The
+        variable to use is determined using <code>`str2var 'string' ['case'`]</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1278,7 +1299,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-22 03:03:33 CDT
+Last updated 2013-10-31 03:03:37 CDT
 </div>
 </div>
 </body>
