@@ -822,6 +822,19 @@ default value, so care must be taken to ensure that no undesirable behavior
 occurs if they are not set in clicraft.conf.</p></div>
 </dd>
 <dt class="hdlist1">
+<strong>RE_TIMESTAMP, RE_IPADDR, RE_START, &#8230;</strong>
+</dt>
+<dd>
+<p>
+        Clicraft exposes variables for each key-value pair in the regex database.
+        The name of each variable is the uppercase version of the key prefixed
+        with <code>RE_</code> and with special characters replaced with underscores. The
+        value of the variable is set to the value of the key in the database, with
+        any leading occurences of <code>"^^"</code> replaced with the value of the
+        <code>timestamp</code> database entry.
+</p>
+</dd>
+<dt class="hdlist1">
 <strong>CONFDIR</strong>=/usr/local/etc/clicraft
 </dt>
 <dd>
@@ -1299,7 +1312,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-31 03:03:37 CDT
+Last updated 2013-11-02 03:03:28 CDT
 </div>
 </div>
 </body>
