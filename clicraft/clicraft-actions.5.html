@@ -1239,6 +1239,9 @@ action scripts.</p></div>
         Try to create a lock identified by <em>lockname</em>. Returns nonzero if the lock
         is already held.
 </p>
+<div class="paragraph"><p>Lock files are stored in <code>$TMPDIR/clicraft.<em>user</em></code>, where <em>user</em> the login
+name of clicraft&#8217;s effective user id. If <code>$TMPDIR</code> is unset or empty, <code>/tmp</code>
+is used instead.</p></div>
 <div class="paragraph"><p><code>mklock</code> and <code>rmlock</code> call <code>pushtrap</code> and <code>poptrap</code> internally, so every
 <code>mklock</code> call should have a matching <code>rmlock</code> call.</p></div>
 </dd>
@@ -1250,6 +1253,9 @@ action scripts.</p></div>
         Try to remove the lock identified by <em>lockname</em>. Returns nonzero if the
         lock isn&#8217;t held by this clicraft process.
 </p>
+<div class="paragraph"><p>Lock files are stored in <code>$TMPDIR/clicraft.<em>user</em></code>, where <em>user</em> the login
+name of clicraft&#8217;s effective user id. If <code>$TMPDIR</code> is unset or empty, <code>/tmp</code>
+is used instead.</p></div>
 <div class="paragraph"><p><code>mklock</code> and <code>rmlock</code> call <code>pushtrap</code> and <code>poptrap</code> internally, so every
 <code>mklock</code> call should have a matching <code>rmlock</code> call.</p></div>
 </dd>
@@ -1314,7 +1320,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-11-02 03:03:28 CDT
+Last updated 2014-01-18 03:03:38 CST
 </div>
 </div>
 </body>

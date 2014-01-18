@@ -991,6 +991,80 @@ be installed manually. See <a href="clicraft-actions.5.html">clicraft-actions(5)
         open an interactive bash session with an environment that mimics clicraft&#8217;s.
 </p>
 </dd>
+<dt class="hdlist1">
+<strong>sync</strong> [target]
+</dt>
+<dd>
+<p>
+        Synchronizes <em>target</em> using rsync. If no <em>target</em> is given, synchronizes
+        all targets in <code>SYNC_TARGETS</code>.
+</p>
+<div class="paragraph"><p>The names of the <a href="clicraft.conf.5.html">clicraft.conf(5)</a> options available to this action
+depend on the targets you will be syncing. The options below are described
+using an example <em>foo</em> target.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>SYNC_TARGETS</strong>=( "list" "of" "targets" )
+</dt>
+<dd>
+<p>
+        The list of targets to sync if no target is supplied on the command line.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SYNC_FOO_OPTS</strong>="--rsync-options"
+</dt>
+<dd>
+<p>
+        The options to pass to rsync when syncing target <em>foo</em>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SYNC_FOO_SRCS</strong>=( "list" "of" "source" "files" "and" "directories" )
+</dt>
+<dd>
+<p>
+        A list of the files and directories to sync for target <em>foo</em>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SYNC_FOO_DEST</strong>="/path/to/directory"
+</dt>
+<dd>
+<p>
+        The directory to put <code>SYNC_FOO_SRCS</code> in when syncing target <em>foo</em>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SYNC_FOO_TYPE</strong>="push"|"pull"|"local"
+</dt>
+<dd>
+<p>
+        The method used to sync target <em>foo</em>. Valid values are <code>"push"</code> (update
+        the remote host from local sources), <code>"pull"</code> (update the local host from
+        remote sources), or <code>"local"</code> (update the local host from local sources).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SYNC_FOO_HOST</strong>="host"
+</dt>
+<dd>
+<p>
+        The remote hostname or ip address to use when syncing target <em>foo</em>. This
+        option is not used if <code>SYNC_FOO_TYPE</code> is <code>"local"</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SYNC_FOO_USER</strong>="user"
+</dt>
+<dd>
+<p>
+        The user to use on the remote host when syncing target <em>foo</em>. This option
+        is not used if <code>SYNC_FOO_TYPE</code> is <code>"local"</code>.
+</p>
+</dd>
+</dl></div>
+</dd>
 </dl></div>
 </div>
 </div>
@@ -1059,7 +1133,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-30 03:03:27 CDT
+Last updated 2014-01-18 03:03:38 CST
 </div>
 </div>
 </body>
