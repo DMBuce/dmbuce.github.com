@@ -889,30 +889,36 @@ or modified, and no new files should be created.</td>
 <div class="sectionbody">
 <div class="dlist"><dl>
 <dt class="hdlist1">
-<strong>msg</strong> &lt;message&gt;
+<strong>msg</strong> &lt;message&gt; [argument] &#8230;
 </dt>
 <dd>
 <p>
-        Print a formatted informational message to stdout. <em>message</em> can be split
-        into multiple arguments.
+        Print a formatted informational message to stdout. <em>message</em> is a format
+        string composed of plain characters, character escape sequences, and
+        format specifications for additional <em>arguments</em>, as described for
+        <code>printf</code> under the <strong>SHELL BUILTIN COMMANDS</strong> section of <a href="bash.1.html">bash(1)</a>.
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>warn</strong> &lt;message&gt;
+<strong>warn</strong> &lt;message&gt; [argument] &#8230;
 </dt>
 <dd>
 <p>
-        Print a formatted warning message to stderr. <em>message</em> can be split into
-        multiple arguments.
+        Print a formatted warning message to stderr. <em>message</em> is a format
+        string composed of plain characters, character escape sequences, and
+        format specifications for additional <em>arguments</em>, as described for
+        <code>printf</code> under the <strong>SHELL BUILTIN COMMANDS</strong> section of <a href="bash.1.html">bash(1)</a>.
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>err</strong> &lt;message&gt;
+<strong>err</strong> &lt;message&gt; [argument] &#8230;
 </dt>
 <dd>
 <p>
-        Print a formatted error message to stderr. <em>message</em> can be split into
-        multiple arguments.
+        Print a formatted error message to stderr. <em>message</em> is a format
+        string composed of plain characters, character escape sequences, and
+        format specifications for additional <em>arguments</em>, as described for
+        <code>printf</code> under the <strong>SHELL BUILTIN COMMANDS</strong> section of <a href="bash.1.html">bash(1)</a>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1320,7 +1326,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-18 03:03:38 CST
+Last updated 2014-01-23 03:03:27 CST
 </div>
 </div>
 </body>
