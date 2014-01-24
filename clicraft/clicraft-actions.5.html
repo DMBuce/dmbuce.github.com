@@ -751,13 +751,13 @@ clicraft-actions(5) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>/usr/local/etc/clicraft/action.d/<em>action</em>.sh, /usr/local/libexec/clicraft/action.d/<em>action</em>.sh</p></div>
+<div class="paragraph"><p>$CONFDIR/action.d/<em>action</em>.sh, /usr/local/libexec/clicraft/action.d/<em>action</em>.sh</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><a href="Clicraft.1.html">Clicraft(1)</a> provides a way to extend functionality through <em>action scripts</em>,
+<div class="paragraph"><p><a href="clicraft.1.html">clicraft(1)</a> provides a way to extend functionality through <em>action scripts</em>,
 which are bash scripts that get called by clicraft in a modified environment.
 To create an action script, simply set your <code>EDITOR</code> variable and use
 clicraft&#8217;s edit action. For instance:</p></div>
@@ -768,8 +768,8 @@ clicraft&#8217;s edit action. For instance:</p></div>
 <div class="paragraph"><p>An action script created in this way will get executed when running
 <code>clicraft foo [<em>args</em>]</code>.</p></div>
 <div class="paragraph"><p>Alternately, you can accomplish the same thing by writing a script with
-filename <code>foo.sh</code> and placing it in <code>$CONFDIR/action.d</code>. See the
-<a href="#vars">Variables</a> section for the value of <code>$CONFDIR</code>.</p></div>
+filename <code>foo.sh</code> and placing it in <code>$CONFDIR/action.d</code>. See
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code>.</p></div>
 <div class="paragraph"><p>There are also action
 scripts in <code>$EXECDIR/action.d</code>, but these are system action scripts and may be
 overwritten when updating clicraft. They can be overridden by creating new
@@ -837,13 +837,27 @@ occurs if they are not set in clicraft.conf.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>CONFDIR</strong>=/usr/local/etc/clicraft
+<strong>BINDIR</strong>
+</dt>
+<dd>
+<p>
+        The directory where the clicraft script is stored. If you need to refer to
+        the clicraft script directly, you should use <code>$BINDIR/clicraft</code> instead of
+        <code>$0</code>, since the latter will not work if clicraft was called using a
+        relative path (e.g. <code>./bin/clicraft</code>).
+</p>
+<div class="paragraph"><p>In addition, the <code>action()</code> function should be preferred over calling clicraft
+directly (e.g. <code>action foo</code> over <code>$BINDIR/clicraft foo</code>).</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>CONFDIR</strong>
 </dt>
 <dd>
 <p>
         The directory where clicraft stores its configuration files. This is where
         <a href="clicraft.conf.5.html">clicraft.conf(5)</a> is located. User action scripts are located in
-        this directory under <code>$CONFDIR/action.d</code>.
+        this directory under <code>$CONFDIR/action.d</code>. See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for
+        a description of how the value of <code>$CONFDIR</code> is determined.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1026,8 +1040,8 @@ variants) in action scripts you plan to publish.</p></div>
         return nonzero.
 </p>
 <div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
-the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
+option.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>redb_insert</strong> &lt;key&gt; &lt;value&gt;
@@ -1038,8 +1052,8 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
         <em>key</em> already exists, print an error message to stderr and return nonzero.
 </p>
 <div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
-the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
+option.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>redb_update</strong> &lt;key&gt; &lt;value&gt;
@@ -1051,8 +1065,8 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
         nonzero.
 </p>
 <div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
-the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
+option.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>redb_delete</strong> &lt;key&gt;
@@ -1063,8 +1077,8 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
         does not exist, print an error message to stderr and return nonzero.
 </p>
 <div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>SERVER_TYPE</code> option, and
-the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</code>.</p></div>
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
+option.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>save-off</strong>
@@ -1144,7 +1158,7 @@ the <a href="#vars">Variables</a> section for a description of <code>CONFDIR</co
 <dd>
 <p>
         Prints the value of the variable corresponding to <em>string</em> to stdout. The
-        variable to use is determined using <code>`str2var 'string' ['case'`]</code>.
+        variable to use is determined using <code>`str2var 'string' ['case']`</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1245,9 +1259,8 @@ action scripts.</p></div>
         Try to create a lock identified by <em>lockname</em>. Returns nonzero if the lock
         is already held.
 </p>
-<div class="paragraph"><p>Lock files are stored in <code>$TMPDIR/clicraft.<em>user</em></code>, where <em>user</em> the login
-name of clicraft&#8217;s effective user id. If <code>$TMPDIR</code> is unset or empty, <code>/tmp</code>
-is used instead.</p></div>
+<div class="paragraph"><p>Lock files are stored in <code>$TMPDIR/clicraft.$EUID</code>. If <code>$TMPDIR</code> is unset or
+empty, <code>/tmp</code> is used instead.</p></div>
 <div class="paragraph"><p><code>mklock</code> and <code>rmlock</code> call <code>pushtrap</code> and <code>poptrap</code> internally, so every
 <code>mklock</code> call should have a matching <code>rmlock</code> call.</p></div>
 </dd>
@@ -1259,9 +1272,8 @@ is used instead.</p></div>
         Try to remove the lock identified by <em>lockname</em>. Returns nonzero if the
         lock isn&#8217;t held by this clicraft process.
 </p>
-<div class="paragraph"><p>Lock files are stored in <code>$TMPDIR/clicraft.<em>user</em></code>, where <em>user</em> the login
-name of clicraft&#8217;s effective user id. If <code>$TMPDIR</code> is unset or empty, <code>/tmp</code>
-is used instead.</p></div>
+<div class="paragraph"><p>Lock files are stored in <code>$TMPDIR/clicraft.<em>user</em></code>. If <code>$TMPDIR</code> is unset or
+empty, <code>/tmp</code> is used instead.</p></div>
 <div class="paragraph"><p><code>mklock</code> and <code>rmlock</code> call <code>pushtrap</code> and <code>poptrap</code> internally, so every
 <code>mklock</code> call should have a matching <code>rmlock</code> call.</p></div>
 </dd>
@@ -1326,7 +1338,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-23 03:03:27 CST
+Last updated 2014-01-24 09:03:36 UTC
 </div>
 </div>
 </body>

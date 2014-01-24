@@ -855,8 +855,10 @@ opening brace on the same line as the function declaration.
 <div class="listingblock">
 <div class="content">
 <pre><code>msg() {
-        local mesg=$1; shift
-        printf "${mesg}\n" "$@"
+        local mesg=$1
+        shift
+
+        printf -- "${mesg}\n" "$@"
 }</code></pre>
 </div></div>
 </li>
@@ -868,7 +870,7 @@ opening brace on the same line as the function declaration.
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-03 16:00:56 CDT
+Last updated 2014-01-24 09:03:36 UTC
 </div>
 </div>
 </body>

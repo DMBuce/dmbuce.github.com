@@ -751,15 +751,36 @@ clicraft.conf(5) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>/usr/local/etc/clicraft/clicraft.conf</p></div>
+<div class="paragraph"><p>$CONFDIR/clicraft.conf</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Configuration options for clicraft are stored in <code>/usr/local/etc/clicraft/clicraft.conf</code>.
-The format is bash, so configuration options take the form <code>OPTION="value"</code>
-(with no whitespace between the equals sign (<code>=</code>) ).</p></div>
+<div class="paragraph"><p>Clicraft&#8217;s main configuration file is <code>clicraft.conf</code>, which is stored in one
+of three directories. In order of preference:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+$XDG_CONFIG_HOME/clicraft
+</p>
+</li>
+<li>
+<p>
+~/.config/clicraft
+</p>
+</li>
+<li>
+<p>
+/usr/local/etc/clicraft
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Clicraft searches these directories and uses the first one it finds. That
+directory is referred to as <code>$CONFDIR</code>. If <code>$CONFDIR</code> is empty, clicraft
+populates it with default config files from /usr/local/etc/clicraft.</p></div>
+<div class="paragraph"><p>The format for <code>clicraft.conf</code> is bash, so configuration options take the form
+<code>OPTION="value"</code> (with no whitespace between the equals sign (<code>=</code>) ).</p></div>
 <div class="paragraph"><p>This file is sourced from within clicraft before the default values are set,
 so you must take care to initialize any options that another option depends
 on. For example, if you set <code>SERVER_JAR=$SERVER_DIR/custom_server.jar</code> without
@@ -767,7 +788,7 @@ setting <code>SERVER_DIR</code> first, clicraft will look for <code>/custom_serv
 is probably not what you want.</p></div>
 <div class="paragraph"><p>An example default file is located at <code>/usr/local/etc/clicraft/clicraft-defaults.conf</code>. It
 is fairly well-commented, so it may be easiest to simply copy it to
-<code>/usr/local/etc/clicraft/clicraft.conf</code> and follow the directions inside for customization.</p></div>
+<code>$CONFDIR/clicraft.conf</code> and follow the directions inside for customization.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -844,10 +865,10 @@ variables you wish to use in custom action scripts.</p></div>
 <dd>
 <p>
         The server version. This will replace any instances of <code>%v</code> in
-        <code>DOWNLOAD_COMMAND</code>. If set to "release" or "snapshot", the latest release
-        or snapshot version will be substituted instead.
+        <code>DOWNLOAD_COMMAND</code>. If set to "release" or "snapshot", the latest
+        Minecraft release or snapshot version will be substituted instead.
 </p>
-<div class="paragraph"><p><strong>Default</strong>: <code>SERVER_VERSION="release"</code></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"release"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>SERVER_TYPE=</strong>"type"
@@ -866,7 +887,7 @@ have these default values:</p></div>
 <pre><code>SERVER_JAR="$SERVER_DIR/craftbukkit.jar"
 SERVER_URL="http://cbukk.it/craftbukkit.jar"</code></pre>
 </div></div>
-<div class="paragraph"><p><strong>Default</strong>: "minecraft"</p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"minecraft"</code></p></div>
 </dd>
 <dt class="hdlist1">
 <strong>START_COMMAND=</strong>"/path/to/command [options]"
@@ -962,9 +983,9 @@ whitespace and special characters.</p></div>
 </p>
 <div class="paragraph"><p>In addition, a regular expression which begins with two start-of-line anchors
 (<code>^^</code>) may have special meaning. Typically, this sequence of characters will
-be replaced with <code>\^<em>timestamp</em></code>, where <em>timestamp</em> is the value of the
+be replaced with <code>^<em>timestamp</em></code>, where <em>timestamp</em> is the value of the
 timestamp database entry.</p></div>
-<div class="paragraph"><p><strong>Default</strong>: <code>"/usr/local/etc/clicraft/redb/$SERVER_TYPE.tab"</code></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"$CONFDIR/redb/$SERVER_TYPE.tab"</code></p></div>
 </dd>
 </dl></div>
 </div>
@@ -1002,7 +1023,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-17 03:03:33 CST
+Last updated 2014-01-24 09:03:36 UTC
 </div>
 </div>
 </body>

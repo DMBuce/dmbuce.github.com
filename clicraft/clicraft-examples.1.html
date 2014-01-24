@@ -751,13 +751,13 @@ clicraft-examples(1) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>/usr/local/etc/clicraft/action.d/<em>action</em>.sh.example, <em>clicraft</em> &lt;action&gt; [args]</p></div>
+<div class="paragraph"><p>$CONFDIR/action.d/<em>action</em>.sh.example, <em>clicraft</em> &lt;action&gt; [args]</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><a href="Clicraft.1.html">Clicraft(1)</a> provides example action scripts that can be used and
+<div class="paragraph"><p><a href="clicraft.1.html">clicraft(1)</a> provides example action scripts that can be used and
 modified to extend clicraft&#8217;s functionality. To install or edit one of these
 scripts, simply set your <code>EDITOR</code> variable and use clicraft&#8217;s edit action. For
 instance:</p></div>
@@ -776,7 +776,7 @@ cp backup.sh.example backup.sh</code></pre>
 <div class="paragraph"><p>An action script created using either of the two methods above will get
 executed when running <code>clicraft backup</code>.</p></div>
 <div class="paragraph"><p>For more info on action scripts or for the value of <code>$CONFDIR</code>, see
-<a href="clicraft-actions.5.html">clicraft-actions(5)</a>.</p></div>
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -979,8 +979,8 @@ created.</p></div>
         arguments, print a list of files that can be restored from.
 </p>
 <div class="paragraph"><p>This action is implemented in <code>$CONFDIR/action.d/backup.sh.example</code>, and must
-be installed manually. See <a href="clicraft-actions.5.html">clicraft-actions(5)</a> for the value of
-<code>CONFDIR</code>.</p></div>
+be installed manually. See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of
+<code>$CONFDIR</code>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>sh</strong> [command]
@@ -1133,7 +1133,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-18 03:03:38 CST
+Last updated 2014-01-24 09:03:36 UTC
 </div>
 </div>
 </body>
