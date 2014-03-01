@@ -751,7 +751,7 @@ clicraft(1) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><em>clicraft</em> &lt;action&gt; [args]</p></div>
+<div class="paragraph"><p><em>clicraft</em> [options] &lt;action&gt; [args]</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -767,6 +767,51 @@ implemented with action scripts, which can be provided by the clicraft package
 or written by the user. For more information on writing action scripts, see
 <a href="clicraft-actions.5.html">clicraft-actions(5)</a>. The actions that ship with a typical clicraft
 install are described below.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>-c</strong>, <strong>--config</strong>=&lt;config&gt;
+</dt>
+<dd>
+<p>
+        Use <em>config</em> as the configuration directory. For other methods of setting
+        this directory, see <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-h</strong>, <strong>--help</strong>
+</dt>
+<dd>
+<p>
+        Display this help message and exit.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-V</strong>, <strong>--version</strong>
+</dt>
+<dd>
+<p>
+        Output version information and exit.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-x</strong>, <strong>--xtrace</strong>
+</dt>
+<dd>
+<p>
+        Print all bash commands run by <em>action</em> to stdout. This is accomplished by
+        setting bash&#8217;s <code>xtrace</code> option, and is mainly useful for debugging actions
+        scripts. See <a href="clicraft-actions.5.html">clicraft-actions(5)</a> for more information on action
+        scripts.
+</p>
+<div class="paragraph"><p>If this option is passed multiple times, <code>xtrace</code> is set as soon as the second
+option is encountered, which can be useful for debugging clicraft itself.</p></div>
+</dd>
+</dl></div>
 </div>
 </div>
 <div class="sect1">
@@ -838,16 +883,16 @@ of these templates:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-$CONFDIR/action.d/action.sh.example
+$CLICRAFT_CONFIG/action.d/action.sh.example
 </p>
 </li>
 <li>
 <p>
-$CONFDIR/action.d/action-override.sh.example
+$CLICRAFT_CONFIG/action.d/action-override.sh.example
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code></p></div>
+<div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CLICRAFT_CONFIG</code>.</p></div>
 <div class="paragraph"><p>When no <em>file</em> or <em>action</em> is present, edit <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 <div class="paragraph"><p>This usage of clicraft launches <code>EDITOR</code> to edit files, or <a href="vi.1.html">vi(1)</a> if
 the <code>EDITOR</code> variable is not defined in your environment.</p></div>
@@ -1033,7 +1078,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-24 09:03:36 UTC
+Last updated 2014-03-01 09:04:05 UTC
 </div>
 </div>
 </body>

@@ -751,23 +751,34 @@ clicraft.conf(5) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>$CONFDIR/clicraft.conf</p></div>
+<div class="paragraph"><p>$CLICRAFT_CONFIG/clicraft.conf</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Clicraft&#8217;s main configuration file is <code>clicraft.conf</code>, which is stored in one
-of three directories. In order of preference:</p></div>
+<div class="paragraph"><p>Clicraft&#8217;s main configuration file is <code>clicraft.conf</code>, which is stored in a
+directory referred to as <code>$CLICRAFT_CONFIG</code>. This directory can be specified
+through several different methods. In order of preference:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-$XDG_CONFIG_HOME/clicraft
+The argument to the <code>--config</code> command line option
 </p>
 </li>
 <li>
 <p>
-~/.config/clicraft
+The <code>$CLICRAFT_CONFIG</code> environment variable
+</p>
+</li>
+<li>
+<p>
+<code>$XDG_CONFIG_HOME/foo</code>, where <em>foo</em> is how clicraft was invoked
+</p>
+</li>
+<li>
+<p>
+<code>$XDG_CONFIG_HOME/clicraft</code>
 </p>
 </li>
 <li>
@@ -776,9 +787,11 @@ $XDG_CONFIG_HOME/clicraft
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>Clicraft searches these directories and uses the first one it finds. That
-directory is referred to as <code>$CONFDIR</code>. If <code>$CONFDIR</code> is empty, clicraft
-populates it with default config files from /usr/local/etc/clicraft.</p></div>
+<div class="paragraph"><p>If <code>$XDG_CONFIG_HOME</code> is not set in your environment, clicraft uses
+<code>~/.config</code> instead. Clicraft searches the directories above and uses the
+first one it finds for <code>$CLICRAFT_CONFIG</code>. If <code>$CLICRAFT_CONFIG</code> is empty and
+was not given by the <code>--config</code> option or <code>$CLICRAFT_CONFIG</code> environment
+variable, clicraft populates it with default config files from /usr/local/etc/clicraft.</p></div>
 <div class="paragraph"><p>The format for <code>clicraft.conf</code> is bash, so configuration options take the form
 <code>OPTION="value"</code> (with no whitespace between the equals sign (<code>=</code>) ).</p></div>
 <div class="paragraph"><p>This file is sourced from within clicraft before the default values are set,
@@ -786,9 +799,9 @@ so you must take care to initialize any options that another option depends
 on. For example, if you set <code>SERVER_JAR=$SERVER_DIR/custom_server.jar</code> without
 setting <code>SERVER_DIR</code> first, clicraft will look for <code>/custom_server.jar</code>, which
 is probably not what you want.</p></div>
-<div class="paragraph"><p>An example default file is located at <code>/usr/local/etc/clicraft/clicraft-defaults.conf</code>. It
+<div class="paragraph"><p>An example default file is located at <code>$CLICRAFT_CONFIG/clicraft-defaults.conf</code>. It
 is fairly well-commented, so it may be easiest to simply copy it to
-<code>$CONFDIR/clicraft.conf</code> and follow the directions inside for customization.</p></div>
+<code>$CLICRAFT_CONFIG/clicraft.conf</code> and follow the directions inside for customization.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -985,7 +998,7 @@ whitespace and special characters.</p></div>
 (<code>^^</code>) may have special meaning. Typically, this sequence of characters will
 be replaced with <code>^<em>timestamp</em></code>, where <em>timestamp</em> is the value of the
 timestamp database entry.</p></div>
-<div class="paragraph"><p><strong>Default</strong>: <code>"$CONFDIR/redb/$SERVER_TYPE.tab"</code></p></div>
+<div class="paragraph"><p><strong>Default</strong>: <code>"$CLICRAFT_CONFIG/redb/$SERVER_TYPE.tab"</code></p></div>
 </dd>
 </dl></div>
 </div>
@@ -1023,7 +1036,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-25 09:03:59 UTC
+Last updated 2014-03-01 09:04:05 UTC
 </div>
 </div>
 </body>

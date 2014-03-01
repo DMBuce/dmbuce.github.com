@@ -751,7 +751,7 @@ clicraft-examples(1) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>$CONFDIR/action.d/<em>action</em>.sh.example, <em>clicraft</em> &lt;action&gt; [args]</p></div>
+<div class="paragraph"><p>$CLICRAFT_CONFIG/action.d/<em>action</em>.sh.example, <em>clicraft</em> &lt;action&gt; [args]</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -759,23 +759,26 @@ clicraft-examples(1) Manual Page
 <div class="sectionbody">
 <div class="paragraph"><p><a href="clicraft.1.html">clicraft(1)</a> provides example action scripts that can be used and
 modified to extend clicraft&#8217;s functionality. To install or edit one of these
-scripts, simply set your <code>EDITOR</code> variable and use clicraft&#8217;s edit action. For
-instance:</p></div>
-<div class="literalblock">
-<div class="content">
-<pre><code>EDITOR=nano clicraft edit backup</code></pre>
-</div></div>
-<div class="paragraph"><p>Alternately, you can install these scripts manually by copying the
-relevant .sh.example script in <code>$CONFDIR/action.d</code> to a file with a .sh
+scripts, copy the
+relevant .sh.example script in <code>$CLICRAFT_CONFIG/action.d</code> to a file with a .sh
 extension. For example:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>cd $CONFDIR/action.d
+<pre><code>cd $CLICRAFT_CONFIG/action.d
 cp backup.sh.example backup.sh</code></pre>
+</div></div>
+<div class="paragraph"><p>Alternately, you can symlink to the .sh.example. Using this method, future
+updates to example action scripts will be reflected in the actions that
+clicraft uses, but any customizations you make to the scripts will be lost
+when you update.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>cd $CLICRAFT_CONFIG/action.d
+ln -s backup.sh.example backup.sh</code></pre>
 </div></div>
 <div class="paragraph"><p>An action script created using either of the two methods above will get
 executed when running <code>clicraft backup</code>.</p></div>
-<div class="paragraph"><p>For more info on action scripts or for the value of <code>$CONFDIR</code>, see
+<div class="paragraph"><p>For more info on action scripts or for the value of <code>$CLICRAFT_CONFIG</code>, see
 <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </div>
 </div>
@@ -942,7 +945,7 @@ created.</p></div>
         The file that defines what blocks to preserve when pruning the overworld.
         Each line in the file should start with a block id followed by a
         whitespace character. Lines not following this format are ignored.
-        Defaults to <code>"$CONFDIR/overworld-blocks.conf"</code>
+        Defaults to <code>"$CLICRAFT_CONFIG/overworld-blocks.conf"</code>
 </p>
 </dd>
 <dt class="hdlist1">
@@ -953,7 +956,7 @@ created.</p></div>
         The file that defines what blocks to preserve when pruning the nether.
         Each line in the file should start with a block id followed by a
         whitespace character. Lines not following this format are ignored.
-        Defaults to <code>"$CONFDIR/nether-blocks.conf"</code>
+        Defaults to <code>"$CLICRAFT_CONFIG/nether-blocks.conf"</code>
 </p>
 </dd>
 <dt class="hdlist1">
@@ -964,7 +967,7 @@ created.</p></div>
         The file that defines what blocks to preserve when pruning the end.
         Each line in the file should start with a block id followed by a
         whitespace character. Lines not following this format are ignored.
-        Defaults to <code>"$CONFDIR/end-blocks.conf"</code>
+        Defaults to <code>"$CLICRAFT_CONFIG/end-blocks.conf"</code>
 </p>
 </dd>
 </dl></div>
@@ -978,9 +981,8 @@ created.</p></div>
         not provided, all files are extracted from <em>file.zip</em>. With no
         arguments, print a list of files that can be restored from.
 </p>
-<div class="paragraph"><p>This action is implemented in <code>$CONFDIR/action.d/backup.sh.example</code>, and must
-be installed manually. See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of
-<code>$CONFDIR</code>.</p></div>
+<div class="paragraph"><p>This action is implemented in <code>$CLICRAFT_CONFIG/action.d/backup.sh.example</code>.
+See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CLICRAFT_CONFIG</code>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>sh</strong> [command]
@@ -1133,7 +1135,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-24 09:03:36 UTC
+Last updated 2014-03-01 09:04:05 UTC
 </div>
 </div>
 </body>

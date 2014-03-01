@@ -751,7 +751,7 @@ clicraft-actions(5) Manual Page
 <div class="sect1">
 <h2 id="_synopsis">Synopsis</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>$CONFDIR/action.d/<em>action</em>.sh, /usr/local/libexec/clicraft/action.d/<em>action</em>.sh</p></div>
+<div class="paragraph"><p>$CLICRAFT_CONFIG/action.d/<em>action</em>.sh, /usr/local/libexec/clicraft/action.d/<em>action</em>.sh</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -768,8 +768,8 @@ clicraft&#8217;s edit action. For instance:</p></div>
 <div class="paragraph"><p>An action script created in this way will get executed when running
 <code>clicraft foo [<em>args</em>]</code>.</p></div>
 <div class="paragraph"><p>Alternately, you can accomplish the same thing by writing a script with
-filename <code>foo.sh</code> and placing it in <code>$CONFDIR/action.d</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code>.</p></div>
+filename <code>foo.sh</code> and placing it in <code>$CLICRAFT_CONFIG/action.d</code>. See
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CLICRAFT_CONFIG</code>.</p></div>
 <div class="paragraph"><p>There are also action
 scripts in <code>$EXECDIR/action.d</code>, but these are system action scripts and may be
 overwritten when updating clicraft. They can be overridden by creating new
@@ -850,14 +850,22 @@ occurs if they are not set in clicraft.conf.</p></div>
 directly (e.g. <code>action foo</code> over <code>$BINDIR/clicraft foo</code>).</p></div>
 </dd>
 <dt class="hdlist1">
-<strong>CONFDIR</strong>
+<strong>CLICRAFT_CONFIG</strong>
 </dt>
 <dd>
 <p>
         The directory where clicraft stores its configuration files. This is where
         <a href="clicraft.conf.5.html">clicraft.conf(5)</a> is located. User action scripts are located in
-        this directory under <code>$CONFDIR/action.d</code>. See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for
-        a description of how the value of <code>$CONFDIR</code> is determined.
+        this directory under <code>$CLICRAFT_CONFIG/action.d</code>. See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for
+        a description of how the value of <code>$CLICRAFT_CONFIG</code> is determined.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>CONFDIR</strong>
+</dt>
+<dd>
+<p>
+        The default value for <code>$CLICRAFT_CONFIG</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1039,9 +1047,8 @@ variants) in action scripts you plan to publish.</p></div>
         If a regex for <em>key</em> does not exist, print an error message to stderr and
         return nonzero.
 </p>
-<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
-option.</p></div>
+<div class="paragraph"><p>The location of the regex database is configured by the <code>REDB</code> option in
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>redb_insert</strong> &lt;key&gt; &lt;value&gt;
@@ -1051,9 +1058,8 @@ option.</p></div>
         Insert a new <em>key</em> and <em>value</em> into the regex database. If a regex for
         <em>key</em> already exists, print an error message to stderr and return nonzero.
 </p>
-<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
-option.</p></div>
+<div class="paragraph"><p>The location of the regex database is configured by the <code>REDB</code> option in
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>redb_update</strong> &lt;key&gt; &lt;value&gt;
@@ -1064,9 +1070,8 @@ option.</p></div>
         for <em>key</em> does not exist, print an error message to stderr and return
         nonzero.
 </p>
-<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
-option.</p></div>
+<div class="paragraph"><p>The location of the regex database is configured by the <code>REDB</code> option in
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>redb_delete</strong> &lt;key&gt;
@@ -1076,9 +1081,8 @@ option.</p></div>
         Delete the regex for <em>key</em> from the regex database. If a regex for <em>key</em>
         does not exist, print an error message to stderr and return nonzero.
 </p>
-<div class="paragraph"><p>The regex database is located at <code>$CONFDIR/redb/$SERVER_TYPE.tab</code>. See
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of <code>$CONFDIR</code> or the <code>SERVER_TYPE</code>
-option.</p></div>
+<div class="paragraph"><p>The location of the regex database is configured by the <code>REDB</code> option in
+<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </dd>
 <dt class="hdlist1">
 <strong>save-off</strong>
@@ -1298,7 +1302,7 @@ line.</p></div>
 <div class="sect1">
 <h2 id="_examples">Examples</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Example action scripts can be found in <code>$CONFDIR/action.d/</code> with a
+<div class="paragraph"><p>Example action scripts can be found in <code>$CLICRAFT_CONFIG/action.d/</code> with a
 <code>.sh.example</code> file extension. They can be viewed, edited and installed with
 <code>clicraft edit</code>. Their usage is documented in <a href="clicraft-examples.1.html">clicraft-examples(1)</a>,
 except for action.sh.example and action-override.sh.example, which are used
@@ -1338,7 +1342,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-24 09:03:36 UTC
+Last updated 2014-03-01 09:04:05 UTC
 </div>
 </div>
 </body>
