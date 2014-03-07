@@ -765,7 +765,7 @@ server process.</p></div>
 stopping it, or sending a command to the server console. Actions are
 implemented with action scripts, which can be provided by the clicraft package
 or written by the user. For more information on writing action scripts, see
-<a href="clicraft-actions.5.html">clicraft-actions(5)</a>. The actions that ship with a typical clicraft
+<a href="clicraft-actions.5.html">clicraft-actions(5)</a>. The actions that ship with a default clicraft
 install are described below.</p></div>
 </div>
 </div>
@@ -803,7 +803,8 @@ install are described below.</p></div>
 </dt>
 <dd>
 <p>
-        Print all bash commands run by <em>action</em> to stdout. This is accomplished by
+        Print all expanded bash commands run by <em>action</em> to stdout. This is
+        accomplished by
         setting bash&#8217;s <code>xtrace</code> option, and is mainly useful for debugging actions
         scripts. See <a href="clicraft-actions.5.html">clicraft-actions(5)</a> for more information on action
         scripts.
@@ -831,7 +832,7 @@ option is encountered, which can be useful for debugging clicraft itself.</p></d
 </p>
 <div class="paragraph"><p>With <code>-v</code> or <code>--verbose</code>, print <code>SERVER_LOG</code> to stdout. If clicraft recognizes
 the command, it will attempt to print until the command finishes. Otherwise,
-it will print for 2 seconds.</p></div>
+it will print for <code>CMD_TIMEOUT</code> seconds.</p></div>
 <div class="paragraph"><p>With <code>-q</code> or <code>--quiet</code>, suppress <code>-v</code> output.</p></div>
 <div class="paragraph"><p>See <a href="clicraft.conf.5.html">clicraft.conf(5)</a> for a description of the <code>CMD_TIMEOUT</code>,
 <code>CMD_LSTRIP</code>, or <code>SERVER_LOG</code> options.</p></div>
@@ -872,7 +873,7 @@ restored from <code>SERVER_JAR.ccback</code> if the download fails.</p></div>
 <p>
         Edit <em>file</em> in the server directory.
 </p>
-<div class="paragraph"><p>If &lt;file&gt; does not exist and has a .dat extension, and if <a href="vinbt.1.html">vinbt(1)</a>
+<div class="paragraph"><p>If <em>file</em> does not exist and has a .dat extension, and if <a href="vinbt.1.html">vinbt(1)</a>
 is installed,
 edit the first file of that name found anywhere within the world directory
 using vinbt.</p></div>
@@ -883,12 +884,12 @@ of these templates:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-$CLICRAFT_CONFIG/action.d/action.sh.example
+<code>$CLICRAFT_CONFIG/action.d/action.sh.example</code>
 </p>
 </li>
 <li>
 <p>
-$CLICRAFT_CONFIG/action.d/action-override.sh.example
+<code>$CLICRAFT_CONFIG/action.d/action-override.sh.example</code>
 </p>
 </li>
 </ul></div>
@@ -1078,7 +1079,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-01 09:04:05 UTC
+Last updated 2014-03-07 09:03:45 UTC
 </div>
 </div>
 </body>
