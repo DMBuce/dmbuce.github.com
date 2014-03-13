@@ -973,6 +973,45 @@ created.</p></div>
 </dl></div>
 </dd>
 <dt class="hdlist1">
+<strong>restart</strong> [options]
+</dt>
+<dd>
+<p>
+        Restarts the server. This action script overrides clicraft&#8217;s default
+        restart script to provide additional functionality through the options
+        described below.
+</p>
+<div class="paragraph"><p>Command line options:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>-c, --if-crashed</strong>
+</dt>
+<dd>
+<p>
+        Do nothing if the server is running. This option requires <code>lsof</code> in order
+        to work correctly.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-e, --if-empty</strong>
+</dt>
+<dd>
+<p>
+        Do nothing if there are players online. This options requires that the <code>list</code>
+        entry in the regex database is configured correctly.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-w, --warn</strong>
+</dt>
+<dd>
+<p>
+        This option is the same as the one documented in <a href="clicraft.1.html">clicraft(1)</a>.
+</p>
+</dd>
+</dl></div>
+</dd>
+<dt class="hdlist1">
 <strong>restore</strong> [file.zip] [files]
 </dt>
 <dd>
@@ -1135,7 +1174,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-07 09:03:45 UTC
+Last updated 2014-03-13 08:03:51 UTC
 </div>
 </div>
 </body>
