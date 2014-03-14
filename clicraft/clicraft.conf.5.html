@@ -789,9 +789,8 @@ The <code>$CLICRAFT_CONFIG</code> environment variable
 </ul></div>
 <div class="paragraph"><p>If <code>$XDG_CONFIG_HOME</code> is not set in your environment, clicraft uses
 <code>~/.config</code> instead. Clicraft searches the directories above and uses the
-first one it finds for <code>$CLICRAFT_CONFIG</code>. If <code>$CLICRAFT_CONFIG</code> is empty and
-was not given by the <code>--config</code> option or <code>$CLICRAFT_CONFIG</code> environment
-variable, clicraft populates it with default config files from <code>/usr/local/etc/clicraft</code>.</p></div>
+first one it finds for <code>$CLICRAFT_CONFIG</code>. If the <code>$CLICRAFT_CONFIG</code> directory
+is empty, clicraft populates it with default config files from <code>/usr/local/etc/clicraft</code>.</p></div>
 <div class="paragraph"><p>The format for <code>clicraft.conf</code> is bash, so configuration options take the form
 <code>OPTION="value"</code> (with no whitespace on either side of the equals sign (<code>=</code>)).</p></div>
 <div class="paragraph"><p>This file is sourced from within clicraft before the default values are set,
@@ -1036,7 +1035,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-07 09:03:45 UTC
+Last updated 2014-03-14 08:03:59 UTC
 </div>
 </div>
 </body>

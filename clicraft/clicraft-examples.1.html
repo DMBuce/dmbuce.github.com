@@ -758,28 +758,24 @@ clicraft-examples(1) Manual Page
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><a href="clicraft.1.html">clicraft(1)</a> provides example action scripts that can be used and
-modified to extend clicraft&#8217;s functionality. To install one of these
-scripts, copy the
-relevant .sh.example script in <code>$CLICRAFT_CONFIG/action.d</code> to a file with a .sh
-extension. For example:</p></div>
+modified to extend clicraft&#8217;s functionality. To set up one of these scripts,
+use the <code>clicraft enable</code> command:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>cd $CLICRAFT_CONFIG/action.d
-cp backup.sh.example backup.sh</code></pre>
+<pre><code>clicraft enable backup</code></pre>
 </div></div>
-<div class="paragraph"><p>Alternately, you can symlink to the .sh.example. Using this method, future
-updates to example action scripts will be reflected in the actions that
-clicraft uses, but any customizations you make to the scripts will be lost
-when you update.</p></div>
+<div class="paragraph"><p>This will set up a symlink to the action script so that it&#8217;s visible to
+clicraft. If you installed clicraft by compiling it instead of through your
+system&#8217;s package manager, and if you also plan on editing the script, it&#8217;s
+recommended to use the <code>--copy</code> flag when enabling it so that your changes
+aren&#8217;t overwritten the next time you upgrade.</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>cd $CLICRAFT_CONFIG/action.d
-ln -s backup.sh.example backup.sh</code></pre>
+<pre><code>clicraft enable --copy backup</code></pre>
 </div></div>
 <div class="paragraph"><p>An action script created using either of the two methods above will get
 executed when running <code>clicraft backup</code>.</p></div>
-<div class="paragraph"><p>For more info on action scripts or for the value of <code>$CLICRAFT_CONFIG</code>, see
-<a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
+<div class="paragraph"><p>For more info on action scripts, see <a href="clicraft.conf.5.html">clicraft.conf(5)</a>.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -1174,7 +1170,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-13 08:03:51 UTC
+Last updated 2014-03-14 08:03:59 UTC
 </div>
 </div>
 </body>
