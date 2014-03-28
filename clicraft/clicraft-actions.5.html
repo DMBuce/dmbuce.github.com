@@ -1162,7 +1162,7 @@ variants) in action scripts you plan to publish.</p></div>
 <dd>
 <p>
         Prints the value of the variable corresponding to <em>string</em> to stdout. The
-        variable to use is determined using <code>`str2var 'string' ['case']`</code>.
+        variable to use is determined using <code>`str2var <em>string</em> [<em>case</em>]\`</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1172,12 +1172,12 @@ variants) in action scripts you plan to publish.</p></div>
 <p>
         Print the directory for <em>dimension</em> to stdout.
 </p>
-<div class="paragraph"><p>If <code>level-name=world</code> in <code>server.properties</code>, <code>`dimdir overworld`</code> will
+<div class="paragraph"><p>If <code>level-name=world</code> in <code>server.properties</code>, <code>`dimdir overworld\`</code> will
 output <code>SERVER_DIR/world</code>. If <code>SERVER_TYPE</code> is set to "minecraft",
-<code>`dimdir nether`</code> and <code>`dimdir end`</code> will output
+<code>`dimdir nether\`</code> and <code>`dimdir end\`</code> will output
 <code>SERVER_DIR/world/DIM-1</code> and <code>SERVER_DIR/world/DIM1</code>, respectively, or
 <code>SERVER_DIR/world_nether</code> and <code>SERVER_DIR/world_the_end</code> for other values of
-<code>SERVER_TYPE</code>. For other values of <em>dimension</em>, <code>`dimdir foo`</code> will
+<code>SERVER_TYPE</code>. For other values of <em>dimension</em>, <code>`dimdir foo\`</code> will
 output <code>SERVER_DIR/world_foo</code>.</p></div>
 <div class="paragraph"><p>Returns nonzero if <code>level-name</code> can&#8217;t be found in <code>server.properties</code>.</p></div>
 <div class="paragraph"><p>This function might be better understood by examining example output from an
@@ -1342,7 +1342,7 @@ DMBuce &lt;<a href="mailto:dmbuce@gmail.com">dmbuce@gmail.com</a>&gt;
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-07 09:03:45 UTC
+Last updated 2014-03-28 08:03:34 UTC
 </div>
 </div>
 </body>
