@@ -892,9 +892,9 @@ distributions that packages are available for.</p></div>
 </dt>
 <dd>
 <p>
-        Debian packages are unavailable since GitHub&#8217;s deprecation of project
-        downloads. You can try to create one yourself using <code>make deb</code>, then
-        install it with <code>dpkg -i clicraft_*_all.deb</code>.
+        A .deb for clicraft can be created in the dist/ directory using
+        <code>autoconf &amp;&amp; ./configure &amp;&amp; make deb</code>. It can then be installed with
+        <code>dpkg -i</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -902,10 +902,9 @@ distributions that packages are available for.</p></div>
 </dt>
 <dd>
 <p>
-        Clicraft is currently not available in rpm format, but it just so happens
-        that the developer knows how to write spec files for building rpms. If you
-        are interested in installing clicraft on a RHEL-based distribution, please
-        file a feature request, and I&#8217;ll do my best to accomodate you.
+        An rpm for clicraft can be created in the dist/ directory using
+        <code>autoconf &amp;&amp; ./configure &amp;&amp; make rpm</code>. It can then be installed with
+        <code>rpm -i</code> or <code>yum localinstall</code>.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -1064,7 +1063,7 @@ and configuration, refer to the <a href="clicraft.1.html">clicraft(1)</a> and
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-01-24 09:03:36 UTC
+Last updated 2014-04-01 08:03:47 UTC
 </div>
 </div>
 </body>
