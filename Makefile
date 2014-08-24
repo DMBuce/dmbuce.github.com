@@ -43,6 +43,8 @@ mcexplore: $(builddir)
 .PHONY: mtg
 mtg: $(builddir)
 	./update-mtg.sh $(builddir)
-	cp $(builddir)/$@/*/*.html $@/
+	cp $(builddir)/$@/*.html $@/
+	cp $(builddir)/$@/edh/*.html $@/edh
+	cp $(builddir)/$@/leg/*.html $@/leg
 	
 # vim: set ft=make:
