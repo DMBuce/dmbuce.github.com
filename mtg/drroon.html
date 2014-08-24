@@ -1,0 +1,1398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article" style="max-width:960px">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_doctor_roon_judoon_time_lord">Doctor Roon, Judoon Time Lord</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>A Doctor Who themed Roon flicker deck. Every card was chosen to represent a character or item from the show.</p></div>
+<div class="paragraph"><p>Each card has an explanation as to what it represents next to it. If I end up making inserts for the deck, the taglines in the parentheses are what I plan on putting on them.</p></div>
+<div class="paragraph"><p><strong>General</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Roon%20of%20the%20Hidden%20Realm">Roon of the Hidden Realm</a> - Roon (Judoon Time Lord)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Flicker</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Venser,%20the%20Sojourner">Venser, the Sojourner</a> - The Doctor (Doctor who?)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Conjurer&#8217;s%20Closet">Conjurer&#8217;s Closet</a> - Tardis (It&#8217;s bigger on the inside)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Deadeye%20Navigator">Deadeye Navigator</a> - Captain Jack Harkness (Don&#8217;t start!)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mimic%20Vat">Mimic Vat</a> - The Flesh
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mistmeadow%20Witch">Mistmeadow Witch</a> - Siren
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Parallax%20Wave">Parallax Wave</a> - Crack in the Universe
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Protection</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Oak%20Street%20Innkeeper">Oak Street Innkeeper</a> - Martha Jones
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Tawnos&#8217;s%20Coffin">Tawnos&#8217;s Coffin</a> - Pandorica (The perfect prison)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Stonehorn%20Dignitary">Stonehorn Dignitary</a> - Judoon (Sco po tro no fro jo ko fo to do)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Imposing%20Sovereign">Imposing Sovereign</a> - Donna Noble (She might not be royalty but she <strong>is</strong> Noble)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Kami%20of%20Twisted%20Reflection">Kami of Twisted Reflection</a> - Cassandra (The last human)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Healer%20of%20the%20Pride">Healer of the Pride</a> - Novice Hame
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Aggression</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Traveler&#8217;s%20Cloak">Traveler&#8217;s Cloak</a> - The Doctor&#8217;s Trench Coat
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Darksteel%20Plate">Darksteel Plate</a> - Captain Jack Harkness&#8217;s Trench Coat
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Whispersilk%20Cloak">Whispersilk Cloak</a> - Perception Filter
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Avenger%20of%20Zendikar">Avenger of Zendikar</a> - Androzani Forest
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Hornet%20Queen">Hornet Queen</a> - Vespiform
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mirror%20Entity">Mirror Entity</a> - Gangers
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Karn,%20Silver%20Golem">Karn, Silver Golem</a> - Strax
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Utility</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Illusionist&#8217;s%20Bracers">Illusionist&#8217;s Bracers</a> - Rassilon&#8217;s Gauntlet
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Strionic%20Resonator">Strionic Resonator</a> - Special Straw (it adds more fizz)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Lighthouse%20Chronologist">Lighthouse Chronologist</a> - Time Lord
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Distorting%20Lens">Distorting Lens</a> - 3D Glasses
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Draw</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Staff%20of%20Domination">Staff of Domination</a> - Sonic Screwdriver (It&#8217;s terrible with wood)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Crusader%20of%20Odric">Crusader of Odric</a> - Amy Pond (The girl who waited)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=My%20First%20Tome">My First Tome</a> - Blue Diary (Spoilers!)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Carven%20Caryatid">Carven Caryatid</a> - Jabe (of the Forest of Cheem)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Drelnoch">Drelnoch</a> - Ood (He lives to serve)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Overwhelming%20Intellect">Overwhelming Intellect</a> - Ood Brain
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Coercive%20Portal">Coercive Portal</a> - Untempered Schism (Some would be inspired, some would run away, and some would go mad)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Teferi&#8217;s%20Puzzle%20Box">Teferi&#8217;s Puzzle Box</a> - Paradox Machine
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Tutors</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Merchant%20Scroll">Merchant Scroll</a> - Psychic Paper (It shows them what you want them to see)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Kithkin%20Harbinger">Kithkin Harbinger</a> - River Song (Hello sweetie)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mangara&#8217;s%20Tome">Mangara&#8217;s Tome</a> - Journal of Impossible Things
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Recursion</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sun%20Titan">Sun Titan</a> - Rory Williams (The Last Centurion)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mnemonic%20Wall">Mnemonic Wall</a> - The Doctor&#8217;s Timestream
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Removal</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sundial%20of%20the%20Infinite">Sundial of the Infinite</a> - Fob Watch
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Terastodon">Terastodon</a> - Dinosaur in Space
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Duplicant">Duplicant</a> - Cyberman
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sunblast%20Angel">Sunblast Angel</a> - Weeping Angel (Don&#8217;t blink, don&#8217;t even blink)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Equilibrium">Equilibrium</a> - Adipose
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Phyrexian%20Ingester">Phyrexian Ingester</a> - Empress of Racnoss
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Path%20to%20Exile">Path to Exile</a> - Dalek (Exterminate)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Return%20to%20Dust">Return to Dust</a> - Dalek (EXTERMINATE)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Krosan%20Grip">Krosan Grip</a> - Dalek (EXTEERRRMIIINAAAAATE)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Soul%20Seizer">Soul Seizer</a> - Vashta Nerada
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mystic%20Snake">Mystic Snake</a> - Memory Worm
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Supreme%20Verdict">Supreme Verdict</a> - Exploding Tardis
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Planar%20Cleansing">Planar Cleansing</a> - Reality Bomb
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Wrath%20of%20God">Wrath of God</a> - Eye of Harmony
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Nevinyrral&#8217;s%20Disk">Nevinyrral&#8217;s Disk</a> - Jammie Dodger
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Mana</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Veteran%20Explorer">Veteran Explorer</a> - Mickey Smith
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sylvan%20Ranger">Sylvan Ranger</a> - Rose Tyler
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Prophet%20of%20Kruphix">Prophet of Kruphix</a> - Clara Oswald (the impossible girl)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Yavimaya%20Elder">Yavimaya Elder</a> - Face of Boe (he&#8217;s watched the universe grow old)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Cultivate">Cultivate</a> - Tennant&#8217;s Severed Hand (not a fightin' hand)
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Darksteel%20Ingot">Darksteel Ingot</a> - White Point Star
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sol%20Ring">Sol Ring</a> - Signet Ring
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Doubling%20Cube">Doubling Cube</a> - Home Box
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Lands</strong></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Command%20Tower">Command Tower</a> - Grave of the Doctor
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Treva&#8217;s%20Ruins">Treva&#8217;s Ruins</a> - Cardiff Castle
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Seaside%20Citadel">Seaside Citadel</a> - Arcadia
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Bant%20Panorama">Bant Panorama</a> - Gallifrey
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Opal%20Palace">Opal Palace</a> - Midnight
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Glacial%20Fortress">Glacial Fortress</a> - Winter Witch Canyon
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Azorius%20Chancery">Azorius Chancery</a> - Panopticon
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Tropical%20Island">Tropical Island</a> - Swimming Pool
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Simic%20Growth%20Chamber">Simic Growth Chamber</a> - New New York Hospital Basement
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Selesnya%20Sanctuary">Selesnya Sanctuary</a>
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Temple%20of%20the%20False%20God">Temple of the False God</a> - Rings of Akhaten
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Homeward%20Path">Homeward Path</a> - Superphone
+</p>
+</li>
+<li>
+<p>
+<a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mystifying%20Maze">Mystifying Maze</a> - 1980&#8217;s Hotel
+</p>
+</li>
+<li>
+<p>
+9x <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Forest">Forest</a>
+</p>
+</li>
+<li>
+<p>
+9x <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Island">Island</a>
+</p>
+</li>
+<li>
+<p>
+9x <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Plains">Plains</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong><strong>Alterboard</strong></strong></p></div>
+<div class="paragraph"><p>Cards that have effects are either really powerful or match really well with something from the show, but whose art is all wrong. If I start altering the deck these will be the first.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Genesis Ark - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Rite%20of%20Replication">Rite of Replication</a>
+</p>
+</li>
+<li>
+<p>
+Fez - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Jester&#8217;s%20Cap">Jester&#8217;s Cap</a>
+</p>
+</li>
+<li>
+<p>
+Sarah Jane Smith - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Seedborn%20Muse">Seedborn Muse</a>
+</p>
+</li>
+<li>
+<p>
+K-9 - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Solemn%20Simalacrum">Solemn Simalacrum</a>
+</p>
+</li>
+<li>
+<p>
+Star Whale - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sky%20Swallower">Sky Swallower</a>
+</p>
+</li>
+<li>
+<p>
+Vortex Manipulator - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Flickerform">Flickerform</a>
+</p>
+</li>
+<li>
+<p>
+Weeping Angel - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Flickerwisp">Flickerwisp</a>
+</p>
+</li>
+<li>
+<p>
+Cybermen - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Phyrexian%20Metamorph">Phyrexian Metamorph</a>
+</p>
+</li>
+<li>
+<p>
+Matt Smith - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Magus%20of%20the%20Disk">Magus of the Disk</a>
+</p>
+</li>
+<li>
+<p>
+The Silence - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Geralf&#8217;s%20Mindcrusher">Geralf&#8217;s Mindcrusher</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong><strong>Cuts</strong></strong></p></div>
+<div class="paragraph"><p>Cards I had to cut or stuff from the show that I found a better match for.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Albert Einstein - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Presence%20of%20the%20Master">Presence of the Master</a>, might need to make a cut for this.
+</p>
+</li>
+<li>
+<p>
+Perception Filter - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Swiftfoot%20Boots">Swiftfoot Boots</a> got beat out by the Cloak.
+</p>
+</li>
+<li>
+<p>
+Dalek - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Hoverguard%20Sweepers">Hoverguard Sweepers</a> don&#8217;t quite look right.
+</p>
+</li>
+<li>
+<p>
+Rose Tyler - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Karmic%20Guide">Karmic Guide</a> is good but Sylvan Ranger is better.
+</p>
+</li>
+<li>
+<p>
+Amy Pond - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Fathom%20Mage">Fathom Mage</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Archangel%20of%20Thune">Archangel of Thune</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Angel%20of%20Finality">Angel of Finality</a> were all good choices but Crusader of Odric won out over them.
+</p>
+</li>
+<li>
+<p>
+River Song - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Archangel%20of%20Strife">Archangel of Strife</a> didn&#8217;t quite win out over Kithkin Harbinger.
+</p>
+</li>
+<li>
+<p>
+Face of Bo - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Godhead%20of%20Awe">Godhead of Awe</a>, though its name fits, didn&#8217;t look the part like Yavimaya Elder did.
+</p>
+</li>
+<li>
+<p>
+Jammie Dodger - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Mark%20of%20Asylum">Mark of Asylum</a> looks closer but Nevin&#8217;s Disk has a better effect. As a bonus, Magus of the Disk gains more meaning if I want to slot it in some day.
+</p>
+</li>
+<li>
+<p>
+Jabe of the Forest of Cheem - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Lignify">Lignify</a> has the effect and <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Ambassador%20Oak">Ambassador Oak</a> has the name, but Carven Caryatid has the figure.
+</p>
+</li>
+<li>
+<p>
+Vashta Nerada - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Repel%20the%20Darkness">Repel the Darkness</a> looked right but Ghastly Haunting is more potent.
+</p>
+</li>
+<li>
+<p>
+Weeping Angel - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Blinding%20Angel">Blinding Angel</a> has too much movement to be a statue. <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Angel%20of%20Serenity">Angel of Serenity</a> is more powerful in the deck and <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Angel%20of%20Flight%20Alabaster">Angel of Flight Alabaster</a> has the right art, but Sunblast Angel is more thematic.
+</p>
+</li>
+<li>
+<p>
+Martha Jones - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Cathedral%20Sanctifier">Cathedral Sanctifier</a> fit better since Martha is a nurse, but the effect was too weak compared to Oak Street Innkeeper.
+</p>
+</li>
+<li>
+<p>
+The Silence - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Silent-Chant%20Zubera">Silent-Chant Zubera</a>'s effect was too weak, so I&#8217;m waiting until I can alter Geralf&#8217;s Mindcrusher.
+</p>
+</li>
+<li>
+<p>
+Wibbley Wobbley, Timey Wimey - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Cast%20Through%20Time">Cast Through Time</a> didn&#8217;t have enough stuff to use it with.
+</p>
+</li>
+<li>
+<p>
+Silurian - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sakashima&#8217;s%20Student">Sakashima&#8217;s Student</a> was too much $$$ for not enough benefit.
+</p>
+</li>
+<li>
+<p>
+The Moment - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Austere%20Command">Austere Command</a> and <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Scourglass">Scourglass</a> were the best I could come up with and I needed to cut one more card.
+</p>
+</li>
+<li>
+<p>
+River&#8217;s Lipstick - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Acidic%20Slime">Acidic Slime</a> is too much of a stretch
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Shitboard</strong></p></div>
+<div class="paragraph"><p>Stuff from the show I couldn&#8217;t find a good match for. The cards listed were candidates, but not particularly good ones.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Minotaur - ??? (praise him)
+</p>
+</li>
+<li>
+<p>
+Wilfred Mott - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Rasputin%20Dreamweaver">Rasputin Dreamweaver</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Somnomancer">Somnomancer</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Wingcrafter">Wingcrafter</a>
+</p>
+</li>
+<li>
+<p>
+Gwen Cooper - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Eternal%20Witness">Eternal Witness</a>
+</p>
+</li>
+<li>
+<p>
+Madame Vastra - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Fierce%20Empath">Fierce Empath</a>
+</p>
+</li>
+<li>
+<p>
+Jenny Flint - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Blade%20Splicer">Blade Splicer</a>
+</p>
+</li>
+<li>
+<p>
+Gallifrey Pocket Universe - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Shimmer">Shimmer</a>
+</p>
+</li>
+<li>
+<p>
+Celery - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Thousand-Year%20Elixir">Thousand-Year Elixir</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Healing%20Leaves">Healing Leaves</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Vitality%20Charm">Vitality Charm</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Wall%20of%20Blossoms">Wall of Blossoms</a>
+</p>
+</li>
+<li>
+<p>
+Bowtie
+</p>
+</li>
+<li>
+<p>
+Scarf
+</p>
+</li>
+<li>
+<p>
+Regeneration - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Asceticism">Asceticism</a>
+</p>
+</li>
+<li>
+<p>
+Hallucinogenic Lipstick - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Perplexing%20Chimera">Perplexing Chimera</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Riptide%20Chimera">Riptide Chimera</a>
+</p>
+</li>
+<li>
+<p>
+Satan - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Overbeing%20of%20Myth">Overbeing of Myth</a>
+</p>
+</li>
+<li>
+<p>
+Rassilon - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Sphinx%20of%20Uthuun">Sphinx of Uthuun</a>
+</p>
+</li>
+<li>
+<p>
+Sontarans
+</p>
+</li>
+<li>
+<p>
+Multi-Form - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Body%20Double">Body Double</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Cryptoplasm">Cryptoplasm</a>, <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Shapesharer">Shapesharer</a>
+</p>
+</li>
+<li>
+<p>
+Slitheen
+</p>
+</li>
+<li>
+<p>
+Toclafane - <a href="http://gatherer.wizards.com/pages/card/details.aspx?name=Aura%20Shards">Aura Shards</a>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2014-08-24 04:02:19 UTC
+</div>
+</div>
+</body>
+</html>
