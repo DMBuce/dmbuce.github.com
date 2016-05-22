@@ -6,9 +6,7 @@ cd "$1"
 pwd
 cd noedia/setting
 
-git status
 git pull
 make clean
-./mkmenu
 make html
 
