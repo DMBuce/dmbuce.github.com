@@ -8,5 +8,6 @@ cd noedia/setting
 
 git pull
 make clean
+./mkmenu
 make html
 
