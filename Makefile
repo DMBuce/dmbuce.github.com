@@ -13,7 +13,7 @@ builddir = /tmp/build
 all: index.html 404.html
 
 .PHONY: everything
-everything: all norbert clicraft mcexplore mtg
+everything: all norbert clicraft mcexplore mtg noedia
 
 clean:
 	rm -f index.html 404.html
@@ -46,5 +46,9 @@ mtg: $(builddir)
 	cp $(builddir)/$@/*.html $@/
 	cp $(builddir)/$@/edh/*.html $@/edh
 	cp $(builddir)/$@/leg/*.html $@/leg
-	
+
+.PHONY: noedia
+noedia: $(builddir)
+	./update-noedia.sh $(builddir)
+
 # vim: set ft=make:
