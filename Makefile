@@ -50,5 +50,8 @@ mtg: $(builddir)
 .PHONY: noedia
 noedia: $(builddir)
 	./update-noedia.sh $(builddir)
+	cp $(builddir)/$@/*.html $@/
+	cp $(builddir)/$@/*.css $@/
+	cp $(builddir)/$@/*.png $@/
 
 # vim: set ft=make:
