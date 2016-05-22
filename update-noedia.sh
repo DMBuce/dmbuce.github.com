@@ -8,5 +8,5 @@ cd noedia/setting
 
 git pull
 make clean
-make html
+make
 
