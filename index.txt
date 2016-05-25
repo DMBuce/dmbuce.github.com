@@ -7,6 +7,7 @@ This is my home page. Here's some links:
 * link:norbert[Norbert Home Page]
 * link:mcexplore/mcexplore.1.html[mcexplore Man Page]
 * link:mtg[MTG Decklists]
+* link:noedia/home.html[Noedia D&D Campaign Setting]
 * link:https://github.com/DMBuce[My GitHub Page]
 
 /////
