@@ -53,7 +53,7 @@ noedia: $(builddir)
 	cp $(builddir)/$@/setting/*.html $@/
 	cp $(builddir)/$@/setting/*.css $@/
 	cp $(builddir)/$@/setting/*.png $@/
-	mkdir -p img thumb
+	mkdir -p $@/img $@/thumb
 	cp $(builddir)/$@/setting/img/* $@/img/
 	cp $(builddir)/$@/setting/thumb/* $@/thumb/
 
