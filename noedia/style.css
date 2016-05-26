@@ -356,11 +356,13 @@ body {
 	text-align: center;
 }
 
+/*
 #content a img.thumb {
 	float: right;
 	margin: 5px;
 	border: 5px double #BF4040;
 }
+*/
 
 #content #footer img {
 	display: inline;
@@ -372,5 +374,9 @@ body {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+
+	float: right;
+	margin: 5px;
+	border: 5px double #BF4040;
 }
 
