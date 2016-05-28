@@ -275,6 +275,15 @@ body {
 	background-color: #ffdd66;
 }
 
+#content pre {
+	border: 3px ridge #FFCC33;
+	background-color: #ffdd66;
+	margin-top: 1.0em;
+	margin-bottom: 1.0em;
+	/* margin-left: 2.0em;
+	margin-right: 2.0em; */
+}
+
 #content th:first-child, #content tr td:first-child p {
 	text-align: left;
 	text-indent: 0.5em;
