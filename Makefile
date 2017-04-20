@@ -13,7 +13,7 @@ builddir = /tmp/build
 all: index.html 404.html
 
 .PHONY: everything
-everything: all norbert clicraft mcexplore mtg noedia
+everything: all norbert clicraft mcexplore mtg noedia dmtools
 
 clean:
 	rm -f index.html 404.html
@@ -57,5 +57,10 @@ noedia: $(builddir)
 	mkdir -p $@/img $@/thumb
 	cp $(builddir)/$@/setting/img/* $@/img/
 	cp $(builddir)/$@/setting/thumb/* $@/thumb/
+
+.PHONY: dmtools
+dmtools: $(builddir)
+	./update-dmtools.sh $(builddir)
+	cp $(builddir)/$@/* $@/
 
 # vim: set ft=make:
