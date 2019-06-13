@@ -179,7 +179,6 @@ function translateLatin2Dwarven() {
 
 	var convarr = dwarven;
 	if (document.getElementById("html").checked) {
-		console.log(document.getElementById("html").value);
 		convarr = dwarvenhtml;
 	}
 
@@ -216,7 +215,6 @@ function translateLatin2Druidic() {
 
 	var convarr = druidic;
 	if (document.getElementById("html").checked) {
-		console.log(document.getElementById("html").value);
 		convarr = druidichtml;
 	}
 
@@ -247,7 +245,7 @@ function translateLatin2Druidic() {
 	}
 
 	// replace the rest
-	while (result = /[ abcdefghilmnopqrstuz]/g.exec(str)) {
+	while (result = /[ abcdefghilmnopqrstuwyz]/g.exec(str)) {
 		str = str.replace(result, convarr[result]);
 	}
 
