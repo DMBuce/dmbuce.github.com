@@ -1,0 +1,34 @@
+---
+layout: post
+last_modified_at: 2019-11-25 01:06:56 UTC
+title: "Articles"
+excerpt: "A blog about Minecraft, Dungeons and Dragons, and Magic: The Gathering."
+sitemap:
+  exclude: 'yes'
+---
+{% for post in paginator.posts %}
+	<a href="{{ post.url }}" title="{{ post.title }}"><h4>{{ post.title }}</h4></a>
+	<em>{{ post.date | date_to_string }}</em>
+	{{ post.excerpt }}
+
+	...
+
+{% endfor %}
+
+<!-- pagination -->
+{% if paginator.total_pages > 1 %}
+<nav>
+	<ul>Page:
+	{% for page in (1..paginator.total_pages) %}
+		{% if page == paginator.page %}
+			<li>{{ page }}</li>
+		{% elsif page == 1 %}
+			<li><a href="/blog">{{ page }}</a></li>
+		{% else %}
+			<li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+</nav>
+{% endif %}
+
