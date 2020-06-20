@@ -10,7 +10,7 @@ builddir = /tmp/build
 	asciidoc -a toc -a icons -a max-width=960px $<
 
 .PHONY: all
-all: index.html 404.html
+all: 404.html
 
 .PHONY: everything
 everything: all norbert clicraft mcexplore mtg noedia dmtools

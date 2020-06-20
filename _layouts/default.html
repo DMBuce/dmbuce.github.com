@@ -1,0 +1,38 @@
+---
+title: "DMBuce"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ page.title }} - {{ layout.title }}</title>
+	<link rel="stylesheet" type="text/css" href="/blog/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/blog/css/highlight.css">
+	<meta name="description" content="{{ page.excerpt | strip_html | strip }}">
+</head>
+
+<body>
+
+<header>
+	<h1>{{ layout.title }}</h1>
+
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/blog">Blog</a></li>
+		</ul>
+	</nav>
+</header>
+
+<main>
+{{ content }}
+</main>
+
+<footer>
+<p>Copyright &copy; DMBuce</p>
+{% if page.last_modified_at %}
+<p>Last updated <time datetime="{{ page.last_modified_at | date: '%F' }}">{{ page.last_modified_at | date_to_string }}</time></p>
+{% endif %}
+</footer>
+
+</body>
+</html>
