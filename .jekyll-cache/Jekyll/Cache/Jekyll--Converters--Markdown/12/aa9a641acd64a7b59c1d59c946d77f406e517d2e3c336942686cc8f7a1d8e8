@@ -1,0 +1,203 @@
+I"7B<p>I’d like to share a couple of ways to use <code class="language-plaintext highlighter-rouge">grep</code> that I never would have thought to do myself until I came across them.
+I’ll do this using a couple of hardening guidelines from the CIS CentOS Linux 7 Benchmark as examples.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#example-use-cases" id="markdown-toc-example-use-cases">Example Use Cases</a></li>
+  <li><a href="#check-if-a-command-has-output" id="markdown-toc-check-if-a-command-has-output">Check if a Command has Output</a></li>
+  <li><a href="#exclude-files" id="markdown-toc-exclude-files">Exclude Files</a></li>
+  <li><a href="#final-script" id="markdown-toc-final-script">Final Script</a></li>
+  <li><a href="#footnotes" id="markdown-toc-footnotes">Footnotes</a></li>
+</ol>
+
+<h3 id="example-use-cases">Example Use Cases</h3>
+
+<p>The CIS CentOS Linux 7 Benchmark is a document published by the Center for Internet Security (CIS) with guidance on hardening CentOS 7.
+Towards the end of version 2.2.0 of the document is recommendation 6.1.12,
+“Ensure no ungrouped files or directories exist”.
+It suggests using the following command to check for files and directories that have a group ID that isn’t configured on the system:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> | <span class="nb">awk</span> <span class="o">{</span><span class="s1">'if (NR!=1) print $6'</span><span class="o">}</span> | xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-nogroup</span>
+</code></pre></div></div>
+
+<p>The next recommendation is 6.1.13, “Audit SUID executables”.
+It suggests reviewing SUID programs installed on a system with the following command,
+which searches each local filesystem that’s mounted and prints any SUID files it finds.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> | <span class="nb">awk</span> <span class="o">{</span><span class="s1">'if (NR!=1) print $6'</span><span class="o">}</span> | xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-type</span> f <span class="nt">-perm</span> <span class="nt">-4000</span>
+</code></pre></div></div>
+
+<p>Suppose we want to script these and other tasks from the benchmark.
+Let’s start by putting the commands into a script and breaking up the pipelines across several lines:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># 6.1.12 ensure no ungrouped files or directories exist (scored)</span>
+<span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-nogroup</span>
+
+<span class="c"># 6.1.13 audit suid executables (not scored)</span>
+<span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-type</span> f <span class="nt">-perm</span> <span class="nt">-4000</span>
+</code></pre></div></div>
+
+<p>I find this much easier to read,
+but I suppose that’s down to personal preference so your mileage may vary.</p>
+
+<h3 id="check-if-a-command-has-output">Check if a Command has Output</h3>
+
+<p>Suppose that we want our script to exit with an error if it finds any ungrouped files for requirement 6.1.12.
+That way, the admin running the script can fix the group ownership on the files,
+and re-run the script to validate that there are no longer any ungrouped files on the system.</p>
+
+<p>Perhaps the most straightforward way to do this is by capturing the pipeline’s output in a variable:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 6.1.12 ensure no ungrouped files or directories exist (scored)</span>
+<span class="nv">ungroupedfiles</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-nogroup</span>
+<span class="si">)</span><span class="s2">"</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$ungroupedfiles</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$ungroupedfiles</span><span class="s2">"</span>
+	<span class="nb">echo</span> <span class="s2">"CIS 6.1.12: Found ungrouped files or directories. Aborting."</span> <span class="o">&gt;</span>&amp;2
+	<span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>This gets the job done, but the user doesn’t see any output until after the pipeline completes.
+We can give more immediate feedback by checking for output directly in the pipeline with a simple <code class="language-plaintext highlighter-rouge">grep</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 6.1.12 ensure no ungrouped files or directories exist (scored)</span>
+<span class="k">if </span><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-nogroup</span> <span class="se">\</span>
+	| <span class="nb">grep</span> <span class="nb">.</span>
+<span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"CIS 6.1.12: Found ungrouped files or directories. Aborting."</span> <span class="o">&gt;</span>&amp;2
+	<span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>This way, the user sees the ungrouped files as soon as <code class="language-plaintext highlighter-rouge">find</code> detects them.
+The <code class="language-plaintext highlighter-rouge">grep .</code> command will match and print almost any line of output.
+The one caveat is that it won’t match or print empty lines.
+This isn’t a problem in our case since <code class="language-plaintext highlighter-rouge">find</code>’s output doesn’t contain any empty lines<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+
+<p>Since the return status of a pipeline is the exit status of its last command,
+and since grep’s exit status indicates whether it found a match,
+we can test the whole pipeline directly with our <code class="language-plaintext highlighter-rouge">if</code> statement to determine if the pipeline had any output or not.</p>
+
+<h3 id="exclude-files">Exclude Files</h3>
+
+<p>After verifying the SUID files that the script outputs for requirement 6.1.13,
+you might want to omit some or all of them in future runs of the script so that you don’t have to re-evaluate them.
+In that case, it would be useful to have an exclude file that we can list such files in.</p>
+
+<p>Let’s implement that with a <code class="language-plaintext highlighter-rouge">grep</code> command tacked onto the end of the pipeline:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># define exclude file</span>
+<span class="nv">excludefile</span><span class="o">=</span>/usr/local/etc/suid-executables.exclude
+
+<span class="c"># 6.1.13 audit suid executables (not scored)</span>
+<span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-type</span> f <span class="nt">-perm</span> <span class="nt">-4000</span> <span class="se">\</span>
+	| <span class="nb">grep</span> <span class="nt">-vFxf</span> <span class="s2">"</span><span class="nv">$excludefile</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">grep</code> command we added uses the entries in our exclude file (<code class="language-plaintext highlighter-rouge">-f</code>) as strings (<code class="language-plaintext highlighter-rouge">-F</code>) to match whole lines (<code class="language-plaintext highlighter-rouge">-x</code>) in the pipeline’s output,
+and prints any lines that don’t match (<code class="language-plaintext highlighter-rouge">-v</code>).
+In other words, it will print anything except what we list in the exclude file.</p>
+
+<p>If we wanted to give the user more control over what’s excluded,
+we could use some variation of <code class="language-plaintext highlighter-rouge">grep -vEf</code> instead,
+which would let them use extended regular expressions to specify filename patterns.
+Then they could exclude entire directories,
+or files with a particular extension, for example.
+But the downside of doing things this way is that the user would have to escape special characters like periods (<code class="language-plaintext highlighter-rouge">.</code>) when they occur in file paths.</p>
+
+<p>One problem with the implementation of our script is that if <code class="language-plaintext highlighter-rouge">suid-executables.exclude</code> doesn’t exist,
+our script will error out with</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep: /usr/local/etc/suid-executables.exclude: No such file or directory
+xargs: find: terminated by signal 13
+</code></pre></div></div>
+
+<p>Let’s fix that by using <code class="language-plaintext highlighter-rouge">/dev/null</code> as our exclude file if <code class="language-plaintext highlighter-rouge">suid-executables.exclude</code> doesn’t exist.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># define exclude file</span>
+<span class="nv">excludefile</span><span class="o">=</span>/usr/local/etc/suid-executables.exclude
+<span class="k">if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$excludefile</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">excludefile</span><span class="o">=</span>/dev/null
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>With this in place, a nonexistent exclude file is equivalent to an empty one,
+and our script behaves the same in both cases.</p>
+
+<p>If we additionally want to exit with an error so that the admin can validate any unignored SUID files,
+we can just test the <code class="language-plaintext highlighter-rouge">grep</code> at the end of the pipeline again.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 6.1.13 audit suid executables (not scored)</span>
+<span class="k">if </span><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-type</span> f <span class="nt">-perm</span> <span class="nt">-4000</span> <span class="se">\</span>
+	| <span class="nb">grep</span> <span class="nt">-vFxf</span> <span class="s2">"</span><span class="nv">$excludefile</span><span class="s2">"</span>
+<span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"CIS 6.1.13: Found SUID system executables. Aborting."</span> <span class="o">&gt;</span>&amp;2
+	<span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<p>This can be a bit confusing since grep’s <code class="language-plaintext highlighter-rouge">-v</code> option inverts the sense of matching,
+but you can think of the conditional as saying “if grep found a line <em>not</em> included in <code class="language-plaintext highlighter-rouge">$excludefile</code>.”</p>
+
+<h3 id="final-script">Final Script</h3>
+
+<p>Remember earlier when I said that <code class="language-plaintext highlighter-rouge">find</code> doesn’t have empty lines in its output?
+Technically, it can if you have a file on your system with two consecutive newlines in its name.
+We can modify our script to handle this edge case by using <code class="language-plaintext highlighter-rouge">find -print0</code> combined with <code class="language-plaintext highlighter-rouge">grep -z</code>.
+Below is the full script with that change.</p>
+
+<p>TODO: Test <code class="language-plaintext highlighter-rouge">grep -z</code> on CentOS.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># 6.1.12 ensure no ungrouped files or directories exist (scored)</span>
+<span class="k">if </span><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-nogroup</span> <span class="nt">-print0</span> <span class="se">\</span>
+	| <span class="nb">grep</span> <span class="nt">-z</span> <span class="nb">.</span>
+<span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"CIS 6.1.12: Found ungrouped files or directories. Aborting."</span> <span class="o">&gt;</span>&amp;2
+	<span class="nb">exit </span>1
+<span class="k">fi</span>
+
+<span class="c"># define exclude file</span>
+<span class="nv">excludefile</span><span class="o">=</span>/usr/local/etc/suid-executables.exclude
+<span class="k">if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$excludefile</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">excludefile</span><span class="o">=</span>/dev/null
+<span class="k">fi</span>
+
+<span class="c"># 6.1.13 audit suid executables (not scored)</span>
+<span class="k">if </span><span class="nb">df</span> <span class="nt">--local</span> <span class="nt">-P</span> <span class="se">\</span>
+	| <span class="nb">awk</span> <span class="s1">'{if (NR!=1) print $6}'</span> <span class="se">\</span>
+	| xargs <span class="nt">-I</span> <span class="s1">'{}'</span> find <span class="s1">'{}'</span> <span class="nt">-xdev</span> <span class="nt">-type</span> f <span class="nt">-perm</span> <span class="nt">-4000</span> <span class="nt">-print0</span> <span class="se">\</span>
+	| <span class="nb">grep</span> <span class="nt">-z</span> <span class="nt">-vFxf</span> <span class="s2">"</span><span class="nv">$excludefile</span><span class="s2">"</span>
+<span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"CIS 6.1.13: Found SUID system executables. Aborting."</span> <span class="o">&gt;</span>&amp;2
+	<span class="nb">exit </span>1
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h3 id="footnotes">Footnotes</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Except in certain edge cases. More on this later. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

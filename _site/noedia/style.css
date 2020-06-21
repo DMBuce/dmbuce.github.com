@@ -1,0 +1,391 @@
+@import url("reset.css");
+@import url("default.css");
+
+/* handy stuff:
+
+#FFCC33 is yellow
+#BF4040 is red
+
+position: static = normal HTML
+	: relative = w/ respect to where it normally would be in HTML
+	: absolute = w/ respect to parent element
+	: fixed = w/ respect to window
+*/
+
+/* this is for everything */
+html { height: 100%; }
+
+body {
+	/* height: 100%; */
+	font-size: 14px;
+	font-family: sans-serif;
+	background-color: #BF4040;
+}
+
+#container {
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.col {
+	/* to make it span whole page */
+	padding-top: 108px;
+	float: left;
+	padding-bottom: 32767px;
+	margin-bottom: -32767px;
+
+	/* makes inner content look reasonable */
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+/* this is for the header */
+#header {
+	/* background: url('../img/bgBanner.gif') repeat-x center center; */
+	background-color: #000000;
+	text-align: center;
+	color: #FFCC33;
+	/* position: fixed; */
+	top: 0px;
+	width: 100%;
+	/* height: 108px; */
+	/* z-index: 2; */
+	padding: 1em;
+
+	border-bottom-style: ridge;
+	border-width: 9px;
+	border-color: #FFCC33;
+}
+
+#header h1 {
+	font-size: 30px;
+	font-family: "impact", "arial black", sans-serif;
+	padding: 10px
+}
+
+#header acronym {
+	position: relative;
+	top: -3px;
+	font-size: 16px;
+	font-family: serif;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#header small {
+	font-family: "monotype corsiva", "URW Chancery L", "apple chancery", cursive;
+}
+
+.invis { visibility: hidden }
+
+/* this is for the menu */
+
+#header .ulist ul {
+	text-align: center;
+}
+
+#header li {
+	display: inline;
+}
+
+#header li p {
+	display: inline;
+}
+
+#header li:first-child:before {
+	content: "[";
+}
+
+#header li:before {
+	content: "|";
+}
+
+#header li:last-child:after {
+	content: "]";
+}
+
+#content > .ulist ul {
+	margin-left: 0;
+	text-align: center;
+	color: #BF4040;
+}
+
+#content > .ulist ul li {
+	display: inline;
+}
+
+#content > .ulist ul li p {
+	display: inline;
+}
+
+#content > .ulist ul li:first-child:before {
+	content: "[";
+}
+
+#content > .ulist ul li:before {
+	content: "|";
+}
+
+#content > .ulist ul li:last-child:after {
+	content: "]";
+}
+
+#content > .ulist li a:link    { color: #BF4040; text-decoration: none; }
+#content > .ulist li a:visited { color: #7F2020; text-decoration: none; }
+#content > .ulist li a:hover   { color: #BF4040; text-decoration: underline; }
+#content > .ulist li a:active  { color: #BF4040; text-decoration: underline; }
+
+#header a:link    { color: #FFCC33; text-decoration: none; }
+#header a:visited { color: #FFCC33; text-decoration: none; }
+#header a:hover   { color: #FFCC33; text-decoration: underline; }
+#header a:active  { color: #FFCC33; text-decoration: underline; }
+
+/* this is for content in the main area */
+
+#footnotes {
+	visibility: hidden;
+	font-size: 0;
+	border: 0;
+	margin: 0;
+	line-height: 0;
+}
+
+#content {
+	background: #FFCC33;
+	height: 100%;
+	width: 50%;
+	margin-left: 20%;
+	margin-right: 20%;
+	border-right-style: ridge;
+	border-left-style: ridge;
+	border-bottom-style: ridge;
+	border-width: 5px;
+	border-color: #FFCC33;
+	line-height: 1.5em;
+
+	/* to make it span whole page */
+	/* padding-top: 108px; */
+	/* float: left;
+	padding-bottom: 32767px;
+	margin-bottom: -32767px; */
+
+	/* makes inner content look reasonable */
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+}
+
+#content h1 {
+	font-family: "impact", "arial black", sans-serif;
+	font-size: 25px;
+	color: #BF4040;
+	/* padding-top: 1.0em; */
+	line-height: 1.25em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#content h2 {
+	font-size: 20px;
+	font-family: "impact", "arial black", sans-serif;
+	color: #BF4040;
+	padding-top: 1.5em;
+	line-height: 1.5em;
+	/* padding-bottom: 0.15em; */
+	text-transform: uppercase;
+}
+
+/*
+#content h1 a, h2 a, h3 a {
+	margin-top: -108px;
+	position: absolute;
+}
+*/
+
+#content h3 {
+	/* margin-top: 0.5em; */
+	padding-top: 1.0em;
+	line-height: 1.5em;
+	font-weight: bold;
+	/* text-decoration: underline; */
+}
+
+#content p {
+	text-align: justify;
+	text-indent: 2em;
+}
+
+#content td p {
+	text-align: center;
+	text-indent: 0;
+}
+
+#content li p {
+	text-indent: 0px;
+}
+
+#content ol {
+	margin-left: 4em;
+	list-style: upper-roman;
+}
+
+#content ul {
+	margin-left: 4em;
+	list-style: disc;
+}
+
+#content ul ul {
+	padding-top: 0em;
+	margin-left: 2em;
+	list-style: square;
+}
+
+#content ul ul ul {
+	list-style: circle;
+}
+
+#content dt {
+	float: left;
+	clear: left;
+	font-weight: bold;
+} #content dt:after {
+	content: ' ';
+}
+
+#content dd {
+	margin-left: 2em;
+} #content dd:before {
+	content: ' ';
+}
+
+#content dd h3 {
+	margin-left: -2em;
+}
+
+#content table {
+	border-collapse: collapse;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#content table, #content tr, #content th, #content td {
+	border: 3px ridge #FFCC33;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #ffdd66;
+}
+
+#content pre {
+	border: 3px ridge #FFCC33;
+	background-color: #ffdd66;
+	margin-top: 1.0em;
+	margin-bottom: 1.0em;
+	/* margin-left: 2.0em;
+	margin-right: 2.0em; */
+}
+
+#content th:first-child, #content tr td:first-child p {
+	text-align: left;
+	text-indent: 0.5em;
+}
+
+#content thead th, #content tfoot td {
+	color: #FFCC33;
+	background-color: #996600;
+	font-weight: bold;
+}
+
+#content tr ul {
+	text-align: left;
+	margin-left: 2em;
+}
+
+#content tr ul ul {
+	margin-left: 1em;
+}
+
+#content a:link    { color: #BF4040; text-decoration: underline; }
+#content a:visited { color: #7F2020; text-decoration: underline; }
+#content a:hover   { color: #BF4040; text-decoration: underline; }
+#content a:active  { color: #BF4040; text-decoration: underline; }
+
+#content a.nav {
+	text-decoration: none;
+	color: #BF4040;
+	vertical-align: sub;
+	font-size: 0.75em;
+} #content a.nav:before {
+	content: " [";
+} #content a.nav:after {
+	content: "] ";
+}
+
+#content a.nav:link    { color: #BF4040; /*text-decoration: none;*/ }
+#content a.nav:visited { color: #7F2020; /*text-decoration: none;*/ }
+#content a.nav:hover   { color: #BF4040; /*text-decoration: underline;*/ }
+#content a.nav:active  { color: #BF4040; /*text-decoration: underline;*/ }
+
+/* this is for the submenu */
+
+#content a.submenu {
+	color: #BF4040;
+}
+
+#content .submenu {
+	text-align: center;
+	color: #BF4040;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+#content ul.submenu {
+	margin-left: 0em;
+}
+
+#content ul.submenu li {
+	display: inline;
+}
+
+#content ul.submenu li a:link    { color: #BF4040; text-decoration: none; }
+#content ul.submenu li a:visited { color: #7F2020; text-decoration: none; }
+#content ul.submenu li a:hover   { color: #BF4040; text-decoration: underline; }
+#content ul.submenu li a:active  { color: #BF4040; text-decoration: underline; }
+
+/* this is for the footer */
+
+#footer {
+	color: #FFCC33;
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+	border-top: 3px ridge #FFCC33;
+	margin-top: 1.5em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	text-align: center;
+}
+
+/*
+#content a img.thumb {
+	float: right;
+	margin: 5px;
+	border: 5px double #BF4040;
+}
+*/
+
+#content #footer img {
+	display: inline;
+}
+
+#content img {
+	/* margin-top: 1em;
+	margin-bottom: 1em; */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	float: right;
+	margin: 5px;
+	border: 5px double #BF4040;
+}
+

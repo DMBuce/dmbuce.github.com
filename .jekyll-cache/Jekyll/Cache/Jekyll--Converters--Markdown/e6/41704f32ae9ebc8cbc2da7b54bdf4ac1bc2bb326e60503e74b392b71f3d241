@@ -1,0 +1,5 @@
+I"<p>In a recent article, I showed how to
+<a href="http://localhost:4000/blog/2019/11/22/bash-output-patterns#duplicate-all-output-to-a-log-file">print a script’s output to both a log file and stdout</a>.
+Some of you might be wondering why I used a <code class="language-plaintext highlighter-rouge">{ group command; }</code> piped into <code class="language-plaintext highlighter-rouge">tee</code> for this,
+rather than <code class="language-plaintext highlighter-rouge">&gt;(process substition)</code>. Let me explain.</p>
+:ET

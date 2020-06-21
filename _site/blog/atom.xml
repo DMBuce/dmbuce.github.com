@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Buce's Blog</title>
+	<link href="https://dmbuce.github.io/blog/atom.xml" rel="self"/>
+	<link href="https://dmbuce.github.io/blog"/>
+	<updated>2020-06-21T03:04:42-05:00</updated>
+	<id>https://dmbuce.github.io/blog</id>
+	<author>
+		<name>DMBuce</name>
+		<email>dmbuce+blog@gmail.com</email>
+	</author>
+
+	
+		<entry>
+			<title>Modpack Infodump</title>
+			<link href="https://dmbuce.github.io/blog/2020/06/20/modpack-infodump"/>
+			
+			<updated>2019-11-24T19:07:03-06:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2020/06/20/modpack-infodump</id>
+			<content type="html">&lt;p&gt;Description of Article.&lt;/p&gt;
+
+&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;Section&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;Section&lt;/h3&gt;
+
+&lt;p&gt;Section contents.&lt;/p&gt;
+
+&lt;!--
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
+	
+		<entry>
+			<title>Dinosaur Modpack Idea</title>
+			<link href="https://dmbuce.github.io/blog/2020/06/20/dinosaur-modpack-idea"/>
+			
+			<updated>2019-11-24T19:07:03-06:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2020/06/20/dinosaur-modpack-idea</id>
+			<content type="html">&lt;p&gt;Lately I’ve been working on a sci-fi dinosaur zoo modpack called Lasers &amp;amp; Dinosaurs.&lt;/p&gt;
+
+&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-idea&quot; id=&quot;markdown-toc-the-idea&quot;&gt;The Idea&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#progress-so-far&quot; id=&quot;markdown-toc-progress-so-far&quot;&gt;Progress so Far&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;the-idea&quot;&gt;The Idea&lt;/h3&gt;
+
+&lt;p&gt;Section contents.&lt;/p&gt;
+
+&lt;h3 id=&quot;progress-so-far&quot;&gt;Progress so Far&lt;/h3&gt;
+
+&lt;!--
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
+	
+		<entry>
+			<title>Bucepack Documentation</title>
+			<link href="https://dmbuce.github.io/blog/2020/06/20/bucepack-documentation"/>
+			
+			<updated>2019-11-24T19:07:03-06:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2020/06/20/bucepack-documentation</id>
+			<content type="html">&lt;p&gt;Over the past several time units I cleaned up the documentation for the various resource packs I use. Take a look: TODO: add link.&lt;/p&gt;
+
+
+&lt;p&gt;TODO: update bucepack docs&lt;/p&gt;
+
+&lt;!--
+### Section
+
+Section contents.
+
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
+	
+		<entry>
+			<title>Template</title>
+			<link href="https://dmbuce.github.io/blog/2019/11/24/template"/>
+			
+			<updated>2019-11-24T19:07:03-06:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2019/11/24/template</id>
+			<content type="html">&lt;p&gt;Description of Article.&lt;/p&gt;
+
+&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;Section&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;Section&lt;/h3&gt;
+
+&lt;p&gt;Section contents.&lt;/p&gt;
+
+&lt;!--
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
+	
+
+</feed>
+

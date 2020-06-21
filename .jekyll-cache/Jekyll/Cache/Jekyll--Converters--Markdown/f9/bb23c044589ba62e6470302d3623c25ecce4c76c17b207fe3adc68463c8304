@@ -1,0 +1,18 @@
+I"È<p>This guide will show you how to set up and configure Graylog, ElasticSearch, and Wazuh as a centralized logging solution.
+Along the way weâ€™ll take a look at how this setup can address several PCI DSS requirements.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">Section</a></li>
+</ol>
+
+<h3 id="section">Section</h3>
+
+<p>Section contents.</p>
+
+<!--
+### Footnotes
+
+[^1]: Credit goes to <user> for <whatever reasons>.
+-->
+
+:ET

@@ -1,0 +1,44 @@
+I"t<p>Check MK is a monitoring solution with a rule-based configuration,
+support for distributed monitoring,
+and a simple interface for writing custom check scripts.
+This guide will show you how to install and configure it on CentOS with the Open Monitoring Distribution (OMD).
+<!-- Along the way we'll configure authentication with Active Directory (AD), --></p>
+
+<ol id="markdown-toc">
+  <li><a href="#outline" id="markdown-toc-outline">Outline</a></li>
+</ol>
+
+<h3 id="outline">Outline</h3>
+
+<ul>
+  <li>Install OMD</li>
+  <li>Configure stuff</li>
+  <li>AD Authentication</li>
+  <li>Distributed Monitoring</li>
+  <li>Configuration with WATO
+    <ul>
+      <li>Describe rule-based vs. template/ad-hoc configuration</li>
+      <li>Add a host</li>
+      <li>Process Discovery</li>
+      <li>Memory Thresholds</li>
+      <li>Disable a Service</li>
+      <li>Direct checks</li>
+      <li>Notifications</li>
+    </ul>
+  </li>
+  <li>Administrative tasks
+    <ul>
+      <li>Acknowledgements</li>
+      <li>Downtime</li>
+      <li>New services</li>
+    </ul>
+  </li>
+</ul>
+
+<!--
+### Footnotes
+
+[^1]: Credit goes to <user> for <whatever reasons>.
+-->
+
+:ET

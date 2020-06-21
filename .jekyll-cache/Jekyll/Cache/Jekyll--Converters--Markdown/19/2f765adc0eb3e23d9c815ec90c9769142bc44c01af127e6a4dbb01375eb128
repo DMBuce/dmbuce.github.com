@@ -1,0 +1,17 @@
+I"<p>Description of Article.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">Section</a></li>
+</ol>
+
+<h3 id="section">Section</h3>
+
+<p>Section contents.</p>
+
+<!--
+### Footnotes
+
+[^1]: Credit goes to <user> for <whatever reasons>.
+-->
+
+:ET

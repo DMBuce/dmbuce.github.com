@@ -1,0 +1,42 @@
+I"	<p>On the <code class="language-plaintext highlighter-rouge">msg()</code>, <code class="language-plaintext highlighter-rouge">warn()</code>, and <code class="language-plaintext highlighter-rouge">err()</code> functions I use in a lot of my scripts,
+internationalization, and localization.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section">Section</a></li>
+</ol>
+
+<h3 id="section">Section</h3>
+
+<p>Section contents.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># prints an info message to stdout</span>
+msg<span class="o">()</span> <span class="o">{</span>
+	<span class="nb">local </span><span class="nv">message</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+	<span class="nb">shift
+	printf</span> <span class="s2">"</span><span class="nv">$message</span><span class="se">\n</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="o">}</span>
+
+<span class="c"># prints a warning message to stderr</span>
+warn<span class="o">()</span> <span class="o">{</span>
+	<span class="nb">local </span><span class="nv">message</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+	<span class="nb">shift
+	printf</span> <span class="s2">"</span><span class="nv">$message</span><span class="se">\n</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span> <span class="o">&gt;</span>&amp;2
+<span class="o">}</span>
+
+<span class="c"># prints an error message to stderr</span>
+err<span class="o">()</span> <span class="o">{</span>
+	<span class="nb">local </span><span class="nv">message</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+	<span class="nb">shift
+	printf</span> <span class="s2">"</span><span class="nv">$message</span><span class="se">\n</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span> <span class="o">&gt;</span>&amp;2
+<span class="o">}</span>
+</code></pre></div></div>
+
+<!--
+### Footnotes
+
+[^1]: Credit goes to <user> for <whatever reasons>.
+-->
+
+:ET

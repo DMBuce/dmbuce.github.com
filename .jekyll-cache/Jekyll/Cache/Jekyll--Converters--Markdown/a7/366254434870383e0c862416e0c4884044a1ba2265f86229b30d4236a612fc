@@ -1,0 +1,5 @@
+I",<p>This guide will show you how to create a Jekyll blog on GitHub pages.
+We’ll set up syntax highlighting, mark up and style some pages,
+work around GitHub’s lack of <code class="language-plaintext highlighter-rouge">jekyll-last-modified-at</code> support,
+and do a bit of SEO along the way.</p>
+:ET

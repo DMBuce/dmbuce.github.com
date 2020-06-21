@@ -1,0 +1,4 @@
+I"<p>Commands are the basic building blocks of a <code class="language-plaintext highlighter-rouge">bash</code> script,
+and many commands run as an operating system process.
+Let’s go over how they work and some of the ways we can interact with them from a shell.</p>
+:ET
