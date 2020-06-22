@@ -102,6 +102,11 @@ pre {
 	tab-size: 4;
 }
 
+/*table { background-color: #ffe }*/
+tr th { background: #cde }
+tr:nth-child(even) { background: #ffe }
+tr:nth-child(odd)  { background: #eee }
+
 .social-media {
 	float: right;
 	width:  24px;

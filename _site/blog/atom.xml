@@ -4,13 +4,143 @@
 	<title>Buce's Blog</title>
 	<link href="https://dmbuce.github.io/blog/atom.xml" rel="self"/>
 	<link href="https://dmbuce.github.io/blog"/>
-	<updated>2020-06-21T03:04:42-05:00</updated>
+	<updated>2020-06-21T20:15:59-05:00</updated>
 	<id>https://dmbuce.github.io/blog</id>
 	<author>
 		<name>DMBuce</name>
 		<email>dmbuce+blog@gmail.com</email>
 	</author>
 
+	
+		<entry>
+			<title>A Review Of Minecraft Stargate Mods</title>
+			<link href="https://dmbuce.github.io/blog/2020/06/21/a-review-of-minecraft-stargate-mods"/>
+			
+			<updated>2019-11-24T19:07:03-06:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2020/06/21/a-review-of-minecraft-stargate-mods</id>
+			<content type="html">&lt;p&gt;I recently evaluated two Minecraft 1.12 mods,
+Stargate Network (a.k.a. SGCraft) and AUNIS,
+for a modpack I’m making. Here’s what I found.&lt;/p&gt;
+
+&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#methods--motivation&quot; id=&quot;markdown-toc-methods--motivation&quot;&gt;Methods &amp;amp; Motivation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#side-by-side-comparison&quot; id=&quot;markdown-toc-side-by-side-comparison&quot;&gt;Side-by-Side Comparison&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stargate-setup&quot; id=&quot;markdown-toc-stargate-setup&quot;&gt;StarGate Setup&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stargate-usage&quot; id=&quot;markdown-toc-stargate-usage&quot;&gt;StarGate Usage&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stargate-upgrades&quot; id=&quot;markdown-toc-stargate-upgrades&quot;&gt;StarGate Upgrades&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#other-blocks--items&quot; id=&quot;markdown-toc-other-blocks--items&quot;&gt;Other Blocks &amp;amp; Items&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;methods--motivation&quot;&gt;Methods &amp;amp; Motivation&lt;/h3&gt;
+
+&lt;p&gt;TODO&lt;/p&gt;
+
+&lt;h3 id=&quot;side-by-side-comparison&quot;&gt;Side-by-Side Comparison&lt;/h3&gt;
+
+&lt;p&gt;Here’s the differences between the two mods that I found notable:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SGCraft&lt;/th&gt;
+      &lt;th&gt;AUNIS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Has a Pegasus portal&lt;/td&gt;
+      &lt;td&gt;Has a Universe portal&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Portal is easier to build (square, no directionality)&lt;/td&gt;
+      &lt;td&gt;Portal is bigger&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Less JEI clutter, fewer pointless upgrades&lt;/td&gt;
+      &lt;td&gt;More fluid crafting, microcrafting&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UI is easier to access and interact with&lt;/td&gt;
+      &lt;td&gt;UI is more immersive&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;You can camouflage the portal’s base&lt;/td&gt;
+      &lt;td&gt;You can camouflage most of the portal’s base&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ComputerCraft integration&lt;/td&gt;
+      &lt;td&gt;Built-in exploration mechanic (Mysterious Pages)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Photorealistic textures&lt;/td&gt;
+      &lt;td&gt;Cleaner textures&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;SGCraft Pros:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Can type dialing sequence on keyboard&lt;/li&gt;
+  &lt;li&gt;Both UIs are accessible from any side&lt;/li&gt;
+  &lt;li&gt;You can reskin portals with an upgrade, no need to rebuild&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;stargate-setup&quot;&gt;StarGate Setup&lt;/h3&gt;
+
+&lt;h3 id=&quot;stargate-usage&quot;&gt;StarGate Usage&lt;/h3&gt;
+
+&lt;h3 id=&quot;stargate-upgrades&quot;&gt;StarGate Upgrades&lt;/h3&gt;
+
+&lt;h3 id=&quot;other-blocks--items&quot;&gt;Other Blocks &amp;amp; Items&lt;/h3&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;If you like immersive UIs,
+want a stargate mod that requires some infrastructure,
+AUNIS is probably right up your alley.&lt;/p&gt;
+
+&lt;p&gt;If you prefer simple UIs,
+need ComputerCraft integration,&lt;/p&gt;
+
+&lt;!--
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
+	
+		<entry>
+			<title>Dinosaur Modpack Idea</title>
+			<link href="https://dmbuce.github.io/blog/2020/06/21/dinosaur-modpack-idea"/>
+			
+			<updated>2020-06-21T03:04:45-05:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2020/06/21/dinosaur-modpack-idea</id>
+			<content type="html">&lt;p&gt;Lately I’ve been working on a sci-fi dinosaur zoo modpack called Lasers &amp;amp; Dinosaurs.&lt;/p&gt;
+
+&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-idea&quot; id=&quot;markdown-toc-the-idea&quot;&gt;The Idea&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#progress-so-far&quot; id=&quot;markdown-toc-progress-so-far&quot;&gt;Progress so Far&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;the-idea&quot;&gt;The Idea&lt;/h3&gt;
+
+&lt;p&gt;Section contents.&lt;/p&gt;
+
+&lt;h3 id=&quot;progress-so-far&quot;&gt;Progress so Far&lt;/h3&gt;
+
+&lt;!--
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
 	
 		<entry>
 			<title>Modpack Infodump</title>
@@ -28,35 +158,6 @@
 &lt;h3 id=&quot;section&quot;&gt;Section&lt;/h3&gt;
 
 &lt;p&gt;Section contents.&lt;/p&gt;
-
-&lt;!--
-### Footnotes
-
-[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
---&gt;
-
-</content>
-		</entry>
-	
-		<entry>
-			<title>Dinosaur Modpack Idea</title>
-			<link href="https://dmbuce.github.io/blog/2020/06/20/dinosaur-modpack-idea"/>
-			
-			<updated>2019-11-24T19:07:03-06:00</updated>
-			
-			<id>https://dmbuce.github.io/blog/2020/06/20/dinosaur-modpack-idea</id>
-			<content type="html">&lt;p&gt;Lately I’ve been working on a sci-fi dinosaur zoo modpack called Lasers &amp;amp; Dinosaurs.&lt;/p&gt;
-
-&lt;ol id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#the-idea&quot; id=&quot;markdown-toc-the-idea&quot;&gt;The Idea&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#progress-so-far&quot; id=&quot;markdown-toc-progress-so-far&quot;&gt;Progress so Far&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;the-idea&quot;&gt;The Idea&lt;/h3&gt;
-
-&lt;p&gt;Section contents.&lt;/p&gt;
-
-&lt;h3 id=&quot;progress-so-far&quot;&gt;Progress so Far&lt;/h3&gt;
 
 &lt;!--
 ### Footnotes

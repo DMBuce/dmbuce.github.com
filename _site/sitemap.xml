@@ -3,7 +3,7 @@
   
     
     <url>
-      <loc>http://localhost:4000/blog/2020/06/20/modpack-infodump</loc>
+      <loc>http://localhost:4000/blog/2020/06/21/a-review-of-minecraft-stargate-mods</loc>
       
         <lastmod>2019-11-24T19:07:03-06:00</lastmod>
       
@@ -18,7 +18,22 @@
   
     
     <url>
-      <loc>http://localhost:4000/blog/2020/06/20/dinosaur-modpack-idea</loc>
+      <loc>http://localhost:4000/blog/2020/06/21/dinosaur-modpack-idea</loc>
+      
+        <lastmod>2020-06-21T03:04:45-05:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://localhost:4000/blog/2020/06/20/modpack-infodump</loc>
       
         <lastmod>2019-11-24T19:07:03-06:00</lastmod>
       
@@ -83,7 +98,7 @@
     <url>
       <loc>http://localhost:4000/</loc>
       
-        <lastmod>2020-06-20T12:43:33-05:00</lastmod>
+        <lastmod>2020-06-21T03:04:45-05:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
