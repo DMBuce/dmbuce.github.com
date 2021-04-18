@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 9.1.0" />
 <title>mcexplore(1)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,7 +95,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -223,7 +226,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -433,7 +436,7 @@ thead, p.table.header {
 p.table {
   margin-top: 0;
 }
-/* Because the table frame attribute is overriden by CSS in most browsers. */
+/* Because the table frame attribute is overridden by CSS in most browsers. */
 div.tableblock > table[frame="void"] {
   border-style: none;
 }
@@ -832,6 +835,18 @@ specified, it is used for both <em>xsize</em> and <em>zsize</em>.</p></div>
         When enabled, measure in regions instead of chunks.
 </p>
 </dd>
+<dt class="hdlist1">
+<strong>-d, --dimension</strong> &lt;id&gt;=&lt;folder&gt;
+</dt>
+<dd>
+<p>
+        Set the ID and region folder of the dimension to generate. Relative folder
+        paths are interpreted relative to &#8216;--path`. Defaults to
+        'minecraft:overworld=world/region&#8217;.
+</p>
+<div class="paragraph"><p>Since this option depends on a Minecraft feature that Mojang considers
+experimental, it is subject to change.</p></div>
+</dd>
 </dl></div>
 </div>
 </div>
@@ -839,6 +854,11 @@ specified, it is used for both <em>xsize</em> and <em>zsize</em>.</p></div>
 <h2 id="_authors">Authors</h2>
 <div class="sectionbody">
 <div class="ulist"><ul>
+<li>
+<p>
+DMBuce <a href="https://github.com/DMBuce">https://github.com/DMBuce</a>
+</p>
+</li>
 <li>
 <p>
 similardilemma <a href="https://github.com/similardilemma">https://github.com/similardilemma</a>
@@ -853,7 +873,8 @@ git repository located at <a href="https://github.com/DMBuce/mcexplore">https://
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-19 00:15:50 CDT
+Last updated
+ 2021-04-18 08:04:20 UTC
 </div>
 </div>
 </body>
