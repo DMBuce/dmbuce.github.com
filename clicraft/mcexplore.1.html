@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 9.1.0" />
+<meta name="generator" content="AsciiDoc 9.1.1" />
 <title>mcexplore(1)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -768,14 +768,6 @@ specified, it is used for both <em>xsize</em> and <em>zsize</em>.</p></div>
 <div class="sectionbody">
 <div class="dlist"><dl>
 <dt class="hdlist1">
-<strong>--version</strong>
-</dt>
-<dd>
-<p>
-        Show version number and exit.
-</p>
-</dd>
-<dt class="hdlist1">
 <strong>-h, --help</strong>
 </dt>
 <dd>
@@ -784,11 +776,30 @@ specified, it is used for both <em>xsize</em> and <em>zsize</em>.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>-v, --verbose</strong>
+<strong>--version</strong>
 </dt>
 <dd>
 <p>
-        When enabled, the Minecraft server output is shown on the console.
+        Show version number and exit.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-c, --command</strong> &lt;command&gt;
+</dt>
+<dd>
+<p>
+        Specifies the <em>command</em> used to start the server. Defaults to
+        'java -jar minecraft_server.jar nogui'.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-d, --dimension</strong> &lt;id&gt;=&lt;folder&gt;
+</dt>
+<dd>
+<p>
+        Set the ID and region folder of the dimension to generate. Relative folder
+        paths are interpreted relative to &#8216;--path`. Defaults to
+        'minecraft:overworld=world/region&#8217;.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -801,12 +812,11 @@ specified, it is used for both <em>xsize</em> and <em>zsize</em>.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>-c, --command</strong> &lt;command&gt;
+<strong>-r, --regions</strong>
 </dt>
 <dd>
 <p>
-        Specifies the <em>command</em> used to start the server. Defaults to
-        'java -jar minecraft_server.jar nogui'.
+        When enabled, measure in regions instead of chunks.
 </p>
 </dd>
 <dt class="hdlist1">
@@ -828,21 +838,19 @@ specified, it is used for both <em>xsize</em> and <em>zsize</em>.</p></div>
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>-r, --regions</strong>
+<strong>-q, --quiet</strong>
 </dt>
 <dd>
 <p>
-        When enabled, measure in regions instead of chunks.
+        Don&#8217;t show Minecraft server output. This is the default behavior.
 </p>
 </dd>
 <dt class="hdlist1">
-<strong>-d, --dimension</strong> &lt;id&gt;=&lt;folder&gt;
+<strong>-v, --verbose</strong>
 </dt>
 <dd>
 <p>
-        Set the ID and region folder of the dimension to generate. Relative folder
-        paths are interpreted relative to &#8216;--path`. Defaults to
-        'minecraft:overworld=world/region&#8217;.
+        Show Minecraft server output.
 </p>
 <div class="paragraph"><p>Since this option depends on a Minecraft feature that Mojang considers
 experimental, it is subject to change.</p></div>
@@ -874,7 +882,7 @@ git repository located at <a href="https://github.com/DMBuce/mcexplore">https://
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2021-04-18 08:04:20 UTC
+ 2021-10-07 08:03:03 UTC
 </div>
 </div>
 </body>
