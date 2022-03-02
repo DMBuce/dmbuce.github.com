@@ -1,5 +1,0 @@
-I"R<p>I recently wrote a script called
-<a href="https://github.com/natewoodward/code-snippets/tree/master/check-mk"><code class="language-plaintext highlighter-rouge">check_jvm_memory</code></a>
-to monitor JVM memory usage with <code class="language-plaintext highlighter-rouge">jstat</code> and Check MK.
-Let’s go over how to use it.</p>
-:ET

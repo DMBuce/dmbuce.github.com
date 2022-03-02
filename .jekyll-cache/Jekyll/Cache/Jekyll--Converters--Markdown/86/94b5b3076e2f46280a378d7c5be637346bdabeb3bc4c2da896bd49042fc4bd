@@ -1,0 +1,57 @@
+I"�<p>How to use the <a href="https://github.com/dmbuce/i3b">i3b project’s</a> i3move utility.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
+  <li><a href="#clamping-and-snapping" id="markdown-toc-clamping-and-snapping">Clamping and Snapping</a></li>
+  <li><a href="#define-the-margins" id="markdown-toc-define-the-margins">Define the Margins</a></li>
+</ol>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>If you want to get up and running quickly with i3move,
+refer to the manual.
+<a href="https://dmbuce.github.io/i3b/i3move.html#EXAMPLES">The examples section</a>
+near the bottom shows how to generate a default config and bind some keys using i3.
+That’s really all you need to get started.</p>
+
+<p>However, there is a lot going on in the default config.
+If you open it up with a text editor, you may find yourself wondering things like:
+What the heck does <code class="language-plaintext highlighter-rouge">--inside-distance w</code> mean?
+And <code class="language-plaintext highlighter-rouge">--small-distance =</code>?</p>
+
+<p>The various options interact with each other
+in a lot of ways to drive i3move’s default behavior,
+so rather than try to explain everything all at once,
+let’s start with a simplified example
+and work our way towards a more complicated config.</p>
+
+<p>If you haven’t already, you should install i3move.
+Arch users can get it by installing the
+<a href="https://aur.archlinux.org/packages/i3b">AUR’s i3b package</a>,
+and on other distros you can download the script,
+drop it in your <code class="language-plaintext highlighter-rouge">$PATH</code>, and make it executable.</p>
+
+<p># set up ~/bin in your PATH if it’s not already
+  mkdir -p ~/bin
+  export PATH=”$PATH:$HOME/bin”
+  echo ‘export PATH=”$PATH:$HOME/bin”’ » ~/.bashrc</p>
+
+<p># download and install i3move
+  wget -O ~/bin/i3move https://raw.githubusercontent.com/DMBuce/i3b/master/bin/i3move
+  chmod +x ~/bin/i3move</p>
+
+<h3 id="clamping-and-snapping">Clamping and Snapping</h3>
+
+<h3 id="define-the-margins">Define the Margins</h3>
+
+<p><img src="https://i.imgur.com/LdfPe2t.jpg" alt="Example i3 desktop" /></p>
+
+<p>###</p>
+
+<!--
+### Footnotes
+
+[^1]: Credit goes to <user> for <whatever reasons>.
+-->
+
+:ET

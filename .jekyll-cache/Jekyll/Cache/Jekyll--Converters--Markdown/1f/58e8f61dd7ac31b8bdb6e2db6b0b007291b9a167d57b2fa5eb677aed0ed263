@@ -1,0 +1,33 @@
+I"a<p>How to use the <a href="https://github.com/dmbuce/i3b">i3b project’s</a> i3move utility.</p>
+
+<ol id="markdown-toc">
+  <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
+  <li><a href="#clamping-and-snapping" id="markdown-toc-clamping-and-snapping">Clamping and Snapping</a></li>
+  <li><a href="#define-the-margins" id="markdown-toc-define-the-margins">Define the Margins</a></li>
+</ol>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>If you want to get up and running quickly with i3move,
+refer to the manual.
+<a href="https://dmbuce.github.io/i3b/i3move.html#EXAMPLES">The examples section</a>
+near the bottom shows how to generate a default config and bind some keys using i3.
+That’s really all you need to get started.</p>
+
+<p>However, there is a lot going on in the default config.</p>
+
+<h3 id="clamping-and-snapping">Clamping and Snapping</h3>
+
+<h3 id="define-the-margins">Define the Margins</h3>
+
+<p><img src="https://i.imgur.com/LdfPe2t.jpg" alt="Example i3 desktop" /></p>
+
+<p>###</p>
+
+<!--
+### Footnotes
+
+[^1]: Credit goes to <user> for <whatever reasons>.
+-->
+
+:ET

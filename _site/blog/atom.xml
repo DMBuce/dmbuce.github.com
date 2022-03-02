@@ -4,13 +4,109 @@
 	<title>Buce's Blog</title>
 	<link href="https://dmbuce.github.io/blog/atom.xml" rel="self"/>
 	<link href="https://dmbuce.github.io/blog"/>
-	<updated>2020-06-21T20:15:59-05:00</updated>
+	<updated>2022-03-02T03:03:18-06:00</updated>
 	<id>https://dmbuce.github.io/blog</id>
 	<author>
 		<name>DMBuce</name>
 		<email>dmbuce+blog@gmail.com</email>
 	</author>
 
+	
+		<entry>
+			<title>I3move Tutorial</title>
+			<link href="https://dmbuce.github.io/blog/2022/03/01/i3move-tutorial"/>
+			
+			<updated>2019-11-24T19:07:03-06:00</updated>
+			
+			<id>https://dmbuce.github.io/blog/2022/03/01/i3move-tutorial</id>
+			<content type="html">&lt;p&gt;How to use the &lt;a href=&quot;https://github.com/dmbuce/i3b&quot;&gt;i3b project’s&lt;/a&gt; i3move utility.&lt;/p&gt;
+
+&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#getting-started&quot; id=&quot;markdown-toc-getting-started&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#titles-borders-and-margins&quot; id=&quot;markdown-toc-titles-borders-and-margins&quot;&gt;Titles, Borders, and Margins&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#clamping-and-snapping&quot; id=&quot;markdown-toc-clamping-and-snapping&quot;&gt;Clamping and Snapping&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h3&gt;
+
+&lt;p&gt;If you want to get up and running quickly with i3move,
+refer to the manual.
+&lt;a href=&quot;https://dmbuce.github.io/i3b/i3move.html#EXAMPLES&quot;&gt;The examples section&lt;/a&gt;
+near the bottom shows how to generate a default config and bind some keys using i3.
+That’s really all you need to get started.&lt;/p&gt;
+
+&lt;p&gt;However, there is a lot going on in the default config.
+If you open it up with a text editor, you may find yourself wondering things like:
+What the heck does &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--inside-distance w&lt;/code&gt; mean?
+Why &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--small-distance =&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;The various options interact with each other
+in a lot of ways to drive i3move’s default behavior,
+so rather than try to explain everything all at once,
+let’s start with a simplified example
+and work our way towards a more complicated config.&lt;/p&gt;
+
+&lt;p&gt;TODO: document installation in the README&lt;/p&gt;
+
+&lt;p&gt;If you haven’t already, you should install i3move.
+Arch users can get it by installing the
+&lt;a href=&quot;https://aur.archlinux.org/packages/i3b&quot;&gt;AUR’s i3b package&lt;/a&gt;,
+and on other distros you can download the script,
+drop it in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;, and make it executable.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# set up ~/bin in your PATH if it&apos;s not already
+mkdir -p ~/bin
+export PATH=&quot;$PATH:$HOME/bin&quot;
+echo &apos;export PATH=&quot;$PATH:$HOME/bin&quot;&apos; &amp;gt;&amp;gt; ~/.bashrc
+
+# download and install i3move
+wget -O ~/bin/i3move https://raw.githubusercontent.com/DMBuce/i3b/master/bin/i3move
+chmod +x ~/bin/i3move
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should also set up i3 keybindings as explained in
+&lt;a href=&quot;https://dmbuce.github.io/i3b/i3move.html#EXAMPLES&quot;&gt;the examples section&lt;/a&gt;
+of the man page.&lt;/p&gt;
+
+&lt;p&gt;Now, let’s generate a basic config to work from.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;i3move --gen \
+--inside-distance 30px \
+--outside-distance 30px \
+--small-distance 0px \
+--large-distance 0px \
+--threshold 0 \
+--no-clamp \
+--no-snap \
+--no-hide \
+--passthru \
+&amp;gt; ~/.config/i3move
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;titles-borders-and-margins&quot;&gt;Titles, Borders, and Margins&lt;/h3&gt;
+
+&lt;p&gt;If you open up the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.config/i3move&lt;/code&gt; file we created,
+at the top you’ll see the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--title&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--border&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--margins&lt;/code&gt; settings
+that were generated based on your i3 setup.&lt;/p&gt;
+
+&lt;p&gt;TODO: explain the settings, verify with kolourpaint&lt;/p&gt;
+
+&lt;p&gt;TODO: mention i3gaps config implications? borders defined by for_window?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/y7kE6DS.jpg&quot; alt=&quot;Example i3 desktop&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;clamping-and-snapping&quot;&gt;Clamping and Snapping&lt;/h3&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;!--
+### Footnotes
+
+[^1]: Credit goes to &lt;user&gt; for &lt;whatever reasons&gt;.
+--&gt;
+
+</content>
+		</entry>
 	
 		<entry>
 			<title>A Review Of Minecraft Stargate Mods</title>

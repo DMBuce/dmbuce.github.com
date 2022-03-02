@@ -13,7 +13,7 @@ builddir = /tmp/build
 all: 404.html
 
 .PHONY: everything
-everything: all norbert clicraft mcexplore mtg noedia dmtools
+everything: all norbert clicraft mcexplore mtg noedia dmtools i3b
 
 clean:
 	rm -f index.html 404.html
@@ -62,5 +62,10 @@ noedia: $(builddir)
 dmtools: $(builddir)
 	./update-dmtools.sh $(builddir)
 	cp $(builddir)/$@/* $@/
+
+.PHONY: i3b
+i3b: $(builddir)
+	./update-i3b.sh $(builddir)
+	cp $(builddir)/$@/doc/* $@/
 
 # vim: set ft=make:
