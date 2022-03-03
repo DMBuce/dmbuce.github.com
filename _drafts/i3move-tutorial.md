@@ -1,6 +1,6 @@
 ---
 layout: post
-last_modified_at: 2019-11-25 01:07:03 UTC
+last_modified_at: 2022-03-03 21:55:56 UTC
 ---
 
 How to use the [i3b project's](https://github.com/dmbuce/i3b) i3move utility.
@@ -24,59 +24,75 @@ Why `--small-distance =`?
 The various options interact with each other
 in a lot of ways to drive i3move's default behavior,
 so rather than try to explain everything all at once,
-let's start with a simplified example
+let's take a look at a simplified example
 and work our way towards a more complicated config.
 
-TODO: document installation in the README
-
-If you haven't already, you should install i3move.
-Arch users can get it by installing the
-[AUR's i3b package](https://aur.archlinux.org/packages/i3b),
-and on other distros you can download the script,
-drop it in your `$PATH`, and make it executable.
-
-    # set up ~/bin in your PATH if it's not already
-    mkdir -p ~/bin
-    export PATH="$PATH:$HOME/bin"
-    echo 'export PATH="$PATH:$HOME/bin"' >> ~/.bashrc
-    
-    # download and install i3move
-    wget -O ~/bin/i3move https://raw.githubusercontent.com/DMBuce/i3b/master/bin/i3move
-    chmod +x ~/bin/i3move
-
+If you'd like to play along, you should install i3move
+from the [i3b project](https://github.com/dmbuce/i3b)
+if you haven't already.
 You should also set up i3 keybindings as explained in
 [the examples section](https://dmbuce.github.io/i3b/i3move.html#EXAMPLES)
 of the man page.
- 
-Now, let's generate a basic config to work from.
 
-    i3move --gen \
-    --inside-distance 30px \
-    --outside-distance 30px \
-    --small-distance 0px \
-    --large-distance 0px \
-    --threshold 0 \
-    --no-clamp \
-    --no-snap \
-    --no-hide \
-    --passthru \
-    > ~/.config/i3move
+Then, generate a config with some options changed from the defaults:
+
+	i3move --gen \
+	--inside-distance 30px \
+	--outside-distance 30px \
+	--small-distance 0px \
+	--large-distance 0px \
+	--threshold 0 \
+	--no-clamp \
+	--no-snap \
+	--no-hide \
+	--no-compound-display
+	--passthru \
+	> ~/.config/i3move
+
+You should see i3 flip over to a temporary workspace,
+then launch, manipulate, and close an `i3-sensible-terminal`
+before returning to your original workspace.
+Don't worry, this is normal.
+
+To explain the command above,
+
+* `i3move --gen` prints a config
+* `--inside-distance 30px --outside-distance 30px` makes i3move move a window by 30 pixels no matter where on the screen it is
+* `--small-distance`, `--large-distance`, and `--threshold` don't do anything just yet, more on those later
+* The various `--no-*` options disable behaviors such as clamping, snapping, hiding, etc.
+* `--passthru` tells i3move that it should move tiled windows with i3's builtin `move` command in addition to floating ones
+* `> ~/.config/i3move` stores `i3move --gen` output into our config
+
+The end result is that a key bound to e.g. `exec i3move up` in i3's config behaves
+as if it was bound to i3's internal `move up 30px` command.
+Tiled windows will move in the usual way
+and floating windows will move in increments of 30 pixels.
 
 ### Titles, Borders, and Margins
 
 If you open up the `~/.config/i3move` file we created,
 at the top you'll see the `--title`, `--border`, and `--margins` settings
 that were generated based on your i3 setup.
+`--title` is the thickness of the title bars on floating i3 windows,
+and `--border` is thickness of the left, right, and bottom window borders.
+If you have title bars disabled,
+`--title` should be set to the thickness of the top window border.
 
-TODO: explain the settings, verify with kolourpaint
-
-TODO: mention i3gaps config implications? borders defined by for_window?
-
-![Example i3 desktop](https://i.imgur.com/y7kE6DS.jpg)
+`--margins` has four values, one each for the top, bottom, left, and right margins,
+in that order.
+We will discuss the margins in the next section.
 
 ### Clamping and Snapping
 
-### 
+### Gaps and Multi-Monitor Setups
+
+TODO: mention i3gaps config implications?
+      borders defined by for_window?
+      verify with kolourpaint?
+
+### Hiding
+
+![Example i3 desktop](https://i.imgur.com/y7kE6DS.jpg){: width="250"}
 
 <!--
 ### Footnotes
