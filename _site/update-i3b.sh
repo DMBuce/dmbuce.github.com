@@ -8,5 +8,5 @@ cd i3b
 
 git pull
 #make clean
-make doc
+make html
 

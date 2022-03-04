@@ -1,6 +1,6 @@
 ---
 layout: post
-last_modified_at: 2022-03-03 21:55:56 UTC
+last_modified_at: 2022-03-04 00:16:09 UTC
 ---
 
 How to use the [i3b project's](https://github.com/dmbuce/i3b) i3move utility.
@@ -53,6 +53,7 @@ You should see i3 flip over to a temporary workspace,
 then launch, manipulate, and close an `i3-sensible-terminal`
 before returning to your original workspace.
 Don't worry, this is normal.
+It's how i3move calculates the thickness of i3 title bars, borders, and such.
 
 To explain the command above,
 
@@ -83,6 +84,12 @@ in that order.
 We will discuss the margins in the next section.
 
 ### Clamping and Snapping
+
+If you use i3move to move a floating window around the screen with our example config,
+you'll notice that it's hard to align the window to the edge of the screen.
+Let's fix that.
+
+What we can do is set 
 
 ### Gaps and Multi-Monitor Setups
 
