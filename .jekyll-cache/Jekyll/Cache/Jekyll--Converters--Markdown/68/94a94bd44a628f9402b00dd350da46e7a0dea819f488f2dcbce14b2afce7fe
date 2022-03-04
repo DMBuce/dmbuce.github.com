@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>I3move Tutorial - Buce's Blog</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/css/highlight.css">
-	<meta name="description" content="How to use the i3b project’s i3move utility.">
-</head>
-
-<body>
-
-<header>
-	<h1>Buce's Blog</h1>
-
-	<nav>
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/blog">Blog</a></li>
-		</ul>
-	</nav>
-</header>
-
-<main>
-<article>
-<h2>I3move Tutorial</h2>
-<a href="/blog/atom.xml"><img class="social-media" src="/img/feed-icon-28x28.png" alt="rss" title="Subscribe with RSS"/></a>
-<p><time datetime="2022-03-03">03 Mar 2022</time></p>
-
-<p>How to use the <a href="https://github.com/dmbuce/i3b">i3b project’s</a> i3move utility.</p>
+I"�<p>How to use the <a href="https://github.com/dmbuce/i3b">i3b project’s</a> i3move utility.</p>
 
 <ol id="markdown-toc">
   <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
@@ -40,7 +12,7 @@
 
 <p>If you want to get up and running quickly with i3move,
 refer to the manual.
-<a href="https://dmbuce.github.io/i3b/i3move.1.html#EXAMPLES">The examples section</a>
+<a href="https://dmbuce.github.io/i3b/i3move.html#EXAMPLES">The examples section</a>
 near the bottom shows how to generate a default config and bind some keys using i3.
 That’s really all you need to get started.</p>
 
@@ -59,7 +31,7 @@ and work our way towards a more complicated config.</p>
 from the <a href="https://github.com/dmbuce/i3b">i3b project</a>
 if you haven’t already.
 You should also set up i3 keybindings as explained in
-<a href="https://dmbuce.github.io/i3b/i3move.1.html#EXAMPLES">the examples section</a>
+<a href="https://dmbuce.github.io/i3b/i3move.html#EXAMPLES">the examples section</a>
 of the man page.</p>
 
 <p>Then, generate a config with some options changed from the defaults:</p>
@@ -81,8 +53,8 @@ of the man page.</p>
 <p>You should see i3 flip over to a temporary workspace,
 then launch, manipulate, and close an <code class="language-plaintext highlighter-rouge">i3-sensible-terminal</code>
 before returning to your original workspace.
-i3move does this in order to
-calculate the thickness of i3 title bars, borders, and such.</p>
+Don’t worry, this is normal.
+It’s how i3move calculates the thickness of i3 title bars, borders, and such.</p>
 
 <p>To explain the command above,</p>
 
@@ -138,18 +110,4 @@ Let’s fix that.</p>
 [^1]: Credit goes to <user> for <whatever reasons>.
 -->
 
-
-</article>
-
-
-</main>
-
-<footer>
-<p>Copyright &copy; DMBuce</p>
-
-<p>Last updated <time datetime="2022-03-04">03 Mar 2022</time></p>
-
-</footer>
-
-</body>
-</html>
+:ET

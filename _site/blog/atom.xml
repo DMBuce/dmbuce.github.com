@@ -4,7 +4,7 @@
 	<title>Buce's Blog</title>
 	<link href="https://dmbuce.github.io/blog/atom.xml" rel="self"/>
 	<link href="https://dmbuce.github.io/blog"/>
-	<updated>2022-03-03T18:32:36-06:00</updated>
+	<updated>2022-03-04T03:03:18-06:00</updated>
 	<id>https://dmbuce.github.io/blog</id>
 	<author>
 		<name>DMBuce</name>
@@ -33,14 +33,14 @@
 
 &lt;p&gt;If you want to get up and running quickly with i3move,
 refer to the manual.
-&lt;a href=&quot;https://dmbuce.github.io/i3b/i3move.html#EXAMPLES&quot;&gt;The examples section&lt;/a&gt;
+&lt;a href=&quot;https://dmbuce.github.io/i3b/i3move.1.html#EXAMPLES&quot;&gt;The examples section&lt;/a&gt;
 near the bottom shows how to generate a default config and bind some keys using i3.
 That’s really all you need to get started.&lt;/p&gt;
 
 &lt;p&gt;However, there is a lot going on in the default config.
 If you open it up with a text editor, you may find yourself wondering things like:
 What the heck does &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--inside-distance w&lt;/code&gt; mean?
-Why &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--small-distance =&lt;/code&gt;?&lt;/p&gt;
+Why &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--small-distance =&lt;/code&gt; ?&lt;/p&gt;
 
 &lt;p&gt;The various options interact with each other
 in a lot of ways to drive i3move’s default behavior,
@@ -52,7 +52,7 @@ and work our way towards a more complicated config.&lt;/p&gt;
 from the &lt;a href=&quot;https://github.com/dmbuce/i3b&quot;&gt;i3b project&lt;/a&gt;
 if you haven’t already.
 You should also set up i3 keybindings as explained in
-&lt;a href=&quot;https://dmbuce.github.io/i3b/i3move.html#EXAMPLES&quot;&gt;the examples section&lt;/a&gt;
+&lt;a href=&quot;https://dmbuce.github.io/i3b/i3move.1.html#EXAMPLES&quot;&gt;the examples section&lt;/a&gt;
 of the man page.&lt;/p&gt;
 
 &lt;p&gt;Then, generate a config with some options changed from the defaults:&lt;/p&gt;
@@ -74,8 +74,8 @@ of the man page.&lt;/p&gt;
 &lt;p&gt;You should see i3 flip over to a temporary workspace,
 then launch, manipulate, and close an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i3-sensible-terminal&lt;/code&gt;
 before returning to your original workspace.
-Don’t worry, this is normal.
-It’s how i3move calculates the thickness of i3 title bars, borders, and such.&lt;/p&gt;
+i3move does this in order to
+calculate the thickness of i3 title bars, borders, and such.&lt;/p&gt;
 
 &lt;p&gt;To explain the command above,&lt;/p&gt;
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-last_modified_at: 2022-03-04 00:16:09 UTC
+last_modified_at: 2022-03-04 09:03:19 UTC
 ---
 
 How to use the [i3b project's](https://github.com/dmbuce/i3b) i3move utility.
@@ -12,14 +12,14 @@ How to use the [i3b project's](https://github.com/dmbuce/i3b) i3move utility.
 
 If you want to get up and running quickly with i3move,
 refer to the manual.
-[The examples section](https://dmbuce.github.io/i3b/i3move.html#EXAMPLES)
+[The examples section](https://dmbuce.github.io/i3b/i3move.1.html#EXAMPLES)
 near the bottom shows how to generate a default config and bind some keys using i3.
 That's really all you need to get started.
 
 However, there is a lot going on in the default config.
 If you open it up with a text editor, you may find yourself wondering things like:
 What the heck does `--inside-distance w` mean?
-Why `--small-distance =`?
+Why `--small-distance =` ?
 
 The various options interact with each other
 in a lot of ways to drive i3move's default behavior,
@@ -31,7 +31,7 @@ If you'd like to play along, you should install i3move
 from the [i3b project](https://github.com/dmbuce/i3b)
 if you haven't already.
 You should also set up i3 keybindings as explained in
-[the examples section](https://dmbuce.github.io/i3b/i3move.html#EXAMPLES)
+[the examples section](https://dmbuce.github.io/i3b/i3move.1.html#EXAMPLES)
 of the man page.
 
 Then, generate a config with some options changed from the defaults:
@@ -52,8 +52,8 @@ Then, generate a config with some options changed from the defaults:
 You should see i3 flip over to a temporary workspace,
 then launch, manipulate, and close an `i3-sensible-terminal`
 before returning to your original workspace.
-Don't worry, this is normal.
-It's how i3move calculates the thickness of i3 title bars, borders, and such.
+i3move does this in order to
+calculate the thickness of i3 title bars, borders, and such.
 
 To explain the command above,
 
