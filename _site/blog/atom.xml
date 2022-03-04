@@ -4,7 +4,7 @@
 	<title>Buce's Blog</title>
 	<link href="https://dmbuce.github.io/blog/atom.xml" rel="self"/>
 	<link href="https://dmbuce.github.io/blog"/>
-	<updated>2022-03-03T18:16:08-06:00</updated>
+	<updated>2022-03-03T18:23:18-06:00</updated>
 	<id>https://dmbuce.github.io/blog</id>
 	<author>
 		<name>DMBuce</name>
@@ -16,7 +16,7 @@
 			<title>I3move Tutorial</title>
 			<link href="https://dmbuce.github.io/blog/2022/03/03/i3move-tutorial"/>
 			
-			<updated>2022-03-03T15:55:56-06:00</updated>
+			<updated>2022-03-03T18:16:09-06:00</updated>
 			
 			<id>https://dmbuce.github.io/blog/2022/03/03/i3move-tutorial</id>
 			<content type="html">&lt;p&gt;How to use the &lt;a href=&quot;https://github.com/dmbuce/i3b&quot;&gt;i3b project’s&lt;/a&gt; i3move utility.&lt;/p&gt;
