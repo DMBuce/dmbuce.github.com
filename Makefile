@@ -66,6 +66,6 @@ dmtools: $(builddir)
 .PHONY: i3b
 i3b: $(builddir)
 	./update-i3b.sh $(builddir)
-	cp $(builddir)/$@/doc/*.html $@/
+	cp $(builddir)/$@/doc/*.{txt,html} $@/
 
 # vim: set ft=make:
