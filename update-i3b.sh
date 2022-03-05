@@ -9,5 +9,4 @@ cd i3b
 git pull
 #make clean
 make html
-make text
 
