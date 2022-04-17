@@ -13,7 +13,7 @@ builddir = /tmp/build
 all: 404.html
 
 .PHONY: everything
-everything: all norbert clicraft mcexplore mtg noedia dmtools i3b
+everything: all norbert clicraft mcexplore mtg noedia dmtools i3b resticbackup
 
 clean:
 	rm -f index.html 404.html
