@@ -8,5 +8,5 @@ cd resticbackup
 
 git pull
 #make clean
-make html
+make doc
 
