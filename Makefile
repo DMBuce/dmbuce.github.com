@@ -68,4 +68,9 @@ i3b: $(builddir)
 	./update-i3b.sh $(builddir)
 	cp $(builddir)/$@/doc/*.html $@/
 
+.PHONY: resticbackup
+resticbackup: $(builddir)
+	./update-resticbackup.sh $(builddir)
+	cp $(builddir)/$@/doc/*.html $@/
+
 # vim: set ft=make:
