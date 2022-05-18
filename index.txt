@@ -1,8 +1,14 @@
-DMBuce's Stuff
+Buce's Stuff
 ==============
 
 * link:noedia/home.html[Noedia D&D Campaign Setting]
 * link:dmtools[DM Tools]
+* link:mtg[Magic: The Gathering Deck Lists]
+* Command Line Projects:
+** link:i3b/i3move.1.html[i3move]
+** link:mcexplore/mcexplore.1.html[mcexplore.py]
+** link:clicraft[clicraft] (not maintained)
+** link:norbert[norbert] (not maintained)
 * link:https://github.com/DMBuce[My GitHub]
 
 /////
