@@ -7,19 +7,23 @@ Buce's Stuff
 * Minecraft Projects:
 ** link:https://github.com/DMBuce/bucepack#readme[bucepack]
 ** link:mcexplore/mcexplore.1.html[mcexplore.py]
+** link:https://github.com/DMBuce/badlands-challenge#readme[The Badlands Challenge]
+** link:https://www.curseforge.com/minecraft/modpacks/myconesia[Myconesia]
+** link:https://www.curseforge.com/minecraft/mc-mods/hatchling-snacks[Hatchling Snacks]
 ** link:clicraft[clicraft] (not maintained)
 ** link:norbert[norbert] (not maintained)
+
 * Command Line Projects:
 ** link:https://github.com/DMBuce/sempl#readme[sempl]
 ** link:https://github.com/DMBuce/resticbackup#readme[resticbackup]
 ** link:https://github.com/DMBuce/git-sghetti#readme[git-sghetti]
 ** link:https://github.com/DMBuce/pacrepo#readme[pacrepo]
-** link:https://github.com/DMBuce/i3b#readme[i3b] (home of link:i3b/i3move.1.html[i3move])
+** link:https://github.com/DMBuce/i3b#readme[i3b]
 ** link:https://github.com/DMBuce/music#readme[music]
 ** link:https://github.com/DMBuce/macrobe#readme[macrobe]
 ** link:https://github.com/DMBuce/buceutils#readme[buceutils]
 * link:https://aur.archlinux.org/packages?K=Buce&SeB=m&SB=m&SO=d[AUR Packages]
-* link:https://github.com/DMBuce[My GitHub]
+* link:https://github.com/DMBuce[GitHub Profile]
 
 /////
 vim: set syntax=asciidoc ts=4 sw=4 noet:
