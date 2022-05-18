@@ -6,7 +6,7 @@ Buce's Stuff
 * link:mtg[MTG Deck Lists]
 * Minecraft Projects:
 ** link:https://github.com/DMBuce/bucepack#readme[bucepack]
-** link:mcexplore/mcexplore.1.html[mcexplore.py]
+** link:mcexplore/mcexplore.1.html[mcexplore]
 ** link:https://github.com/DMBuce/badlands-challenge#readme[The Badlands Challenge]
 ** link:https://www.curseforge.com/minecraft/modpacks/myconesia[Myconesia]
 ** link:https://www.curseforge.com/minecraft/mc-mods/hatchling-snacks[Hatchling Snacks]
