@@ -1,12 +1,9 @@
-DMBuce's Home Page
-==================
-
-This is my home page. Here's some links:
+DMBuce's Stuff
+==============
 
 * link:noedia/home.html[Noedia D&D Campaign Setting]
 * link:dmtools[DM Tools]
-* link:blog[My Blog]
-* link:https://github.com/DMBuce[My GitHub Page]
+* link:https://github.com/DMBuce[My GitHub]
 
 /////
 vim: set syntax=asciidoc ts=4 sw=4 noet:
