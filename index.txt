@@ -1,14 +1,25 @@
 Buce's Stuff
 ==============
 
-* link:noedia/home.html[Noedia D&D Campaign Setting]
+* link:noedia/home.html[D&D Setting]
 * link:dmtools[DM Tools]
-* link:mtg[Magic: The Gathering Deck Lists]
-* Command Line Projects:
-** link:i3b/i3move.1.html[i3move]
+* link:mtg[MTG Deck Lists]
+* Minecraft Projects:
+** link:https://github.com/DMBuce/bucepack[bucepack]
 ** link:mcexplore/mcexplore.1.html[mcexplore.py]
 ** link:clicraft[clicraft] (not maintained)
 ** link:norbert[norbert] (not maintained)
+* Command Line Projects:
+** link:https://github.com/DMBuce/sempl[sempl]
+** link:https://github.com/DMBuce/resticbackup[resticbackup]
+** link:https://github.com/DMBuce/pacrepo[pacrepo]
+** link:https://github.com/DMBuce/git-sghetti[git-sghetti]
+** link:i3b/i3move.1.html[i3b]
+*** link:i3b/i3move.1.html[i3move]
+** link:https://github.com/DMBuce/music[music]
+** link:https://github.com/DMBuce/macrobe[macrobe]
+** link:https://github.com/DMBuce/buceutils[buceutils]
+* link:https://aur.archlinux.org/packages?K=Buce&SeB=m&SB=m&SO=d[AUR Packages]
 * link:https://github.com/DMBuce[My GitHub]
 
 /////
