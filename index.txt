@@ -12,9 +12,9 @@ Buce's Stuff
 * Command Line Projects:
 ** link:https://github.com/DMBuce/sempl[sempl]
 ** link:https://github.com/DMBuce/resticbackup[resticbackup]
-** link:https://github.com/DMBuce/pacrepo[pacrepo]
 ** link:https://github.com/DMBuce/git-sghetti[git-sghetti]
-** link:i3b/i3move.1.html[i3b] (home of link:i3b/i3move.1.html[i3move])
+** link:https://github.com/DMBuce/pacrepo[pacrepo]
+** link:https://github.com/DMBuce/i3b[i3b] (home of link:i3b/i3move.1.html[i3move])
 ** link:https://github.com/DMBuce/music[music]
 ** link:https://github.com/DMBuce/macrobe[macrobe]
 ** link:https://github.com/DMBuce/buceutils[buceutils]
