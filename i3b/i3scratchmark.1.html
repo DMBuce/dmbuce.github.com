@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.1" />
+<title>i3scratchmark(1)</title>
+<link rel="stylesheet" href="./asciidoc.css" type="text/css" />
+
+
+<link rel="stylesheet" href="./style.css" type="text/css" />
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>i3scratchmark(1)</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_name">Name</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3scratchmark - Flip through scratchpad windows.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><em>i3scratchmark</em> [-s] [-m &lt;mark&gt;] [-c &lt;command&gt;] [-i &lt;i3_command&gt;]</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">Description</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>By default, <em>i3scratchmark</em> flips through scratchpad windows. With <code>-m</code>, it
+toggles between showing and hiding a marked scratchpad window.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>-m</strong> &lt;mark&gt; &#160; &#160; (default: <em>cycle</em>)
+</dt>
+<dd>
+<p>
+        If <em>mark</em> is <code>cycle</code>, flip through scratchpad windows. This is the default
+        behavior.
+</p>
+<div class="paragraph"><p>Otherwise, toggle between showing and hiding the scratchpad window marked with
+<em>mark</em>.</p></div>
+<div class="paragraph"><p>If no such window exists and the active window is floating, mark it with
+<em>mark</em> and send it to the scratchpad.</p></div>
+<div class="paragraph"><p>Otherwise, run the command specified by the <em>-c</em> option, mark the next
+window to launch with <em>mark</em>, and send it to the scratchpad.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>-c</strong> &lt;command&gt; &#160; &#160; (default: <em>i3-sensible-terminal</em>)
+</dt>
+<dd>
+<p>
+        The command to run if no <em>mark</em> exists for the <em>-m</em> option and the active
+        window is tiled.
+</p>
+<div class="paragraph"><p>Note that if the command does not create a new window, the <em>-m</em> option will
+send whatever window is created next to the scratchpad, which is usually
+not what you want.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>-i</strong> &lt;i3_command&gt; &#160; &#160; (default: '')
+</dt>
+<dd>
+<p>
+        An <em>i3</em> command to run after the <em>-m</em> option marks a window.
+        Can be specified multiple times.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-s</strong>
+</dt>
+<dd>
+<p>
+        Equivalent to <code>-i 'sticky enable'</code>. Makes newly marked windows sticky.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples">Examples</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Keybindings for i3&#8217;s config:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>bindsym $mod+period exec i3scratchmark -m scratch -s -c urxvt
+bindsym $mod+Mod1+period exec i3scratchmark -m itch -s -c none
+bindsym $mod+comma exec i3scratchmark
+bindsym $mod+Mod1+comma move scratchpad</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">Authors</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3scratchmark was written by
+<a href="https://github.com/DMBuce">DMBuce</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_distribution">Distribution</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The latest version of i3scratchmark can be downloaded from
+<a href="https://github.com/DMBuce/i3b">the i3b project</a>.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-05-22 11:57:30 CDT
+</div>
+</div>
+</body>
+</html>

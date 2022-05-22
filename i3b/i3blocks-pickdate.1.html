@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.1" />
+<title>i3blocks-monit(1)</title>
+<link rel="stylesheet" href="./asciidoc.css" type="text/css" />
+
+
+<link rel="stylesheet" href="./style.css" type="text/css" />
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>i3blocks-monit(1)</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_name">Name</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3blocks-pickdate - Dropdown datepicker for i3blocks.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><em>i3blocks-pickdate</em> [OPTION=value] [&#8230;]</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">Description</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Shows the date in i3blocks and runs <em>pickdate</em> when clicked on.
+Options can be specified as environment variables or on
+the command line as <em>OPTION=value</em>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>BAR_POS</strong>=position
+</dt>
+<dd>
+<p>
+        The position of i3blocks. Valid values are <code>top</code> or <code>bottom</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>OPTIONS</strong>=options
+</dt>
+<dd>
+<p>
+        The options to pass to pickdate(1).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>DISPLAY_FORMAT</strong>=datefmt
+</dt>
+<dd>
+<p>
+        A date(1) compatible format used to display the date in i3bar.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>CMD</strong>=command
+</dt>
+<dd>
+<p>
+        Used to set <code>\$PICKDATE_CMD</code> for pickdate(1).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>FMT</strong>=datefmt
+</dt>
+<dd>
+<p>
+        Used to set <code>\$PICKDATE_FMT</code> for pickdate(1).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>CAL</strong>=command
+</dt>
+<dd>
+<p>
+        Used to set <code>\$PICKDATE_CAL</code> for pickdate(1).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>BUTTONS</strong>=list
+</dt>
+<dd>
+<p>
+        Used to set <code>\$PICKDATE_BUTTONS</code> for pickdate(1).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SPANATTRS</strong>=attributes
+</dt>
+<dd>
+<p>
+        Used to set <code>\$PICKDATE_SPANATTRS</code> for pickdate(1).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>THEMESTR</strong>=theme_string
+</dt>
+<dd>
+<p>
+        Used to set <code>\$PICKDATE_THEMESTR</code> for pickdate(1).
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example">Example</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Copy the selected date to the clipboard with <em>xclip</em>:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>[pickdate]
+command=/usr/bin/i3blocks-pickdate
+BAR_POS=top
+OPTIONS=
+DISPLAY_FORMAT=%a %Y-%m-%d %H:%M
+CMD=echo -n "$REPLY" | xclip -selection primary
+FMT=%a, %b %-d
+CAL=cal
+BUTTONS= &lt;:&lt;&lt;: .:&gt;&gt;: &gt;
+SPANATTRS=weight="bold"
+interval=5</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">Authors</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3blocks-pickdate was written by
+<a href="https://github.com/DMBuce">DMBuce</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_distribution">Distribution</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The latest version of i3blocks-pickdate can be downloaded from
+<a href="https://github.com/DMBuce/i3b">the i3b project</a>.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-05-22 11:57:21 CDT
+</div>
+</div>
+</body>
+</html>

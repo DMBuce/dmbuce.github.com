@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.1" />
+<title>i3blocks-monit(1)</title>
+<link rel="stylesheet" href="./asciidoc.css" type="text/css" />
+
+
+<link rel="stylesheet" href="./style.css" type="text/css" />
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>i3blocks-monit(1)</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_name">Name</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3blocks-monit - i3blocks bar block for monit services.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><em>i3blocks-monit</em> [OPTION=value] [&#8230;]</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">Description</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Report a summary of monit(1) service states. The output is in pango format and
+suitable for i3blocks(1). Options can be
+specified as environment variables or on the command line as <em>OPTION=value</em>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>STYLE_UP</strong>=attributes
+</dt>
+<dd>
+<p>
+        The <a href="https://docs.gtk.org/Pango/pango_markup.html#the-span-attributes">span attributes</a>
+        to apply to the number of up services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>STYLE_UMON</strong>=attributes
+</dt>
+<dd>
+<p>
+        The <a href="https://docs.gtk.org/Pango/pango_markup.html#the-span-attributes">span attributes</a>
+        to apply to the number of unmonitored services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>STYLE_DOWN</strong>=attributes
+</dt>
+<dd>
+<p>
+        The <a href="https://docs.gtk.org/Pango/pango_markup.html#the-span-attributes">span attributes</a>
+        to apply to the number of down services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>STYLE_INIT</strong>=attributes
+</dt>
+<dd>
+<p>
+        The <a href="https://docs.gtk.org/Pango/pango_markup.html#the-span-attributes">span attributes</a>
+        to apply to the number of initialising services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>LABEL_UP</strong>=label
+</dt>
+<dd>
+<p>
+The label to use for up services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>LABEL_UMON</strong>=label
+</dt>
+<dd>
+<p>
+The label to use for unmonitored services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>LABEL_DOWN</strong>=label
+</dt>
+<dd>
+<p>
+The label to use for down services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>LABEL_INIT</strong>=label
+</dt>
+<dd>
+<p>
+The label to use for initialising services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>ORDER</strong>=list
+</dt>
+<dd>
+<p>
+        A space-delimited list indicating the order in which to display
+        <code>up</code>, <code>unmonitored</code>, <code>down</code>, and <code>initialising</code> services.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SHOW_LABELS</strong>=boolean
+</dt>
+<dd>
+<p>
+<code>1</code> to show labels, <code>0</code> to suppress labels.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>SHOW_ZEROS</strong>=boolean
+</dt>
+<dd>
+<p>
+<code>1</code> to show states with 0 total services, <code>0</code> to suppress them.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples">Examples</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3blocks config with default values:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>[monit]
+command=i3blocks-monit
+markup=pango
+interval=3600
+STYLE_UP=weight='bold' background='#009000' color='#FFFFFF'
+STYLE_UMON=weight='bold' background='#F0F000' color='#000000'
+STYLE_DOWN=weight='bold' background='#900000' color='#FFFFFF'
+STYLE_INIT=weight='bold' background='#C09000' color='#FFFFFF'
+LABEL_UP=UP
+LABEL_UMON=UMON
+LABEL_DOWN=DOWN
+LABEL_INIT=INIT
+ORDER=up unmonitored down initialising
+SHOW_LABELS=1
+SHOW_ZEROS=1</code></pre>
+</div></div>
+<div class="paragraph"><p>Nagios-like labels:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>[monit]
+command=i3blocks-monit
+markup=pango
+interval=3600
+LABEL_UP=OK
+LABEL_UMON=WARN
+LABEL_DOWN=CRIT
+LABEL_INIT=UNKN</code></pre>
+</div></div>
+<div class="paragraph"><p>Minimal display:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>[monit]
+command=i3blocks-monit
+markup=pango
+interval=3600
+SHOW_LABELS=0
+SHOW_ZEROS=0</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">Authors</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>i3blocks-monit was written by
+<a href="https://github.com/DMBuce">DMBuce</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_distribution">Distribution</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The latest version of i3blocks-monit can be downloaded from
+<a href="https://github.com/DMBuce/i3b">the i3b project</a>.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-05-22 11:57:11 CDT
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 10.1.1" />
+<title>pickdate(1)</title>
+<link rel="stylesheet" href="./asciidoc.css" type="text/css" />
+
+
+<link rel="stylesheet" href="./style.css" type="text/css" />
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>pickdate(1)</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_name">Name</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>pickdate - Rofi date picker.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><em>pickdate</em> [options]</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">Description</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Picks a date with rofi. The following keybindings are available.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Go to previous or next month: p, n
+</p>
+</li>
+<li>
+<p>
+Go to previous or next year: P, N, &lt;, &gt;
+</p>
+</li>
+<li>
+<p>
+Jump to current month: .
+</p>
+</li>
+<li>
+<p>
+Vim-like movement keys (default movement bindings also work): h, j, k, l
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>-r</strong> command &#160; &#160; (default: <code>$PICKDATE_CMD</code> or <code>'echo "$REPLY"'</code>)
+</dt>
+<dd>
+<p>
+        Run <em>command</em> once a date is selected. <code>$REPLY</code> is set to the selected date.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-f</strong> format &#160; &#160; (default: <code>$PICKDATE_FMT</code> or <code>%F</code>)
+</dt>
+<dd>
+<p>
+        The date(1) compatible format to output.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-m</strong> position
+</dt>
+<dd>
+<p>
+        Position rofi with respect to the mouse instead of using rofi&#8217;s theme to
+        determine positioning.
+</p>
+<div class="paragraph"><p>Valid values for <em>position</em> are <code>center</code>, <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code>,
+<code>northeast</code>, <code>northwest</code>, <code>southeast</code>, and <code>southwest</code>.</p></div>
+</dd>
+<dt class="hdlist1">
+<strong>-w</strong> position
+</dt>
+<dd>
+<p>
+        Position rofi with respect to the focused window.
+        By default, the position is determined by rofi&#8217;s theme.
+        See the <em>-m</em> option, above, for valid positions.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>-h, --help</strong>
+</dt>
+<dd>
+<p>
+        Print a help message and exit.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_environment_variables">Environment Variables</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>PICKDATE_CMD</strong>=command &#160; &#160; (default: <code>'echo "$REPLY"'</code>)
+</dt>
+<dd>
+<p>
+        The default command for the -r option.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>PICKDATE_FMT</strong>=format &#160; &#160; (default: <code>%F</code>)
+</dt>
+<dd>
+<p>
+        The default format for the -f option.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>PICKDATE_CAL</strong>=command &#160; &#160; (default: <code>cal</code>)
+</dt>
+<dd>
+<p>
+        The cal command to use. Commands whose output deviate too much from cal(1)
+        are not supported, but you might set this to <code>cal -m</code>
+        to get weeks that start with Monday, for example.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>PICKDATE_BUTTONS</strong>=btn1:btn2:btn3:btn4:btn5 &#160; &#160; (default: <code>' &lt;:&lt;&lt;: .:&gt;&gt;: &gt;'</code>)
+</dt>
+<dd>
+<p>
+        Colon-delimited list of the "previous month", "previous year", "current
+        month", "next year", and "next month" buttons shown on the bottom.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>PICKDATE_SPANATTRS</strong>=attributes &#160; &#160; (default: <code>'weight="bold"'</code>)
+</dt>
+<dd>
+<p>
+        Pango <code>&lt;span&gt;</code> attributes used on the weekday header.
+        See <a href="https://docs.gtk.org/Pango/pango_markup.html#the-span-attributes">https://docs.gtk.org/Pango/pango_markup.html#the-span-attributes</a>
+        for the available attributes.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>PICKDATE_THEMESTR</strong>=themestring &#160; &#160; (default: see below)
+</dt>
+<dd>
+<p>
+        Theme string used to override config.rasi .
+        The default is:
+</p>
+<div class="literalblock">
+<div class="content">
+<pre><code>PICKDATE_THEMESTR='* { font: "mono 16"; }
+configuration {
+       kb-custom-1: "p";
+       kb-custom-2: "n";
+       kb-custom-3: "P,less";
+       kb-custom-4: "N,greater";
+       kb-custom-5: "period";
+       kb-move-char-back: "h,Left,Control+b";
+       kb-move-char-forward: "l,Right,Control+f";
+       kb-row-up: "k,Up,Control+p,ISO_Left_Tab";
+       kb-row-down: "j,Down,Control+n";
+}'</code></pre>
+</div></div>
+<div class="paragraph"><p>Setting this environment variable to <code>''</code> (an empty string) has no effect on
+custom keybindings (<code>kb-custom-*</code>), but restores the other properties to their
+defaults. Custom keybindings can be overriden by explicitly defining them in
+<code>$PICKDATE_THEMESTR</code>.</p></div>
+<div class="paragraph"><p>The following properties are always set and can&#8217;t be overridden. <code>&lt;num&gt;</code> is
+computed dynamically at runtime.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>window { width: &lt;num&gt;ch; }
+listview { columns: 7; lines: &lt;num&gt;; scrollbar: false; }
+inputbar { children: [prompt]; }</code></pre>
+</div></div>
+</dd>
+<dt class="hdlist1">
+<strong>TMPDIR</strong>=directory &#160; &#160; (default: <code>/tmp</code>)
+</dt>
+<dd>
+<p>
+        The directory to use for temporary files.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also">See Also</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>rofi(1), rofi-keys(5), rofi-theme(5), cal(1), ncal(1), i3blocks-pickdate(1)</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">Authors</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>pickdate was written by
+<a href="https://github.com/DMBuce">DMBuce</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_distribution">Distribution</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The latest version of pickdate can be downloaded from
+<a href="https://github.com/DMBuce/i3b">the i3b project</a>.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2022-05-22 11:57:35 CDT
+</div>
+</div>
+</body>
+</html>
