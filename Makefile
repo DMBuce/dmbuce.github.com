@@ -66,7 +66,7 @@ dmtools: $(builddir)
 .PHONY: i3b
 i3b: $(builddir)
 	./update-i3b.sh $(builddir)
-	cp $(builddir)/$@/doc/*.html $@/
+	cp $(builddir)/$@/doc/*.{html,js,css} $@/
 
 .PHONY: resticbackup
 resticbackup: $(builddir)
