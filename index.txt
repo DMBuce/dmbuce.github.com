@@ -19,7 +19,7 @@ Buce's Stuff
 ** link:https://github.com/DMBuce/git-sghetti#readme[git-sghetti]
 ** link:https://github.com/DMBuce/buceutils#readme[buceutils]
 ** link:https://github.com/DMBuce/pacrepo#readme[pacrepo]
-** link:https://github.com/DMBuce/i3b#readme[i3b]
+** link:i3b[i3b]
 ** link:https://github.com/DMBuce/music#readme[music]
 ** link:https://github.com/DMBuce/macrobe#readme[macrobe]
 * link:https://aur.archlinux.org/packages?K=Buce&SeB=m&SB=m&SO=d[AUR Packages]
