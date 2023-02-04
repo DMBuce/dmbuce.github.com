@@ -5,7 +5,6 @@
 = Scribble Nib
 
 A tabletop RPG
-//named after a magic card and
 inspired by
 Maze Rats,
 ICRPG,
@@ -69,7 +68,9 @@ You have 16 item slots.
 
 Large items such as two-handed weapons take up two slots.
 
-== Progression
+== Levels
+
+//TODO: Milestones
 
 [cols="1,1"]
 |===
@@ -93,10 +94,10 @@ Large items such as two-handed weapons take up two slots.
 
 = Rules Summary
 
-== Stat Rolls
+== Rolls
 
-If the Game Master (GM) asks for a STR, DEX, or WIL roll,
-roll a d20, add the appropriate stat bonus,
+If the Game Master (GM) asks for a STR, DEX, WIL, or Armor roll,
+roll a d20, add the appropriate bonus,
 and compare it to the Difficulty.
 A roll above the Difficulty is a success,
 which means you accomplish what you set out to do.
@@ -155,7 +156,7 @@ To avoid downtime, they rejoin the group as soon as they're ready.
 
 == Healing
 
-Once per hour, you can catch your breath for 5 minutes
+After each combat, you can catch your breath for 5 minutes
 and drink fresh water to heal one Grit.
 
 Once per day, you or an ally can tend to your health
@@ -257,6 +258,37 @@ to heal all Grit and one stat.
 // Exotic Goods: 100-1000gp
 
 //= Magic
+//
+//spell systems
+//--
+//spell types: cantrips, spells, rituals, etc.
+//magic types: alchemy, artifice
+//all systems require a focus
+//wild mage: default system
+//godbotherers: patrons of powerful beings, prepend spell with [NAME]'s
+//specialist mage: lock one aspect
+//spellweaving: cast arbitrary spells, takes longer, other costs sometimes
+//--
+//barbarians of lemuria: cantrips, first/second/third magnitude w/ example spells
+//wonder & wickedness: levelless spell list
+//Beyond the Wall and other adventures: cantrip/spell/ritual w/ spell list
+//Jaws of the Six Serpents: sorcery/charms/alchemy/divination w/ effects table
+//mini six simpler magic system: effect lists similar to jotss effects table
+//* https://forum.rpg.net/index.php?threads/mini-six-simpler-magic-system.531361/
+//ars magicka hacked for fudge: 4 actions x 5 realms give 20 effects
+//* https://www.reddit.com/r/rpg/comments/36je3s/quick_easy_freeform_magic_system_for_a_single/crf1cuf/
+//
+//spell types: cantrips, spells, rituals
+//magic types: alchemy, artifice
+//
+//scroll/potion of ____: contains one spell
+//wand of ____: change one spell aspect into ____
+//spellweaver's hooks: expend spell slot to create random spell, modify 1/round
+//
+//godbotherers: patrons of powerful beings, prepend spell with [NAME]'s
+//--
+//focus: holy symbol
+//need separate good/holy/nature tables?
 
 = GMing
 
@@ -278,28 +310,42 @@ A simple rule of thumb is to use 12 for easy Difficulty,
 == Monsters
 
 This game is designed to make it easy to create monsters on the fly.
-Since PCs roll to attack and also to defend, monsters never need to roll.
+Since PCs roll to attack and also to defend,
+monsters never need to roll and don't need bonuses assigned to their stats.
 Since PCs always roll against the Difficulty,
-monsters never need a monster-specific "target number" or "difficulty class" to roll against.
-For the same reason, they also don't need numbers assigned to their stats.
+monsters never need a monster-specific
+"target number" or "difficulty class" to roll against.
 
-A monster's stat block is just its name, number of stats, Grit,
+A monster's stat block is just its name, stats, Grit,
 and any abilities it has.
-A bear's stat block is simply "Bear (3 stats)".
-Here are a few more example stat blocks.
+Stats and Grit are represented with checkboxes.
+For example, a bear's stat block is _"Bear ☐☐☐☐"_.
+The rightmost three checkboxes represent the monster's stats
+and other checkboxes represent Grit.
+The GM ticks off checkboxes from left to right as the monster takes damage.
 
-**Vampire** (3 stats)::
-Deals damage to STR before other stats.
-Gains Advantage to STR for 1 round when dealing damage with its bite.
+Unlike PCs, monsters can have fewer than three stats.
+For example, a goblin's stat block might be _"Goblin ☐"_.
+A particularly weak stat block such as _"Goblin Minion"_ might have no stats,
+in which case the monster is knocked out with a single hit.
 
-**Troll** (3 stats, 1 Grit)::
-Regrows lost limbs and heals one stat at the end of its turn.
+Here are some more example stat blocks.
 
-//**Hydra** (3 stats, 1 Grit)::
+**Vampire** ☐☐☐::
+Heals one stat when dealing damage with its bite.
+Regenerates in its coffin when killed unless staked through the heart.
+
+**Troll** ☐☐☐☐::
+Regrows one limb and heals one stat at the end of its turn.
+
+//**Hydra** ☐☐☐☐☐::
 //The stumps of any heads severed by non-fire damage
 //grow into two new heads at the end of its turn,
 //healing the stat or Grit of the original head
 //and gaining one Grit.
+
+**Dragon** ☐☐☐☐☐☐☐☐☐::
+Flies and breathes fire.
 
 //== Loot
 
@@ -548,37 +594,6 @@ by giving them different stats as needed,
 or by making certain rolls against them hard or easy.
 
 == Magic
-
-spell systems
---
-spell types: cantrips, spells, rituals, etc.
-magic types: alchemy, artifice
-all systems require a focus
-wild mage: default system
-godbotherers: patrons of powerful beings, prepend spell with [NAME]'s
-specialist mage: lock one aspect
-spellweaving: cast arbitrary spells, takes longer, other costs sometimes
---
-barbarians of lemuria: cantrips, first/second/third magnitude w/ example spells
-wonder & wickedness: levelless spell list
-Beyond the Wall and other adventures: cantrip/spell/ritual w/ spell list
-Jaws of the Six Serpents: sorcery/charms/alchemy/divination w/ effects table
-mini six simpler magic system: effect lists similar to jotss effects table
-* https://forum.rpg.net/index.php?threads/mini-six-simpler-magic-system.531361/
-ars magicka hacked for fudge: 4 actions x 5 realms give 20 effects
-* https://www.reddit.com/r/rpg/comments/36je3s/quick_easy_freeform_magic_system_for_a_single/crf1cuf/
-
-spell types: cantrips, spells, rituals
-magic types: alchemy, artifice
-
-scroll/potion of ____: contains one spell
-wand of ____: change one spell aspect into ____
-spellweaver's hooks: expend spell slot to create random spell, modify 1/round
-
-godbotherers: patrons of powerful beings, prepend spell with [NAME]'s
---
-focus: holy symbol
-need separate good/holy/nature tables?
 
 == Loot
 
