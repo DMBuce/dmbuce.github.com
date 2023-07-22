@@ -50,13 +50,13 @@ mtg: $(builddir)
 .PHONY: noedia
 noedia: $(builddir)
 	./update-noedia.sh $(builddir)
-	cp $(builddir)/$@/setting/*.html $@/
-	cp $(builddir)/$@/setting/*.css $@/
-	cp $(builddir)/$@/setting/*.png $@/
-	cp $(builddir)/$@/setting/*.js $@/
+	cp $(builddir)/$@/setting/dnd5e/*.html $@/
+	cp $(builddir)/$@/setting/dnd5e/*.css $@/
+	cp $(builddir)/$@/setting/dnd5e/*.png $@/
+	cp $(builddir)/$@/setting/dnd5e/*.js $@/
 	mkdir -p $@/img $@/thumb
-	cp $(builddir)/$@/setting/img/* $@/img/
-	cp $(builddir)/$@/setting/thumb/* $@/thumb/
+	cp $(builddir)/$@/setting/dnd5e/img/* $@/img/
+	cp $(builddir)/$@/setting/dnd5e/thumb/* $@/thumb/
 
 .PHONY: dmtools
 dmtools: $(builddir)
