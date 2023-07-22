@@ -1,9 +1,9 @@
 Buce's Stuff
 ============
 
-* link:noedia/home.html[D&D Setting]
-* link:dmtools[DM Tools]
-* link:mtg[MTG Deck Lists]
+* RPG Projects:
+** link:dmtools[DM Tools]
+** link:noedia/home.html[D&D Setting]
 * Minecraft Projects:
 ** link:https://github.com/DMBuce/bucepack#readme[bucepack]
 ** link:mcexplore/mcexplore.1.html[mcexplore]
@@ -22,6 +22,7 @@ Buce's Stuff
 ** link:i3b[i3b]
 ** link:https://github.com/DMBuce/music#readme[music]
 ** link:https://github.com/DMBuce/macrobe#readme[macrobe]
+* link:mtg[MTG Deck Lists]
 * link:https://aur.archlinux.org/packages?K=Buce&SeB=m&SB=m&SO=d[AUR Packages]
 * link:https://github.com/DMBuce[GitHub Profile]
 
