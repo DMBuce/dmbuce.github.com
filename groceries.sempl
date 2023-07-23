@@ -2,8 +2,6 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-	<p style='font-size: x-large;'>
-	<input type="checkbox"/>{-}<br/>
-	</p>
+<body style='font-size: x-large;'>
+	<p><input type="checkbox"/>{-}</p>
 </body></html>
