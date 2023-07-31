@@ -1,3 +1,9 @@
+// CC-BY 4.0
+// https://creativecommons.org/licenses/by/4.0/
+//
+// Based on Maze Rats tables
+// https://www.drivethrurpg.com/product/197158/Maze-Rats
+
 // unused maze rats tables
 // * magic: omens/magical catasrophes (pg 3)
 // * characters: all (pg 5, 6)
@@ -49,6 +55,14 @@ var encounter_table = [
 	"{{wilderness_structure}} and {{wilderness_discovery}}",
 	"{{wilderness_npc}}",
 	"{{thing}}",
+]
+var wilderness_table = [
+	"the party is lost",
+	"{{feature_table}}",
+	"{{feature_table}}",
+	"{{feature_table}}",
+	"{{feature_table}}",
+	"{{encounter_table}}",
 ]
 var forage_table = [
 	"{{edible_plant}} and {{edible_plant}}",
@@ -4452,6 +4466,12 @@ function hex() {
 	for(var i = 0; i < things.length; i++) {
 		console.log("===");
 		things.item(i).innerHTML=expand("{{encounter_table}}", 0);
+	}
+
+	things = document.getElementsByClassName("wilderness");
+	for(var i = 0; i < things.length; i++) {
+		console.log("===");
+		things.item(i).innerHTML=expand("{{wilderness_table}}", 0);
 	}
 
 	things = document.getElementsByClassName("forage");

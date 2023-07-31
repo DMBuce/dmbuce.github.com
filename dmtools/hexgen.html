@@ -7,6 +7,20 @@
 <script src="thinggen.js"></script>
 </head>
 <body class="generator">
+	<nav>
+		<ul>
+			<li>
+				<a href='thinggen.html'>ThingGen</a>
+			</li>
+			<li>
+				<a href='hexgen.html'>HexGen</a>
+			</li>
+			<li>
+				<a href='language.html'>LangTrans</a>
+			</li>
+		</ul>
+	</nav>
+
 	<span class="spacer"><br/></span>
 	<button onclick="hex()" autofocus>Generate Wilderness</button>
 	<table width=70% style="margin: 0px auto;">
@@ -23,9 +37,19 @@
 			<td class="subthing encounter"></td>
 		</tr>
 		<tr>
+			<td class="thing">Wilderness:&nbsp;</td>
+			<td class="subthing wilderness"></td>
+		</tr>
+		<tr>
 			<td class="thing">Forage:&nbsp;</td>
 			<td class="subthing forage"></td>
 		</tr>
 	</table>
+
+	<footer>
+		<a href='https://github.com/dmbuce/dmtools'>GitHub</a>
+		| <a href='https://creativecommons.org/licenses/by/4.0/'>CC-BY 4.0</a>
+		| Based on <a href='https://www.drivethrurpg.com/product/197158/Maze-Rats'>Maze Rats</a> tables
+	</footer>
 </body>
 </html>
